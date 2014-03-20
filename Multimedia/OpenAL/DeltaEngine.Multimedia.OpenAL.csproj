@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AFDA3FC6-5D20-4158-9D6F-E7646CDC5374}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DeltaEngine.Multimedia.OpenAL</RootNamespace>
+    <AssemblyName>DeltaEngine.Multimedia.OpenAL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DeltaEngine.csproj">
+      <Project>{20FA8D33-A964-4000-AD82-67BD6900793B}</Project>
+      <Name>DeltaEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Rendering2D\DeltaEngine.Rendering2D.csproj">
+      <Project>{BDDB4AA4-5D31-43B3-9A3B-BF3030EDE927}</Project>
+      <Name>DeltaEngine.Rendering2D</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Multimedia\MusicStreams\DeltaEngine.Multimedia.MusicStreams.csproj">
+      <Project>{769F9D01-D4A1-4C85-9F11-F721CDFC94DC}</Project>
+      <Name>DeltaEngine.Multimedia.MusicStreams</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Multimedia\VideoStreams\DeltaEngine.Multimedia.VideoStreams.csproj">
+      <Project>{27487228-2ADB-447B-95D3-6F6053999281}</Project>
+      <Name>DeltaEngine.Multimedia.VideoStreams</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AlcError.cs" />
+    <Compile Include="AlcGetInteger.cs" />
+    <Compile Include="AlcGetString.cs" />
+    <Compile Include="ALError.cs" />
+    <Compile Include="ALFormat.cs" />
+    <Compile Include="All.cs" />
+    <Compile Include="ALSoundDevice.cs" />
+    <Compile Include="AudioState.cs" />
+    <Compile Include="Invokes.cs" />
+    <Compile Include="ALMusic.cs" />
+    <Compile Include="OpenALSound.cs" />
+    <Compile Include="Helpers\ChannelState.cs" />
+    <Compile Include="Helpers\IeeeFloatConverter.cs" />
+    <Compile Include="Helpers\MsAdpcmConverter.cs" />
+    <Compile Include="Helpers\AudioFormat.cs" />
+    <Compile Include="OpenALVideo.cs" />
+    <Compile Include="Helpers\WaveFormat.cs" />
+    <Compile Include="Helpers\WaveSoundData.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

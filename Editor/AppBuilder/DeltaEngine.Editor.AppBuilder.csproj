@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <TargetPlatformVersion>8.0</TargetPlatformVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C10F83F9-B20B-4362-8953-9B916B5894BE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DeltaEngine.Editor.AppBuilder</RootNamespace>
+    <AssemblyName>DeltaEngine.Editor.AppBuilder</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GalaSoft.MvvmLight.WPF4">
+      <HintPath>..\packages\MvvmLightLibs.4.2.30.0\lib\net40\GalaSoft.MvvmLight.WPF4.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip.Reduced">
+      <HintPath>..\packages\DotNetZip.Reduced.1.9.1.8\lib\net20\Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Smartdevice.Connectivity">
+      <HintPath>..\packages\Smartdevice.Connectivity.10.0.0.0\lib\NET40\Microsoft.Smartdevice.Connectivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime">
+      <HintPath>C:\Windows\Microsoft.NET\Framework\v4.0.30319\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Windows" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Content\Xml\DeltaEngine.Content.Xml.csproj">
+      <Project>{138A40B5-3D80-4BA3-BD84-D82C151EE7FE}</Project>
+      <Name>DeltaEngine.Content.Xml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DeltaEngine.csproj">
+      <Project>{20FA8D33-A964-4000-AD82-67BD6900793B}</Project>
+      <Name>DeltaEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Mocks\DeltaEngine.Mocks.csproj">
+      <Project>{A5F4EF37-7B5F-4AAE-BFF2-C2D04DB805F7}</Project>
+      <Name>DeltaEngine.Mocks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Networking\Messages\DeltaEngine.Networking.Messages.csproj">
+      <Project>{74863E62-A568-4C0A-A37F-F04BFA8EB9DB}</Project>
+      <Name>DeltaEngine.Networking.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\DeltaEngine.Editor.Core.csproj">
+      <Project>{C667C7FC-A1C7-4CBC-98C0-C97F776E4570}</Project>
+      <Name>DeltaEngine.Editor.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Messages\DeltaEngine.Editor.Messages.csproj">
+      <Project>{E4BF1DFC-4753-42E8-AF9C-06B5B3E6748E}</Project>
+      <Name>DeltaEngine.Editor.Messages</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="AppBuilderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppBuildMessagesListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BuiltAppsListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppBuilderInfoListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Android\AdbPathProvider.cs" />
+    <Compile Include="Android\AndroidAppInfo.cs" />
+    <Compile Include="Android\AndroidDebugBridgeRunner.cs" />
+    <Compile Include="Android\AndroidDevice.cs" />
+    <Compile Include="Android\AndroidDeviceFinder.cs" />
+    <Compile Include="Android\AndroidDeviceInfo.cs" />
+    <Compile Include="Android\AndroidDriverDownloader.cs" />
+    <Compile Include="AppBuilderDesign.cs" />
+    <Compile Include="AppBuilderInfoListDesign.cs" />
+    <Compile Include="AppBuildMessagesListDesign.cs" />
+    <Compile Include="AppBuildMessagesListView.xaml.cs">
+      <DependentUpon>AppBuildMessagesListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppBuildMessageViewModel.cs" />
+    <Compile Include="AppBuildMessagesListViewModel.cs" />
+    <Compile Include="AppInfo.cs" />
+    <Compile Include="AppInfoExtensions.cs" />
+    <Compile Include="AppsStorage.cs" />
+    <Compile Include="DemoBuiltAppsListForDesigner.cs" />
+    <Compile Include="UnknownDevice.cs" />
+    <Compile Include="UnknownDeviceAppInfo.cs" />
+    <Compile Include="Web\WebAppInfo.cs" />
+    <Compile Include="Web\WebDevice.cs" />
+    <Compile Include="Windows\WindowsDevice.cs" />
+    <Compile Include="Windows\WindowsAppInfo.cs" />
+    <Compile Include="BuiltAppsListView.xaml.cs">
+      <DependentUpon>BuiltAppsListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BuiltAppsListViewModel.cs" />
+    <Compile Include="AppBuilderInfoListView.xaml.cs">
+      <DependentUpon>AppBuilderInfoListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Device.cs" />
+    <Compile Include="TextExtensions.cs" />
+    <Compile Include="WindowsPhone7\WP7AppInfo.cs" />
+    <Compile Include="WindowsPhone7\WP7Device.cs" />
+    <Compile Include="WindowsPhone7\WP7DeviceFinder.cs" />
+    <Compile Include="AppBuilderView.xaml.cs">
+      <DependentUpon>AppBuilderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppBuilderViewModel.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

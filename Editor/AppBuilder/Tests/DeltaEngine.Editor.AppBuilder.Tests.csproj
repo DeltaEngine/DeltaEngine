@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3872F86E-927B-44A3-A4F1-BD177681AF87}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DeltaEngine.Editor.AppBuilder.Tests</RootNamespace>
+    <AssemblyName>DeltaEngine.Editor.AppBuilder.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ApprovalTests">
+      <HintPath>..\..\packages\ApprovalTests.3.0.5\lib\net40\ApprovalTests.dll</HintPath>
+    </Reference>
+    <Reference Include="ApprovalUtilities">
+      <HintPath>..\..\packages\ApprovalUtilities.3.0.5\lib\net35\ApprovalUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.WPF4">
+      <HintPath>..\..\packages\MvvmLightLibs.4.2.30.0\lib\net40\GalaSoft.MvvmLight.WPF4.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Content\Online\DeltaEngine.Content.Online.csproj">
+      <Project>{68AA6280-09EF-4325-B5F8-B8A967004144}</Project>
+      <Name>DeltaEngine.Content.Online</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DeltaEngine.csproj">
+      <Project>{20FA8D33-A964-4000-AD82-67BD6900793B}</Project>
+      <Name>DeltaEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Mocks\DeltaEngine.Mocks.csproj">
+      <Project>{A5F4EF37-7B5F-4AAE-BFF2-C2D04DB805F7}</Project>
+      <Name>DeltaEngine.Mocks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Networking\Messages\DeltaEngine.Networking.Messages.csproj">
+      <Project>{74863E62-A568-4C0A-A37F-F04BFA8EB9DB}</Project>
+      <Name>DeltaEngine.Networking.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\DeltaEngine.Editor.Core.csproj">
+      <Project>{C667C7FC-A1C7-4CBC-98C0-C97F776E4570}</Project>
+      <Name>DeltaEngine.Editor.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DeltaEngine.Editor.csproj">
+      <Project>{4C0891C0-CE79-4A2D-919E-6F706B62C8EA}</Project>
+      <Name>DeltaEngine.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Messages\DeltaEngine.Editor.Messages.csproj">
+      <Project>{E4BF1DFC-4753-42E8-AF9C-06B5B3E6748E}</Project>
+      <Name>DeltaEngine.Editor.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Mocks\DeltaEngine.Editor.Mocks.csproj">
+      <Project>{2A38417D-2378-41F8-BCC6-A65E1894835A}</Project>
+      <Name>DeltaEngine.Editor.Mocks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AppBuilder\DeltaEngine.Editor.AppBuilder.csproj">
+      <Project>{C10F83F9-B20B-4362-8953-9B916B5894BE}</Project>
+      <Name>DeltaEngine.Editor.AppBuilder</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Android\AdbPathProviderTests.cs" />
+    <Compile Include="Android\AndroidAppInfoTests.cs" />
+    <Compile Include="Android\AndroidDebugBridgeRunnerTests.cs" />
+    <Compile Include="Android\AndroidDeviceFinderTests.cs" />
+    <Compile Include="Android\AndroidDeviceTests.cs" />
+    <Compile Include="Android\AndroidDriverDownloaderTests.cs" />
+    <Compile Include="AppBuilderInfoListViewTests.cs" />
+    <Compile Include="AppBuilderViewTests.cs" />
+    <Compile Include="AppBuilderViewModelTests.cs" />
+    <Compile Include="AppBuildMessagesListViewModelTests.cs" />
+    <Compile Include="AppBuildMessagesListViewTests.cs" />
+    <Compile Include="AppBuildMessageViewModelTests.cs" />
+    <Compile Include="AppInfoExtensionsTests.cs" />
+    <Compile Include="AppInfoTests.cs" />
+    <Compile Include="AppsStorageTests.cs" />
+    <Compile Include="UnknownDeviceTests.cs" />
+    <Compile Include="Web\WebAppInfoTests.cs" />
+    <Compile Include="Web\WebDeviceTests.cs" />
+    <Compile Include="Windows\WindowsDeviceTests.cs" />
+    <Compile Include="Windows\WindowsAppInfoTests.cs" />
+    <Compile Include="BuiltAppsListViewModelTests.cs" />
+    <Compile Include="BuiltAppsListViewTests.cs" />
+    <Compile Include="MockBuildService.cs" />
+    <Compile Include="DeviceTests.cs" />
+    <Compile Include="AppBuilderTestExtensions.cs" />
+    <Compile Include="TextExtensionsTests.cs" />
+    <Compile Include="WindowsPhone7\WP7AppInfoTests.cs" />
+    <Compile Include="WindowsPhone7\WP7DeviceFinderTests.cs" />
+    <Compile Include="WindowsPhone7\WP7DeviceTests.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,40 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<TemplateData>
+		<Name>Delta Engine Blocks</Name>
+		<Description>Sample Blocks game</Description>
+		<TemplateID>Microsoft.CSharp.DeltaEngine.Blocks</TemplateID>
+		<ProjectType>CSharp</ProjectType>
+		<RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+		<NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+		<CreateNewFolder>true</CreateNewFolder>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<DefaultName>Blocks</DefaultName>
+		<Icon>Blocks.ico</Icon>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="Blocks.csproj" ReplaceParameters="true">
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="false" TargetFileName="Blocks.ico">Blocks.ico</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="BlocksIcon72x72.png">BlocksIcon72x72.png</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Brick.cs">Brick.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Controller.cs">Controller.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="FruitBlocksContent.cs">FruitBlocksContent.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="JewelBlocksContent.cs">JewelBlocksContent.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Game.cs">Game.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Grid.cs">Grid.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="BlocksContent.cs">BlocksContent.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="MainMenu.cs">MainMenu.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="BlocksRenderLayer.cs">BlocksRenderLayer.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Block.cs">Block.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Soundbank.cs">Soundbank.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="UserInterface.cs">UserInterface.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="UserInterfaceLandscape.cs">UserInterfaceLandscape.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="UserInterfacePortrait.cs">UserInterfacePortrait.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Properties" TargetFolderName="Properties">
+				<ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+			</Folder>
+		</Project>
+	</TemplateContent>
+</VSTemplate>

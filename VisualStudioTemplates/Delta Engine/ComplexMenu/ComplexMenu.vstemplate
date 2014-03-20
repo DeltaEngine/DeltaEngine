@@ -1,0 +1,39 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<TemplateData>
+		<Name>Delta Engine ComplexMenu</Name>
+		<Description>Sample ComplexMenu game</Description>
+		<TemplateID>Microsoft.CSharp.DeltaEngine.ComplexMenu</TemplateID>
+		<ProjectType>CSharp</ProjectType>
+		<RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+		<NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+		<CreateNewFolder>true</CreateNewFolder>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<DefaultName>ComplexMenu</DefaultName>
+		<Icon>ComplexMenu.ico</Icon>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="ComplexMenu.csproj" ReplaceParameters="true">
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="false" TargetFileName="ComplexMenu.ico">ComplexMenu.ico</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="app.config">app.config</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Menu.cs">Menu.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Screens" TargetFolderName="Screens">
+				<ProjectItem ReplaceParameters="true" TargetFileName="CharacterMenu.cs">CharacterMenu.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="CharacterMenu.designer.cs">CharacterMenu.designer.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Credits.cs">Credits.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Credits.designer.cs">Credits.designer.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="LoadMenu.cs">LoadMenu.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="LoadMenu.designer.cs">LoadMenu.designer.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="MainMenu.cs">MainMenu.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="MainMenu.designer.cs">MainMenu.designer.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="NameMenu.cs">NameMenu.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="NameMenu.Designer.cs">NameMenu.Designer.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Properties" TargetFolderName="Properties">
+				<ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+			</Folder>
+		</Project>
+	</TemplateContent>
+</VSTemplate>

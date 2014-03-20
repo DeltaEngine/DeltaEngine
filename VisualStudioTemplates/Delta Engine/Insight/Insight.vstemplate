@@ -1,0 +1,27 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<TemplateData>
+		<Name>Delta Engine Insight</Name>
+		<Description>Sample Insight game</Description>
+		<TemplateID>Microsoft.CSharp.DeltaEngine.Insight</TemplateID>
+		<ProjectType>CSharp</ProjectType>
+		<RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+		<NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+		<CreateNewFolder>true</CreateNewFolder>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<DefaultName>Insight</DefaultName>
+		<Icon>Insight.ico</Icon>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="Insight.csproj" ReplaceParameters="true">
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="false" TargetFileName="Insight.ico">Insight.ico</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="InsightIcon72x72.png">InsightIcon72x72.png</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="StatisticsApp.cs">StatisticsApp.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Properties" TargetFolderName="Properties">
+				<ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+			</Folder>
+		</Project>
+	</TemplateContent>
+</VSTemplate>

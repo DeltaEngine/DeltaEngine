@@ -1,0 +1,61 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaEngine.Tutorials.Basic01CreateWindow", "Basic01CreateWindow\DeltaEngine.Tutorials.Basic01CreateWindow.csproj", "{D22592A6-1E3D-4637-B738-52735565327F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaEngine.Tutorials.Basic02DrawLine", "Basic02DrawLine\DeltaEngine.Tutorials.Basic02DrawLine.csproj", "{6FC045DE-3CAA-491F-8BD0-3614E7685B71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaEngine.Tutorials.Basic03DrawEllipse", "Basic03DrawEllipse\DeltaEngine.Tutorials.Basic03DrawEllipse.csproj", "{FA97EC00-C026-492B-9106-1F7A58F1D779}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaEngine.Tutorials.Basic04DrawImage", "Basic04DrawImage\DeltaEngine.Tutorials.Basic04DrawImage.csproj", "{1C6893AA-9F80-4518-93C9-47B7EB336E33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaEngine.Tutorials.Basic05RotatingSprite", "Basic05RotatingSprite\DeltaEngine.Tutorials.Basic05RotatingSprite.csproj", "{141CDE21-9F6E-4048-B11A-99F2E7F321E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaEngine.Tutorials.Basic06ScrollableBackground", "Basic06ScrollableBackground\DeltaEngine.Tutorials.Basic06ScrollableBackground.csproj", "{E25763C3-A551-4CFD-8C3A-90DCF2A9118A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaEngine.Tutorials.Basic07Fonts", "Basic07Fonts\DeltaEngine.Tutorials.Basic07Fonts.csproj", "{350DA523-8727-4D63-B1AF-3D6A3B86B192}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaEngine.Tutorials.Basic08PlaySound", "Basic08PlaySound\DeltaEngine.Tutorials.Basic08PlaySound.csproj", "{AACEC6A5-3A59-40B8-961E-8B41C31D2BDD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D22592A6-1E3D-4637-B738-52735565327F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D22592A6-1E3D-4637-B738-52735565327F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D22592A6-1E3D-4637-B738-52735565327F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D22592A6-1E3D-4637-B738-52735565327F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FC045DE-3CAA-491F-8BD0-3614E7685B71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FC045DE-3CAA-491F-8BD0-3614E7685B71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FC045DE-3CAA-491F-8BD0-3614E7685B71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FC045DE-3CAA-491F-8BD0-3614E7685B71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA97EC00-C026-492B-9106-1F7A58F1D779}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA97EC00-C026-492B-9106-1F7A58F1D779}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA97EC00-C026-492B-9106-1F7A58F1D779}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA97EC00-C026-492B-9106-1F7A58F1D779}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C6893AA-9F80-4518-93C9-47B7EB336E33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C6893AA-9F80-4518-93C9-47B7EB336E33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C6893AA-9F80-4518-93C9-47B7EB336E33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C6893AA-9F80-4518-93C9-47B7EB336E33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{141CDE21-9F6E-4048-B11A-99F2E7F321E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{141CDE21-9F6E-4048-B11A-99F2E7F321E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{141CDE21-9F6E-4048-B11A-99F2E7F321E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{141CDE21-9F6E-4048-B11A-99F2E7F321E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E25763C3-A551-4CFD-8C3A-90DCF2A9118A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E25763C3-A551-4CFD-8C3A-90DCF2A9118A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E25763C3-A551-4CFD-8C3A-90DCF2A9118A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E25763C3-A551-4CFD-8C3A-90DCF2A9118A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{350DA523-8727-4D63-B1AF-3D6A3B86B192}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{350DA523-8727-4D63-B1AF-3D6A3B86B192}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{350DA523-8727-4D63-B1AF-3D6A3B86B192}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{350DA523-8727-4D63-B1AF-3D6A3B86B192}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AACEC6A5-3A59-40B8-961E-8B41C31D2BDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AACEC6A5-3A59-40B8-961E-8B41C31D2BDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AACEC6A5-3A59-40B8-961E-8B41C31D2BDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AACEC6A5-3A59-40B8-961E-8B41C31D2BDD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

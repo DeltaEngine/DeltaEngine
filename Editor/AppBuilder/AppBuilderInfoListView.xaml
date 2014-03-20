@@ -1,0 +1,111 @@
+﻿<UserControl
+		x:Class="DeltaEngine.Editor.AppBuilder.AppBuilderInfoListView"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:builder="clr-namespace:DeltaEngine.Editor.AppBuilder"
+		mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="720"
+	d:DataContext="{d:DesignInstance Type=builder:AppBuilderInfoListDesign, IsDesignTimeCreatable=True}">
+	<UserControl.Resources>
+		<Style TargetType="Label" x:Key="DeltaLabel">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#e2e2e2" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+
+
+		<Style TargetType="TextBox" x:Key="DeltaTextBox">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+			<Setter Property="BorderBrush" Value="{x:Null}" />
+		</Style>
+
+		<Style TargetType="ComboBox" x:Key="DeltaComboBox">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+
+		<Style TargetType="ListBox" x:Key="DeltaListBox">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+
+		<Style TargetType="Border" x:Key="DeltaBorder">
+			<Setter Property="BorderBrush" Value="Transparent" />
+			<Setter Property="BorderThickness" Value="2" />
+		</Style>
+
+	</UserControl.Resources>
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="32" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<StackPanel Margin="0,0,0,1"
+			Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0"
+		>
+			<Border Name="AppsListPanelBorder" Style="{StaticResource DeltaBorder}">
+				<StackPanel
+					Name="PlatformsStackPanel" Orientation="Horizontal" Margin="0,0,4,0"
+					Width="Auto" HorizontalAlignment="Left"
+					MouseDown="OnPlatformsStackPanelClicked">
+					<Image
+						Source="/DeltaEngine.Editor;component/Images/AppBuilder/BuildInfoIcon.png"
+						Height="28" Width="28"
+					/>
+					<Label
+						x:Name="AppsLabel" Content="{Binding Path=TextOfBuiltApps}"
+						HorizontalAlignment="Left" Style="{StaticResource DeltaLabel}"
+					/>
+				</StackPanel>
+			</Border>
+			<Border Name="ErrorsPanelBorder" Style="{StaticResource DeltaBorder}">
+				<StackPanel
+					Name="ErrorsStackPanel" Orientation="Horizontal" Margin="0,0,4,0"
+					Width="Auto" HorizontalAlignment="Left"
+					MouseDown="OnErrorsStackPanelClicked">
+					<Image
+						Source="/DeltaEngine.Editor;component/Images/AppBuilder/BuildErrorIcon.png"
+						Height="28" Width="28"
+					/>
+					<Label
+						x:Name="ErrorsLabel" Content="{Binding Path=TextOfErrorCount}"
+						HorizontalAlignment="Left" Style="{StaticResource DeltaLabel}" 
+					/>
+				</StackPanel>
+			</Border>
+			<Border Name="WarningsPanelBorder" Style="{StaticResource DeltaBorder}">
+				<StackPanel
+					x:Name="WarningsStackPanel" Margin="0,0,4,0" Orientation="Horizontal"
+					Width="Auto" HorizontalAlignment="Left"
+					MouseDown="OnWarningsStackPanelClicked"
+				>
+					<Image
+						Source="/DeltaEngine.Editor;component/Images/AppBuilder/BuildWarningIcon.png"
+						Height="28" Width="28"
+					/>
+					<Label
+						x:Name="WarningsLabel" Content="{Binding Path=TextOfWarningCount, Mode=OneWay}"
+						HorizontalAlignment="Left" Style="{StaticResource DeltaLabel}"
+					/>
+				</StackPanel>
+			</Border>
+		</StackPanel>
+
+		<builder:BuiltAppsListView x:Name="BuiltAppsList" Grid.Row="1" />
+		<builder:AppBuildMessagesListView x:Name="BuildMessagesList" Margin="0,32,0,0" Grid.RowSpan="2" />
+	</Grid>
+</UserControl>

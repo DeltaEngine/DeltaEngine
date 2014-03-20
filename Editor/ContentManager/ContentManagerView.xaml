@@ -1,0 +1,276 @@
+﻿<UserControl
+	x:Class="DeltaEngine.Editor.ContentManager.ContentManagerView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:contentManager="clr-namespace:DeltaEngine.Editor.ContentManager"
+	HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+	d:DesignWidth="300" d:DesignHeight="600" MinWidth="300"
+	mc:Ignorable="d"
+	d:DataContext="{d:DesignInstance Type=contentManager:DesignContentManagerView, IsDesignTimeCreatable=True}">
+
+	<UserControl.Resources>
+
+		<Style TargetType="Label" x:Key="DeltaLabel">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#e2e2e2" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+			<Setter Property="Padding" Value="4,6,0,0" />
+		</Style>
+
+		<Style TargetType="Label" x:Key="DeltaLabelHeading1">
+			<Setter Property="FontSize" Value="18" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+
+		<Style TargetType="Label" x:Key="DeltaLabelHeading2">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+
+		<Style TargetType="TextBox" x:Key="DeltaTextBox">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+			<Setter Property="BorderBrush" Value="#FFB2B2B2" />
+			<Setter Property="Padding" Value="3,4,0,0" />
+		</Style>
+
+		<Style TargetType="ComboBox" x:Key="DeltaComboBox">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+			<Setter Property="Padding" Value="5" />
+		</Style>
+
+		<Style TargetType="TreeView" x:Key="DeltaTreeView">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+
+		<Style TargetType="CheckBox" x:Key="DeltaCheckBox">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+
+		<Style TargetType="Button" x:Key="DeltaButton">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background">
+				<Setter.Value>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+						<GradientStop Color="#FFBBBBBB" Offset="0" />
+						<GradientStop Color="#FF9E9E9E" Offset="1" />
+					</LinearGradientBrush>
+				</Setter.Value>
+			</Setter>
+			<Setter Property="BorderBrush" Value="Black" />
+			<Setter Property="Foreground" Value="#FFFFFFFF" />
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="Button">
+						<Border Background="{TemplateBinding Background}">
+							<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+						</Border>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+			<Style.Triggers>
+				<Trigger Property="IsEnabled" Value="False">
+					<Setter Property="Background" Value="#FFCFCFCF" />
+				</Trigger>
+				<MultiDataTrigger>
+					<MultiDataTrigger.Conditions>
+						<Condition
+							Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}" Value="True" />
+						<Condition
+							Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}" Value="True" />
+					</MultiDataTrigger.Conditions>
+					<Setter Property="Background" Value="#7894d3" />
+				</MultiDataTrigger>
+			</Style.Triggers>
+		</Style>
+
+		<Style x:Key="ActionLabelStyle" TargetType="{x:Type Label}">
+			<Setter Property="Margin" Value="10,3" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontWeight" Value="Bold" />
+			<Setter Property="Foreground" Value="#FF0D58DA" />
+			<Style.Resources>
+				<Style TargetType="TextBlock">
+					<Style.Triggers>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Binding="{Binding RelativeSource={RelativeSource FindAncestor,
+AncestorType=Label}, Path=IsMouseOver}"
+									Value="True" />
+								<Condition
+									Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}" Value="True" />
+							</MultiDataTrigger.Conditions>
+							<Setter Property="TextDecorations" Value="Underline" />
+						</MultiDataTrigger>
+					</Style.Triggers>
+				</Style>
+			</Style.Resources>
+		</Style>
+
+
+		<HierarchicalDataTemplate DataType="{x:Type contentManager:ContentIconAndName}"
+		                          ItemsSource="{Binding Path=SubContent}">
+			<contentManager:ContentIconAndNameView />
+		</HierarchicalDataTemplate>
+	</UserControl.Resources>
+
+	<Grid Background="#FFF0F0F0">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="12" />
+			<ColumnDefinition Width="20" />
+			<ColumnDefinition Width="15" />
+			<ColumnDefinition Width="8" />
+			<ColumnDefinition Width="21" />
+			<ColumnDefinition Width="74" />
+			<ColumnDefinition Width="68" />
+			<ColumnDefinition />
+			<ColumnDefinition Width="58" />
+			<ColumnDefinition Width="12" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="12" />
+			<RowDefinition Height="28" />
+			<RowDefinition Height="12" />
+			<RowDefinition Height="56" />
+			<RowDefinition Height="12" />
+			<RowDefinition Height="30" />
+			<RowDefinition Height="12" />
+			<RowDefinition Height="214*" />
+			<RowDefinition Height="5*" />
+		</Grid.RowDefinitions>
+		<TreeView SelectedItemChanged="ChangeSelectedItem"
+		          Name="ImageList" Style="{StaticResource DeltaTreeView}"
+		          ItemsSource="{Binding Path=DisplayContentList}"
+		          Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="8" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+			<TreeView.ContextMenu>
+				<ContextMenu>
+					<MenuItem Header="Delete" Click="DeleteSelectedItems">
+						<MenuItem.Icon>
+							<Image Source="..\Images\ExitButton.png" Width="16" Height="16" />
+						</MenuItem.Icon>
+					</MenuItem>
+					<MenuItem Header="Delete with all subContent" Click="DeleteContentWithSubContent">
+						<MenuItem.Icon>
+							<Image Source="..\Images\ExitButton.png" Width="16" Height="16" />
+						</MenuItem.Icon>
+					</MenuItem>
+					<MenuItem Header="Copy" Click="CopySelectedContent" />
+					<MenuItem Header="Paste" Click="PasteCopiedContentIfPossible" />
+				</ContextMenu>
+			</TreeView.ContextMenu>
+		</TreeView>
+		<TextBox
+			Height="28" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Row="1" Grid.Column="4"
+			Style="{StaticResource DeltaTextBox}" Grid.ColumnSpan="5"
+			Text="{Binding Path=SearchText, UpdateSourceTrigger=PropertyChanged}" />
+		<Image Grid.Row="1" VerticalAlignment="Top"
+		       Height="28" Source="..\Images\Search.png" Grid.Column="1" Grid.ColumnSpan="2" />
+		<WrapPanel Grid.ColumnSpan="8" Grid.Column="1" Grid.Row="3" Orientation="Horizontal" Name="FilterList">
+			<ToggleButton Height="24" Width="24" Margin="0, 0, 3, 0" Checked="CheckContentType"
+			              Unchecked="UnCheckContentType" Name="Image" ToolTip="Image">
+				<Image Height="16" Source="../Images/ContentTypes/Image.png" OpacityMask="Black" />
+			</ToggleButton>
+			<ToggleButton Height="24" Width="24" Margin="0, 0, 3, 0" Checked="CheckContentType"
+			              Unchecked="UnCheckContentType" Name="Font" ToolTip="Font">
+				<Image Height="16" Source="../Images/ContentTypes/Font.png" OpacityMask="Black" />
+			</ToggleButton>
+
+			<ToggleButton Height="24" Width="24" Margin="0, 0, 3, 0" Checked="CheckContentType"
+			              Unchecked="UnCheckContentType" Name="ImageAnimation" ToolTip="ImageAnimation">
+				<Image Height="16" Source="../Images/ContentTypes/ImageAnimation.png" OpacityMask="Black" />
+			</ToggleButton>
+			<ToggleButton Height="24" Width="24" Margin="0, 0, 3, 0" Checked="CheckContentType"
+			              Unchecked="UnCheckContentType" Name="InputCommand" ToolTip="Input Command">
+				<Image Height="16" Source="../Images/ContentTypes/InputCommand.png" OpacityMask="Black" />
+			</ToggleButton>
+			<ToggleButton Height="24" Width="24" Margin="0, 0, 3, 0" Checked="CheckContentType"
+			              Unchecked="UnCheckContentType" Name="Level" ToolTip="Level">
+				<Image Height="16" Source="../Images/ContentTypes/Level.png" OpacityMask="Black" />
+			</ToggleButton>
+			<ToggleButton Height="24" Width="24" Margin="0, 0, 3, 0" Checked="CheckContentType"
+			              Unchecked="UnCheckContentType" Name="Material" ToolTip="Material">
+				<Image Height="16" Source="../Images/ContentTypes/Material.png" OpacityMask="Black" />
+			</ToggleButton>
+			<ToggleButton Height="24" Width="24" Margin="0, 0, 3, 0" Checked="CheckContentType"
+			              Unchecked="UnCheckContentType" Name="Model" ToolTip="Model">
+				<Image Height="16" Source="../Images/ContentTypes/Model.png" OpacityMask="Black" />
+			</ToggleButton>
+			<ToggleButton Height="24" Width="24" Margin="0, 0, 3, 0" Checked="CheckContentType"
+			              Unchecked="UnCheckContentType" Name="Mesh" ToolTip="Mesh">
+				<Image Height="16" Source="../Images/ContentTypes/Mesh.png" OpacityMask="Black" />
+			</ToggleButton>
+			<ToggleButton Height="24" Width="24" Margin="0, 0, 3, 0" Checked="CheckContentType"
+			              Unchecked="UnCheckContentType" Name="MeshAnimation" ToolTip="Mesh Animation">
+				<Image Height="16" Source="../Images/ContentTypes/MeshAnimation.png" OpacityMask="Black" />
+			</ToggleButton>
+			<ToggleButton Height="24" Width="24" Margin="0, 0, 3, 0" Checked="CheckContentType"
+			              Unchecked="UnCheckContentType" Name="Shader" ToolTip="Shader">
+				<Image Height="16" Source="../Images/ContentTypes/Shader.png" OpacityMask="Black" />
+			</ToggleButton>
+			<ToggleButton Height="24" Width="24" Margin="0, 0, 3, 0" Checked="CheckContentType"
+			              Unchecked="UnCheckContentType" Name="Music" ToolTip="Music">
+				<Image Height="16" Source="../Images/ContentTypes/Music.png" OpacityMask="Black" />
+			</ToggleButton>
+			<ToggleButton Height="24" Width="24" Margin="0, 0, 3, 0" Checked="CheckContentType"
+			              Unchecked="UnCheckContentType" Name="Sound" ToolTip="Sound">
+				<Image Height="16" Source="../Images/ContentTypes/Sound.png" OpacityMask="Black" />
+			</ToggleButton>
+			<ToggleButton Height="24" Width="24" Margin="2, 2" Checked="CheckContentType"
+			              Unchecked="UnCheckContentType" Name="ParticleSystem" ToolTip="Particle System">
+				<Image Height="16" Source="../Images/ContentTypes/ParticleSystem.png" OpacityMask="Black" />
+			</ToggleButton>
+			<ToggleButton Height="24" Width="24" Margin="0, 0, 3, 0" Checked="CheckContentType"
+			              Unchecked="UnCheckContentType" Name="ParticleEmitter" ToolTip="Particle Emitter">
+				<Image Height="16" Source="../Images/ContentTypes/ParticleEmitter.png" OpacityMask="Black" />
+			</ToggleButton>
+			<ToggleButton Height="24" Width="24" Margin="0, 0, 3, 0" Checked="CheckContentType"
+			              Unchecked="UnCheckContentType" Name="Xml" ToolTip="Xml">
+				<Image Height="16" Source="../Images/ContentTypes/Xml.png" OpacityMask="Black" />
+			</ToggleButton>
+
+			<ToggleButton Height="24" Width="24" Margin="0, 0, 3, 0" Checked="CheckContentType"
+			              Unchecked="UnCheckContentType" Name="Scene" ToolTip="Scene">
+				<Image Height="16" Source="../Images/ContentTypes/Scene.png" OpacityMask="Black" />
+			</ToggleButton>
+		</WrapPanel>
+		<Button
+			Content="New" Grid.Row="5" Grid.Column="1" Style="{StaticResource DeltaButton}"
+			Click="OpenFileExplorer" Grid.ColumnSpan="4" />
+		<Button
+			Content="Import" Grid.Row="5" Grid.Column="5" Style="{StaticResource DeltaButton}"
+			Click="OpenFileExplorer" Margin="10,0,3,0" />
+		<Button
+			Content="Copy" Grid.Column="6" Grid.Row="5" Style="{StaticResource DeltaButton}"
+			Click="OnHelp" Margin="10,0,0,0" />
+		<Button
+			Content="Delete" Grid.Column="8" Grid.Row="5" Style="{StaticResource DeltaButton}"
+			Click="DeleteContent" />
+	</Grid>
+</UserControl>

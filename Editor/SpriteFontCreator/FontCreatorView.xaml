@@ -1,0 +1,222 @@
+﻿<UserControl
+	x:Class="DeltaEngine.Editor.SpriteFontCreator.FontCreatorView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:spriteFontCreator="clr-namespace:DeltaEngine.Editor.SpriteFontCreator"
+	mc:Ignorable="d"
+	HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+	Foreground="#FFCACACA" d:DesignWidth="400" d:DesignHeight="800" MinWidth="300"
+	d:DataContext="{d:DesignInstance Type=spriteFontCreator:FontCreatorDesign,
+		IsDesignTimeCreatable=True}">
+
+	<UserControl.Resources>
+
+		<Style TargetType="Label" x:Key="DeltaLabel">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#e2e2e2" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+
+		<Style TargetType="TextBox" x:Key="DeltaTextBox">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+			<Setter Property="BorderBrush" Value="{x:Null}" />
+		</Style>
+
+		<Style TargetType="ComboBox" x:Key="DeltaComboBox">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+
+		<Style TargetType="ListBox" x:Key="DeltaListBox">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+
+		<Style TargetType="Button" x:Key="DeltaButton">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FF9C9C9C" />
+			<Setter Property="Foreground" Value="#FFFFFFFF" />
+		</Style>
+
+	</UserControl.Resources>
+	<ScrollViewer HorizontalScrollBarVisibility="Disabled">
+		<Grid>
+			<Grid Grid.ColumnSpan="4" Background="#FFF0F0F0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="12"/>
+					<ColumnDefinition Width="139"/>
+					<ColumnDefinition Width="8"/>
+					<ColumnDefinition/>
+					<ColumnDefinition Width="8"/>
+					<ColumnDefinition Width="18"/>
+					<ColumnDefinition Width="30"/>
+					<ColumnDefinition Width="12"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="12"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="12"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="12"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="12"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="12"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="12"/>
+					<RowDefinition Height="12"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Name="BestRow" Height="12" />
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="12"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="12"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Name="NormalRow" Height="12" />
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="12"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="12"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="12"/>
+					<RowDefinition Height="40"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="12"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="12"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+				<Label
+						Content="Content Name"
+						Margin="0,0,0,0" Style="{StaticResource DeltaLabel}" Grid.Column="1" Grid.Row="1" />
+				<ComboBox
+						Name="ContentNameTextBox" Text="{Binding Path=ContentName}" Style="{StaticResource DeltaComboBox}"
+						ToolTip="Font content name. This is what you use in game code or other editors. Good names are 'MenuFont', 'GameFont', 'CreditsFont', etc." Grid.Column="3" Grid.Row="1" FontFamily="Arial" FontSize="16" Foreground="#FF5D5D5D" Margin="1,0,0,0" Grid.ColumnSpan="4" IsEditable="True" ItemsSource="{Binding Path=ContentNamesList}" 
+					DropDownClosed="OnDropDownClosed"/>
+				<Label
+						Content="Font" Style="{StaticResource DeltaLabel}" Grid.Row="3" Grid.Column="1" Margin="0,0,0,0" />
+				<ComboBox Name="FontComboBox" IsEditable="True"
+						Text="{Binding Path=FamilyFilename}" Style="{StaticResource DeltaComboBox}"
+						ItemsSource="{Binding Path=AvailableDefaultFontNames, UpdateSourceTrigger=PropertyChanged}"
+						ToolTip="You can either select one of the default fonts available or click the 'Import Font' button to upload your own ttf font (other formats are supported as well)." Grid.Column="3" Grid.Row="3"  Margin="2,0,7,0" Grid.ColumnSpan="2" />
+				<Button
+						Content="Import" Name="ImportFontButton" Style="{StaticResource DeltaButton}"
+						ToolTip="Font content, will generate images and xml files to be consumed by the engine from a true type font. Formats supported: ttf, otf, and many more"
+						Click="ImportFontButtonClick" Grid.Column="5" Grid.Row="3" Grid.ColumnSpan="2" FontSize="14" >
+					<Button.Background>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FFA0A0A0" Offset="0"/>
+							<GradientStop Color="#FF8B8B8B" Offset="1"/>
+						</LinearGradientBrush>
+					</Button.Background>
+				</Button>
+				<Button
+						Content="Advanced" Name="AddCyrillicButton" Click="AddCyrillicButtonClick"
+						ToolTip="Add Cyrillic (Ѐ-џ) goes from unicode 1024-1119" FontSize="14" Grid.Row="26" Style="{StaticResource DeltaButton}" Grid.Column="1" HorizontalAlignment="Left" Width="118" IsEnabled="False">
+					<Button.Background>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FFA0A0A0" Offset="0"/>
+							<GradientStop Color="#FF8B8B8B" Offset="1"/>
+						</LinearGradientBrush>
+					</Button.Background>
+				</Button>
+
+				<Label
+						Content="Font Style" Style="{StaticResource DeltaLabel}"
+						ToolTip="Font style for the font creation process, allows us to add shadow to the font, create an outline, use italic or bold text plus specifying anti aliasing." FontFamily="Arial" Background="#FFE8E7E7" FontSize="16" Grid.Row="5" Margin="0,0,0,0" Grid.Column="1" />
+				<CheckBox
+						Content="Italic" Foreground="#FF5D5D5D" Name="ItalicCheckBox" IsChecked="{Binding Path=Italic, UpdateSourceTrigger=PropertyChanged}"
+						Click="StyleChangedClick"
+						ToolTip="Use italic (works only if the font has it), not used often." Grid.Column="3" FontFamily="Arial" FontSize="14" HorizontalAlignment="Left" Width="61" Grid.Row="5" Grid.ColumnSpan="4" Height="22" VerticalAlignment="Top" Grid.RowSpan="3" Margin="0,29,0,0" />
+				<CheckBox
+						Content="Bold" HorizontalAlignment="Left"
+						Foreground="#FF5D5D5D" Name="BoldCheckBox" IsChecked="{Binding Path=Bold, UpdateSourceTrigger=PropertyChanged}"
+						Click="StyleChangedClick"
+						ToolTip="Make font bold (works only if font supports this)." Grid.Column="3" Width="60" FontFamily="Arial" FontSize="14" Grid.Row="5" Margin="0,0,0,10" />
+				<CheckBox
+						Content="Underline" Foreground="#FF5D5D5D"
+						HorizontalAlignment="Left" Margin="0,15,0,0" Name="UnderlineCheckBox" IsChecked="{Binding Path=Underline, UpdateSourceTrigger=PropertyChanged}"
+						Click="StyleChangedClick"
+						ToolTip="Add underline to the font (works only if font supports this).  : This may look strange with some other effects (like shadow or outline)." Grid.Column="3" Grid.ColumnSpan="4" Width="118" FontFamily="Arial" FontSize="14" Grid.Row="7" Grid.RowSpan="2" />
+				<CheckBox
+						Content="Shadow" Foreground="#FF5D5D5D" Height="20" Name="AddShadowCheckBox"
+						VerticalAlignment="Top" IsChecked="{Binding Path=AddShadow, UpdateSourceTrigger=PropertyChanged}"
+						Click="StyleChangedClick"
+						ToolTip="Add shadow to the font, usually makes the font a little bigger to fit the shadow (which is just the font again painted in black with a 10% distance into the bottom right, rendered before the actual white font)." Grid.Column="3" Grid.ColumnSpan="4" FontFamily="Arial" FontSize="14" Grid.Row="9" Grid.RowSpan="3" HorizontalAlignment="Left" Width="126" Margin="0,29,0,0" />
+				<CheckBox
+						Content="Outline" Foreground="#FF5D5D5D"
+						HorizontalAlignment="Left" Name="AddOutlineCheckBox" IsChecked="{Binding Path=AddOutline,UpdateSourceTrigger=PropertyChanged}"
+						Click="StyleChangedClick"
+						ToolTip="Add a black outline to the font, currently does not work well, especially for big fonts. Small fonts look ok. This will add some spacing (2px) around the font to allow an artist to add outlines himself if he isn't pleased with the generated texture." Grid.Column="3" Grid.ColumnSpan="4" Width="119" FontFamily="Arial" FontSize="14" Grid.Row="9" Height="20" VerticalAlignment="Top" />
+				<Label
+						Content="Font Color" Style="{StaticResource DeltaLabel}" Grid.Column="1" Grid.Row="12" Margin="0,0,0,0" />
+				<ComboBox Margin="0,0,0,0"
+						Name="FontColorComboBox" Text="{Binding Path=FontColor}"
+						IsEditable="True"
+						ToolTip="Font Color, usually White. You can enter 4 color values (red, green, blue, alpha), e.g. 1, 1, 0.5, 1" Grid.Column="3" Grid.Row="12" Style="{StaticResource DeltaComboBox}" Grid.ColumnSpan="4" />
+				<Label
+						Content="Shadow Color" Grid.Column="1" Style="{StaticResource DeltaLabel}" Grid.Row="14" Margin="0,0,0,0" />
+				<ComboBox
+						Name="ShadowColorComboBox" Text="{Binding Path=ShadowColor}" Style="{StaticResource DeltaComboBox}"
+						IsEditable="True"
+						ToolTip="Shadow Color, usually BlackHalfTransparent. You can enter 4 color values (red, green, blue, alpha), e.g. 0, 0, 0, 0.2" Grid.Column="3" Grid.Row="14" Grid.ColumnSpan="4" Margin="0,0,0,0" />
+				<Label
+						Content="Outline Color"  Grid.Column="1" Grid.Row="16" Style="{StaticResource DeltaLabel}" Margin="0,0,0,0" />
+				<ComboBox
+						Name="OutlineColorComboBox" Text="{Binding Path=OutlineColor}" Style="{StaticResource DeltaComboBox}"
+						IsEditable="True"
+						ToolTip="Outline Color, usually Black. You can enter 4 color values (red, green, blue, alpha), e.g. 0, 0, 0, 0.2" Grid.Column="3" Grid.Row="16" Grid.ColumnSpan="4" />
+				<Label
+						Content="Outline Thickness"  Grid.Column="1" RenderTransformOrigin="2.687,-17.292" Style="{StaticResource DeltaLabel}" Grid.Row="18" Margin="0,0,0,0" FontSize="16" />
+				<TextBox
+						Name="OutlineThicknessTextBox" Text="{Binding Path=OutlineThickness}" Style="{StaticResource DeltaTextBox}"
+						ToolTip="Outline Thickness in percent, usually 3.3%" Grid.Column="3" Grid.Row="18" Margin="0,0,0,0" Grid.ColumnSpan="4" SelectionBrush="#FF7795D3" />
+				<Label
+						Content="Font Size" Grid.Row="20" Style="{StaticResource DeltaLabel}" Margin="0,0,0,0" Grid.Column="1" />
+				<TextBox Grid.Row="20"
+						Name="FontSizeBestTextBox"
+						Text="{Binding Path=BestFontSize, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource DeltaTextBox}"
+						ToolTip="This holds the font size (like 9pt, 12pt, 24pt, etc.)." Grid.Column="3" Grid.ColumnSpan="4" Margin="1,0,0,0" />
+				<Label
+						Content="Tracking" Style="{StaticResource DeltaLabel}" Grid.Row="24"  Grid.Column="1" Margin="0,0,0,0" />
+				<Button
+				Name="SaveButton" Content="Save" Margin="0,1,1,0"
+				Click="SaveButtonClicked" Grid.Column="3" Grid.Row="26" Grid.ColumnSpan="4" Style="{StaticResource DeltaButton}" HorizontalAlignment="Right" Width="100" FontSize="22" FontWeight="Bold" >
+					<Button.Background>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FFA0A0A0" Offset="0"/>
+							<GradientStop Color="#FF8B8B8B" Offset="1"/>
+						</LinearGradientBrush>
+					</Button.Background>
+				</Button>
+				<TextBox Grid.Row="24"
+						Name="TrackingBestTextBox" Style="{StaticResource DeltaTextBox}"
+						Text="{Binding Path=BestFontTracking}"
+						ToolTip="Font tracking percentage value (usually the default value 1.0), which is optional and often not used, but can be used to increase or decrease the distance between letters in the font." Grid.Column="3"  Grid.ColumnSpan="4" />
+				<Label
+						Content="Line Height" Grid.Row="22" Grid.Column="1" Style="{StaticResource DeltaLabel}" Margin="0,0,0,0" />
+				<TextBox Grid.Row="22"
+						Name="LineHeightBestTextBox" Style="{StaticResource DeltaTextBox}"
+						Text="{Binding Path=BestFontLineHeight}"
+						ToolTip="Line Height Multiplier, usually unused and just the default value of 1.0, but you can increase it (e.g. 1.5) or even decrease it to change the distance between text lines." Grid.Column="3" Grid.ColumnSpan="4" Margin="0,0,0,0" />
+			</Grid>
+		</Grid>
+	</ScrollViewer>
+</UserControl>

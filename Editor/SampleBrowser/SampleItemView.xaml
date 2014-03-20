@@ -1,0 +1,187 @@
+﻿<UserControl
+	x:Class="DeltaEngine.Editor.SampleBrowser.SampleItemView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:helpers="clr-namespace:DeltaEngine.Editor.SampleBrowser.Helpers"
+	mc:Ignorable="d"
+	d:DataContext="{d:DesignInstance Type=helpers:DesignSampleItem, IsDesignTimeCreatable=True}"
+	d:DesignHeight="110" d:DesignWidth="800"
+	BorderBrush="Black" BorderThickness="0" Height="110">
+
+	<UserControl.Resources>
+
+		<Style TargetType="Label" x:Key="DeltaLabel">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#e2e2e2" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+			<Setter Property="Padding" Value="4,6,0,0" />
+		</Style>
+
+		<Style TargetType="Label" x:Key="DeltaLabelHeading1">
+			<Setter Property="FontSize" Value="18" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+
+		<Style TargetType="Label" x:Key="DeltaLabelHeading2">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+
+		<Style TargetType="TextBox" x:Key="DeltaTextBox">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+			<Setter Property="BorderBrush" Value="#FFB2B2B2" />
+			<Setter Property="Padding" Value="3,4,0,0" />
+		</Style>
+
+		<Style TargetType="ComboBox" x:Key="DeltaComboBox">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+			<Setter Property="Padding" Value="5"/>
+		</Style>
+
+		<Style TargetType="ListBox" x:Key="DeltaListBox">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+
+		<Style TargetType="CheckBox" x:Key="DeltaCheckBox">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+
+		<Style TargetType="Button" x:Key="DeltaButton">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background">
+				<Setter.Value>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+						<GradientStop Color="#FFBBBBBB" Offset="0"/>
+						<GradientStop Color="#FF9E9E9E" Offset="1"/>
+					</LinearGradientBrush>
+				</Setter.Value>
+			</Setter>
+			<Setter Property="BorderBrush" Value="Black" />
+			<Setter Property="Foreground" Value="#FFFFFFFF" />
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="Button">
+						<Border Background="{TemplateBinding Background}">
+							<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+						</Border>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+			<Style.Triggers>
+				<Trigger Property="IsEnabled" Value="False">
+					<Setter Property="Background" Value="#FFCFCFCF" />
+				</Trigger>
+				<MultiDataTrigger>
+					<MultiDataTrigger.Conditions>
+						<Condition
+									Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}" Value="True" />
+						<Condition
+									Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}" Value="True" />
+					</MultiDataTrigger.Conditions>
+					<Setter Property="Background" Value="#7894d3" />
+				</MultiDataTrigger>
+			</Style.Triggers>
+		</Style>
+
+		<Style x:Key="ActionLabelStyle" TargetType="{x:Type Label}">
+			<Setter Property="Margin" Value="10,3" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontWeight" Value="Bold" />
+			<Setter Property="Foreground" Value="#FF0D58DA" />
+			<Style.Resources>
+				<Style TargetType="TextBlock">
+					<Style.Triggers>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Binding="{Binding RelativeSource={RelativeSource FindAncestor,
+									AncestorType=Label}, Path=IsMouseOver}" Value="True" />
+								<Condition
+									Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}" Value="True" />
+							</MultiDataTrigger.Conditions>
+							<Setter Property="TextDecorations" Value="Underline" />
+						</MultiDataTrigger>
+					</Style.Triggers>
+				</Style>
+			</Style.Resources>
+		</Style>
+
+	</UserControl.Resources>
+
+	<Grid 
+		MaxWidth="{Binding (FrameworkElement.ActualWidth), RelativeSource={RelativeSource 
+			AncestorType=UserControl}}">
+		<Grid.Background>
+			<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+				<GradientStop Color="#FFE2E2E2" Offset="1" />
+				<GradientStop Color="#FFF0F0F0" />
+			</LinearGradientBrush>
+		</Grid.Background>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="150px" />
+			<ColumnDefinition Width="487*" />
+			<ColumnDefinition Width="155"/>
+			<ColumnDefinition Width="8*"/>
+		</Grid.ColumnDefinitions>
+		<Image
+			Width="96" Height="96" Margin="26,6,28,8"
+			Source="{Binding Path=ImageUrl}"
+			Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" />
+		<TextBlock
+			Text="{Binding Path=Title}"
+			Grid.Column="1" HorizontalAlignment="Left" Margin="0,11,-136,0"
+			VerticalAlignment="Top" FontSize="18"
+			Foreground="#FF646464" FontFamily="Arial" FontWeight="Bold" TextDecorations="{x:Null}" Grid.ColumnSpan="3" />
+		<TextBlock
+			Text="{Binding Path=Category}"
+			Grid.Column="1" HorizontalAlignment="Left" Margin="0,38,0,0" Foreground="#FF9B9B9B" VerticalAlignment="Top" />
+		<TextBlock
+			Text="{Binding Path=Description}"
+			Grid.Column="1" HorizontalAlignment="Left" Margin="0,60,0,0" Foreground="#FF7A7A7A"
+			VerticalAlignment="Top" TextWrapping="Wrap" FontSize="14" />
+		<Button
+			Content="View source code"
+			Tag="{Binding Path=ProjectFilePath}"
+			CommandParameter="{Binding}"
+			Command="{Binding ElementName=SampleBrowserUserControl, Path=DataContext.OnViewButtonClicked}"
+			ToolTip="{Binding Path=ProjectFilePath}"
+			Grid.Column="2" Margin="0,0,0,57" VerticalAlignment="Bottom"
+			Width="155" HorizontalAlignment="Right" Style="{StaticResource DeltaButton}" Height="43" FontWeight="Bold" FontSize="16" >
+		</Button>
+		<Button
+			Content="Start"
+			Tag="{Binding Path=AssemblyFilePath}"
+			CommandParameter="{Binding}"
+			Command="{Binding ElementName=SampleBrowserUserControl, Path=DataContext.OnStartButtonClicked}"
+			ToolTip="{Binding Path=AssemblyFilePath}"
+			Grid.Column="2" Margin="0,0,0,8" VerticalAlignment="Bottom"
+			Width="155" HorizontalAlignment="Right" Style="{StaticResource DeltaButton}" Height="43" FontSize="16" FontWeight="Bold" />
+	</Grid>
+</UserControl>

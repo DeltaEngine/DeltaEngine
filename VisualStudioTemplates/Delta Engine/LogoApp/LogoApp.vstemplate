@@ -1,0 +1,27 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<TemplateData>
+		<Name>Delta Engine LogoApp</Name>
+		<Description>Sample LogoApp game</Description>
+		<TemplateID>Microsoft.CSharp.DeltaEngine.LogoApp</TemplateID>
+		<ProjectType>CSharp</ProjectType>
+		<RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+		<NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+		<CreateNewFolder>true</CreateNewFolder>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<DefaultName>LogoApp</DefaultName>
+		<Icon>LogoApp.ico</Icon>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="LogoApp.csproj" ReplaceParameters="true">
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="false" TargetFileName="LogoApp.ico">LogoApp.ico</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="LogoAppIcon72x72.png">LogoAppIcon72x72.png</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="BouncingLogo.cs">BouncingLogo.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Properties" TargetFolderName="Properties">
+				<ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+			</Folder>
+		</Project>
+	</TemplateContent>
+</VSTemplate>

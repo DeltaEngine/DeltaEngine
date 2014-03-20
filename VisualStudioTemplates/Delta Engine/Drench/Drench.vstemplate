@@ -1,0 +1,61 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<TemplateData>
+		<Name>Delta Engine Drench</Name>
+		<Description>Sample Drench game</Description>
+		<TemplateID>Microsoft.CSharp.DeltaEngine.Drench</TemplateID>
+		<ProjectType>CSharp</ProjectType>
+		<RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+		<NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+		<CreateNewFolder>true</CreateNewFolder>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<DefaultName>Drench</DefaultName>
+		<Icon>Drench.ico</Icon>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="Drench.csproj" ReplaceParameters="true">
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="false" TargetFileName="Drench.ico">Drench.ico</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="AvailableColorFinder.cs">AvailableColorFinder.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Board.cs">Board.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="DrenchMenu.cs">DrenchMenu.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Games" TargetFolderName="Games">
+				<ProjectItem ReplaceParameters="true" TargetFileName="TwoHumanNetworkGame.cs">TwoHumanNetworkGame.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Game.cs">Game.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="HumanVsAiGame.cs">HumanVsAiGame.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="TwoHumanGame.cs">TwoHumanGame.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Logics" TargetFolderName="Logics">
+				<ProjectItem ReplaceParameters="true" TargetFileName="HumanVsSmartAiLogic.cs">HumanVsSmartAiLogic.cs</ProjectItem>
+			</Folder>
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="true" TargetFileName="FloodFiller.cs">FloodFiller.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Logics" TargetFolderName="Logics">
+				<ProjectItem ReplaceParameters="true" TargetFileName="Logic.cs">Logic.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="HumanVsAiLogic.cs">HumanVsAiLogic.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="HumanVsDumbAiLogic.cs">HumanVsDumbAiLogic.cs</ProjectItem>
+			</Folder>
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ColorFactory.cs">ColorFactory.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Games" TargetFolderName="Games">
+				<ProjectItem ReplaceParameters="true" TargetFileName="SingleHumanGame.cs">SingleHumanGame.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Logics" TargetFolderName="Logics">
+				<ProjectItem ReplaceParameters="true" TargetFileName="SinglePlayerLogic.cs">SinglePlayerLogic.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Games" TargetFolderName="Games">
+				<ProjectItem ReplaceParameters="true" TargetFileName="TwoPlayerGame.cs">TwoPlayerGame.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Logics" TargetFolderName="Logics">
+				<ProjectItem ReplaceParameters="true" TargetFileName="TwoPlayerLogic.cs">TwoPlayerLogic.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="TwoHumanLogic.cs">TwoHumanLogic.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Properties" TargetFolderName="Properties">
+				<ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+			</Folder>
+		</Project>
+	</TemplateContent>
+</VSTemplate>

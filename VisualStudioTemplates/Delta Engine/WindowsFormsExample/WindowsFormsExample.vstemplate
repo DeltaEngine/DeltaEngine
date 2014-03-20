@@ -1,0 +1,27 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<TemplateData>
+		<Name>Delta Engine WindowsFormsExample</Name>
+		<Description>Sample WindowsFormsExample game</Description>
+		<TemplateID>Microsoft.CSharp.DeltaEngine.WindowsFormsExample</TemplateID>
+		<ProjectType>CSharp</ProjectType>
+		<RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+		<NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+		<CreateNewFolder>true</CreateNewFolder>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<DefaultName>WindowsFormsExample</DefaultName>
+		<Icon>DeltaEngineIcon.ico</Icon>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="WindowsFormsExample.csproj" ReplaceParameters="true">
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="true" TargetFileName="app.config">app.config</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ExampleForm.cs">ExampleForm.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ExampleForm.Designer.cs">ExampleForm.Designer.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Properties" TargetFolderName="Properties">
+				<ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+			</Folder>
+		</Project>
+	</TemplateContent>
+</VSTemplate>

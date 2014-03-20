@@ -1,0 +1,298 @@
+﻿<UserControl
+	x:Class="DeltaEngine.Editor.AppBuilder.AppBuilderView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:local="clr-namespace:DeltaEngine.Editor.AppBuilder"
+	mc:Ignorable="d" d:DesignWidth="720" d:DesignHeight="450" MinWidth="640" MinHeight="400"
+	HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+	d:DataContext="{d:DesignInstance Type=local:AppBuilderDesign, IsDesignTimeCreatable=True}">
+	<UserControl.Resources>
+
+		<Style TargetType="Label" x:Key="DeltaLabel">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#e2e2e2" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+			<Setter Property="Padding" Value="4,6,0,0" />
+		</Style>
+
+		<Style TargetType="Label" x:Key="DeltaLabelHeading1">
+			<Setter Property="FontSize" Value="18" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+
+		<Style TargetType="Label" x:Key="DeltaLabelHeading2">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+
+		<Style TargetType="TextBox" x:Key="DeltaTextBox">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+			<Setter Property="BorderBrush" Value="#FFB2B2B2" />
+			<Setter Property="Padding" Value="3,4,0,0" />
+		</Style>
+
+		<Style TargetType="ComboBox" x:Key="DeltaComboBox">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+			<Setter Property="Padding" Value="5"/>
+		</Style>
+
+		<Style TargetType="ListBox" x:Key="DeltaListBox">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+
+		<Style TargetType="CheckBox" x:Key="DeltaCheckBox">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+
+		<Style TargetType="Button" x:Key="DeltaButton">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background">
+				<Setter.Value>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+						<GradientStop Color="#FFBBBBBB" Offset="0"/>
+						<GradientStop Color="#FF9E9E9E" Offset="1"/>
+					</LinearGradientBrush>
+				</Setter.Value>
+			</Setter>
+			<Setter Property="BorderBrush" Value="Black" />
+			<Setter Property="Foreground" Value="#FFFFFFFF" />
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="Button">
+						<Border Background="{TemplateBinding Background}">
+							<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+						</Border>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+			<Style.Triggers>
+				<Trigger Property="IsEnabled" Value="False">
+					<Setter Property="Background" Value="#FFCFCFCF" />
+				</Trigger>
+				<MultiDataTrigger>
+					<MultiDataTrigger.Conditions>
+						<Condition
+									Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}" Value="True" />
+						<Condition
+									Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}" Value="True" />
+					</MultiDataTrigger.Conditions>
+					<Setter Property="Background" Value="#7894d3" />
+				</MultiDataTrigger>
+			</Style.Triggers>
+		</Style>
+
+		<Style x:Key="ActionLabelStyle" TargetType="{x:Type Label}">
+			<Setter Property="Margin" Value="10,3" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontWeight" Value="Bold" />
+			<Setter Property="Foreground" Value="#FF0D58DA" />
+			<Style.Resources>
+				<Style TargetType="TextBlock">
+					<Style.Triggers>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Binding="{Binding RelativeSource={RelativeSource FindAncestor,
+									AncestorType=Label}, Path=IsMouseOver}" Value="True" />
+								<Condition
+									Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}" Value="True" />
+							</MultiDataTrigger.Conditions>
+							<Setter Property="TextDecorations" Value="Underline" />
+						</MultiDataTrigger>
+					</Style.Triggers>
+				</Style>
+			</Style.Resources>
+		</Style>
+
+	</UserControl.Resources>
+
+	<UserControl.Background>
+		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="Black" Offset="1" />
+			<GradientStop Color="DimGray" />
+		</LinearGradientBrush>
+	</UserControl.Background>
+
+	<Grid Name="LayoutRoot" Background="#FFF0F0F0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="12"/>
+			<RowDefinition Height="28"/>
+			<RowDefinition Height="12"/>
+			<RowDefinition Height="28"/>
+			<RowDefinition Height="12"/>
+			<RowDefinition Height="28"/>
+			<RowDefinition Height="12"/>
+			<RowDefinition Height="28"/>
+			<RowDefinition Height="12"/>
+			<RowDefinition Height="28"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="12" />
+			<ColumnDefinition Width="90" />
+			<ColumnDefinition Width="10" />
+			<ColumnDefinition />
+			<ColumnDefinition Width="8" />
+			<ColumnDefinition Width="28" />
+			<ColumnDefinition Width="18" />
+			<ColumnDefinition Width="167"/>
+			<ColumnDefinition Width="12"/>
+		</Grid.ColumnDefinitions>
+
+		<Label Style="{StaticResource DeltaLabel}" Content="C# Solution"  Grid.Column="1" Grid.Row="5" Margin="0,1,0,11" Grid.RowSpan="2" />
+		<TextBox
+			x:Name="SolutionPathTextBox"
+			Grid.Column="3" IsReadOnly="True" x:FieldModifier="public" Background="#F7F7F7"
+			Text="{Binding Path=UserSolutionPath}" Grid.Row="5" Style="{StaticResource DeltaTextBox}">
+			<TextBox.ToolTip>
+				<TextBlock FontWeight="Bold">Your currently selected Code-Solution file that contains your Project you want to build</TextBlock>
+			</TextBox.ToolTip>
+		</TextBox>
+		<Button
+			x:Name="SolutionPathBrowseButton"
+			FontSize="20" Content="..." Grid.Column="5" IsEnabled="True" Style="{StaticResource DeltaButton}"
+			Click="OnBrowseUserProjectClicked" Grid.Row="5">
+			<Button.ToolTip>
+				<TextBlock FontWeight="Bold">Browse to the Code-Solution of your Project you want to build</TextBlock>
+			</Button.ToolTip>
+		</Button>
+
+		<Label
+			x:Name="ProjectSelectionLabel" Content="Projects" Style="{StaticResource DeltaLabel}"
+			Grid.Column="1" Grid.Row="3" />
+		<ComboBox
+			x:Name="ProjectComboBox" Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="3"
+			HorizontalContentAlignment="Left" Style="{StaticResource DeltaComboBox}"
+			ItemsSource="{Binding Path=AvailableCodeProjects}"
+			SelectedValue="{Binding Path=SelectedCodeProject}"
+			DisplayMemberPath="Name">
+			<ComboBox.ToolTip>
+				<TextBlock FontWeight="Bold">The list of all available projects that you are allowed to build</TextBlock>
+			</ComboBox.ToolTip>
+		</ComboBox>
+		<Button
+			Name="RefreshButton" Content="↻" FontSize="16" Grid.Column="5" Style="{StaticResource DeltaButton}"
+			ToolTip="Refreshes the list of available entry points. Useful if you just added a new unit test!"
+			Foreground="White" FontFamily="Arial" FontWeight="Bold" Grid.Row="3" Visibility="Hidden">
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FFB0B0B0" Offset="0" />
+					<GradientStop Color="#FF8B8B8B" Offset="1" />
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+
+		<Label
+			Name="PlatformLabel" Content="Platform" Grid.Column="1" Style="{StaticResource DeltaLabel}" Grid.Row="1"  />
+		<ComboBox
+			Name="PlatformComboBox" Grid.Column="3" HorizontalContentAlignment="Left"
+			ItemsSource="{Binding Path=SupportedPlatforms}"
+			SelectedValue="{Binding Path=SelectedPlatform}" Grid.Row="1" Style="{StaticResource DeltaComboBox}" Grid.ColumnSpan="3">
+			<ComboBox.ToolTip>
+				<TextBlock FontWeight="Bold">The available Platforms you can pick to build your Project</TextBlock>
+			</ComboBox.ToolTip>
+		</ComboBox>
+		<Button
+			x:Name="EditSettings" Content="⚙" FontSize="16" Grid.Column="5" Style="{StaticResource DeltaButton}"
+			Foreground="White" FontFamily="Arial" FontWeight="Bold" Grid.Row="5" Visibility="Hidden">
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FFA0A0A0" />
+					<GradientStop Color="#FF8B8A8A" Offset="1" />
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+		<TextBlock
+			Grid.Column="1" Grid.ColumnSpan="6" Grid.Row="7" TextWrapping="Wrap"
+			Text="Note: Currently only Basic License users are allowed to build for other platforms than Windows"
+			Margin="0,0,0,10" FontFamily="Arial" Foreground="#FF5D5D5D" />
+
+		<Button
+			Name="LaunchButton" FontSize="18" Grid.Column="7" Style="{StaticResource DeltaButton}"
+			Click="OnStartBuildClicked"
+			IsEnabled="{Binding Path=IsBuildActionExecutable}"
+			TextOptions.TextHintingMode="Fixed" Grid.Row="1" Grid.RowSpan="8" BorderBrush="{x:Null}"
+			Grid.ColumnSpan="2" Margin="0,0,10,0" HorizontalAlignment="Right" Width="169">
+			<Button.ToolTip>
+				<TextBlock FontWeight="Bold">Builds the current Content Project with for the selected Platform</TextBlock>
+			</Button.ToolTip>
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="73*"/>
+					<RowDefinition Height="7*"/>
+				</Grid.RowDefinitions>
+				<Image
+					Source="/DeltaEngine.Editor;component/Images/AppBuilder/StartBuildIcon.png"
+					Stretch="Fill" OpacityMask="Black" Margin="22,5,16,19" />
+				<Label
+					Content="Start" Margin="0,123,0,0" FontFamily="Arial" HorizontalContentAlignment="Center"
+					FontWeight="Bold" Foreground="White" FontSize="24" Grid.RowSpan="2" />
+			</Grid>
+		</Button>
+
+		<local:AppBuilderInfoListView
+			x:Name="BuildList" Margin="0,32,0,0" Grid.Column="1" Grid.ColumnSpan="7" Grid.Row="10" />
+		<Label
+			Style="{StaticResource ActionLabelStyle}"
+			HorizontalAlignment="Left" Margin="0,23,0,0" 
+			Grid.Row="7" VerticalAlignment="Top" Height="28" Grid.RowSpan="3" Grid.ColumnSpan="3"
+			Width="170" MouseDown="OnGotoLocalBuiltAppsDirectory" Grid.Column="1">
+			<TextBlock Text="Go to own App's directory" />
+		</Label>
+		<Label
+			Style="{StaticResource ActionLabelStyle}"
+			HorizontalAlignment="Left" Margin="72,23,0,0"
+			Grid.Row="7" VerticalAlignment="Top" Height="28" Grid.RowSpan="3" Width="174"
+			Grid.Column="3" MouseDown="OnGotoUserProfilePage">
+			<TextBlock Text="Go to own Profile Page" />
+		</Label>
+		<CheckBox
+			Grid.Row="7" Grid.RowSpan="3" Grid.Column="3" Grid.ColumnSpan="3" Margin="0,23,0,0" Height="28"
+			HorizontalAlignment="Right" VerticalAlignment="Top" Content="Force rebuild" FontSize="14"
+			IsChecked="{Binding Path=IsRebuildForced}"
+		>
+		</CheckBox>
+		<TextBlock
+			Name="BuildProgressText" FontSize="12" Text="Build Progress"
+			Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="9" Margin="0,0,0,5" VerticalAlignment="Bottom"
+		/>
+		<ProgressBar
+			Name="BuildProgressBar" 
+			Grid.Column="1" Grid.ColumnSpan="7" HorizontalAlignment="Stretch" Height="18" Grid.Row="10"
+			VerticalAlignment="Top" Foreground="Blue"
+		/>
+		<TextBlock
+			Name="BuildAppInfoText"
+			Grid.Column="1" Grid.ColumnSpan="7" Grid.Row="10" Text="Press Start to get your first App"
+			Margin="0,80,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"
+		/>
+	</Grid>
+</UserControl>

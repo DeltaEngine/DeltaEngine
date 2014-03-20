@@ -1,0 +1,314 @@
+﻿<UserControl
+	x:Class="DeltaEngine.Editor.LevelEditor.LevelEditorView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:gameLogic="clr-namespace:DeltaEngine.GameLogic;assembly=DeltaEngine.GameLogic"
+	xmlns:levelEditor="clr-namespace:DeltaEngine.Editor.LevelEditor"
+	xmlns:converters="clr-namespace:DeltaEngine.Editor.Converters;assembly=DeltaEngine.Editor.Converters"
+	mc:Ignorable="d"
+	HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+	Foreground="#FFCACACA" d:DesignWidth="300" d:DesignHeight="1300" MinWidth="300"
+	d:DataContext="{d:DesignInstance Type=levelEditor:LevelEditorDesign,
+		IsDesignTimeCreatable=True}">
+	<UserControl.Resources>
+		<Style TargetType="Label" x:Key="DeltaLabel">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#e2e2e2" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+		<Style TargetType="CheckBox" x:Key="DeltaCheckBox">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#e2e2e2" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+		<Style TargetType="TextBox" x:Key="DeltaTextBox">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+			<Setter Property="BorderBrush" Value="{x:Null}" />
+		</Style>
+		<Style TargetType="ComboBox" x:Key="DeltaComboBox">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+		<Style TargetType="ListBox" x:Key="DeltaListBox">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+		<Style TargetType="Button" x:Key="DeltaButton">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FF9C9C9C" />
+			<Setter Property="Foreground" Value="#FFFFFFFF" />
+		</Style>
+	</UserControl.Resources>
+	<ScrollViewer HorizontalScrollBarVisibility="Hidden">
+		<Grid Background="#FFF0F0F0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="10" />
+				<ColumnDefinition Width="113" />
+				<ColumnDefinition Width="8" />
+				<ColumnDefinition Width="60"/>
+				<ColumnDefinition Width="8" />
+				<ColumnDefinition Width="60"/>
+				<ColumnDefinition />
+				<ColumnDefinition Width="8" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="12" />
+				<RowDefinition Height="30" />
+				<RowDefinition Height="12" />
+				<RowDefinition Height="30" />
+				<RowDefinition Height="12" />
+				<RowDefinition Height="330" />
+				<RowDefinition Height="7" />
+				<RowDefinition Height="120" />
+				<RowDefinition Height="12" />
+				<RowDefinition Height="22" />
+				<RowDefinition Height="30" />
+				<RowDefinition Height="20" />
+				<RowDefinition Height="30" />
+				<RowDefinition Height="12" />
+				<RowDefinition Height="30" />
+				<RowDefinition Height="12" />
+				<RowDefinition Height="30" />
+				<RowDefinition Height="12" />
+				<RowDefinition Height="40" />
+				<RowDefinition Height="12" />
+				<RowDefinition Height="30" />
+				<RowDefinition Height="12" />
+				<RowDefinition Height="30" />
+				<RowDefinition Height="12" />
+				<RowDefinition Height="30" />
+				<RowDefinition Height="12" />
+				<RowDefinition Height="30" />
+				<RowDefinition Height="12" />
+				<RowDefinition Height="30" />
+				<RowDefinition Height="12" />
+				<RowDefinition Height="30" />
+				<RowDefinition Height="12" />
+				<RowDefinition Height="120" />
+				<RowDefinition Height="12" />
+				<RowDefinition Height="30" />
+				<RowDefinition Height="12" />
+				<RowDefinition Height="30" />
+				<RowDefinition Height="12" />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			<Label
+				Content="Content Name" Style="{StaticResource DeltaLabel}" Grid.Column="1" Grid.Row="1" />
+			<ComboBox
+				Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="6" Style="{StaticResource DeltaComboBox}"
+				VerticalContentAlignment="Center" IsEditable="True" ItemsSource="{Binding Path=LevelList}"
+				Text="{Binding Path=ContentName}" SelectedValue="{Binding Path=ContentName, Mode=OneWay}"
+				ToolTip="Level content name. This is what you use in game code." IsTextSearchEnabled="false"/>
+			<Label
+				Content="Size" Style="{StaticResource DeltaLabel}" Grid.Row="3" Grid.Column="1" />
+			<ComboBox 
+				Name="SizeComboBox" Style="{StaticResource DeltaComboBox}" IsEditable="True"
+				Text="{Binding Path=CustomSize, UpdateSourceTrigger=PropertyChanged}"
+				ToolTip="You can either select one of the default sizes or enter a custom one. Changing the size will clear the level."
+				Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="6" ItemsSource="{Binding Path=LevelSizeList}"
+				VerticalContentAlignment="Center" />
+			<Label
+				Content="Set Mode" Style="{StaticResource DeltaLabel}"
+				ToolTip="Mode when clicking on the map to set tiles." Background="#FFE8E7E7" Grid.Row="5"
+				Grid.Column="1" Height="30" VerticalAlignment="Top" />
+			<StackPanel Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="5" Grid.RowSpan="3">
+				<StackPanel.Resources>
+					<levelEditor:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
+				</StackPanel.Resources>
+				<RadioButton 
+					Content="Nothing" Background="Black" HorizontalAlignment="Left" Foreground="#FF5D5D5D" 
+					IsChecked="{Binding SelectedTileType, ConverterParameter={x:Static gameLogic:LevelTileType.Nothing}, 
+					Converter={StaticResource EnumToBooleanConverter}}" Height="25" FontSize="14" />
+				<RadioButton Content="Blocked" Background="LightGray" HorizontalAlignment="Left" Foreground="#FF5D5D5D" IsChecked="{Binding SelectedTileType, ConverterParameter={x:Static gameLogic:LevelTileType.Blocked}, Converter={StaticResource EnumToBooleanConverter}}" Height="25" FontSize="14" />
+				<RadioButton Content="Placeable" Background="CornflowerBlue" HorizontalAlignment="Left" Foreground="#FF5D5D5D" IsChecked="{Binding SelectedTileType, ConverterParameter={x:Static gameLogic:LevelTileType.Placeable}, Converter={StaticResource EnumToBooleanConverter}}" Height="25" FontSize="14" />
+				<RadioButton Content="BlockedPlaceable" Background="LightBlue" HorizontalAlignment="Left" Foreground="#FF5D5D5D" IsChecked="{Binding SelectedTileType, ConverterParameter={x:Static gameLogic:LevelTileType.BlockedPlaceable}, Converter={StaticResource EnumToBooleanConverter}}" Height="25" FontSize="14" />
+				<RadioButton Content="Red" Background="Red" HorizontalAlignment="Left" Foreground="#FF5D5D5D" IsChecked="{Binding SelectedTileType, ConverterParameter={x:Static gameLogic:LevelTileType.Red}, Converter={StaticResource EnumToBooleanConverter}}" Height="25" FontSize="14" />
+				<RadioButton Content="Green" Background="Green" HorizontalAlignment="Left" Foreground="#FF5D5D5D" IsChecked="{Binding SelectedTileType, ConverterParameter={x:Static gameLogic:LevelTileType.Green}, Converter={StaticResource EnumToBooleanConverter}}" Height="25" FontSize="14" />
+				<RadioButton Content="Blue" Background="Blue" HorizontalAlignment="Left" Foreground="#FF5D5D5D" IsChecked="{Binding SelectedTileType, ConverterParameter={x:Static gameLogic:LevelTileType.Blue}, Converter={StaticResource EnumToBooleanConverter}}" Height="25" FontSize="14" />
+				<RadioButton Content="Yellow" Background="Yellow" HorizontalAlignment="Left" Foreground="#FF5D5D5D" IsChecked="{Binding SelectedTileType, ConverterParameter={x:Static gameLogic:LevelTileType.Yellow}, Converter={StaticResource EnumToBooleanConverter}}" Height="25" FontSize="14" />
+				<RadioButton Content="Brown" Background="Brown" HorizontalAlignment="Left" Foreground="#FF5D5D5D" IsChecked="{Binding SelectedTileType, ConverterParameter={x:Static gameLogic:LevelTileType.Brown}, Converter={StaticResource EnumToBooleanConverter}}" Height="25" FontSize="14" />
+				<RadioButton Content="Gray" Background="Gray" HorizontalAlignment="Left" Foreground="#FF5D5D5D" IsChecked="{Binding SelectedTileType, ConverterParameter={x:Static gameLogic:LevelTileType.Gray}, Converter={StaticResource EnumToBooleanConverter}}" Height="25" FontSize="14" />
+				<RadioButton Content="SpawnPoint" Background="PaleGreen" HorizontalAlignment="Left" Foreground="#FF5D5D5D" IsChecked="{Binding SelectedTileType, ConverterParameter={x:Static gameLogic:LevelTileType.SpawnPoint}, Converter={StaticResource EnumToBooleanConverter}}" Height="25" FontSize="14" />
+				<RadioButton Content="ExitPoint" Background="DarkGreen" HorizontalAlignment="Left" Foreground="#FF5D5D5D" IsChecked="{Binding SelectedTileType, ConverterParameter={x:Static gameLogic:LevelTileType.ExitPoint}, Converter={StaticResource EnumToBooleanConverter}}" Height="25" FontSize="14" />
+				<RadioButton Content="No Selection" Background="White" HorizontalAlignment="Left" Foreground="#FF5D5D5D" IsChecked="{Binding SelectedTileType, ConverterParameter={x:Static gameLogic:LevelTileType.NoSelection}, Converter={StaticResource EnumToBooleanConverter}}" Height="25" FontSize="14" />
+			</StackPanel>
+			<Label
+				Content="Waves" Height="28" Style="{StaticResource DeltaLabel}" Grid.Column="1" Grid.Row="7" 
+				VerticalAlignment="Top"/>
+			<ListBox
+				Name="WavesListBox" ItemsSource="{Binding Path=WaveList}" Style="{StaticResource DeltaListBox}"
+				ToolTip="List of waves" Grid.Column="3" Grid.Row="7" Grid.ColumnSpan="6"
+				SelectionChanged="WavesListBoxOnSelectionChanged"/>
+			<Button
+				Content="Add" Name="AddWaveButton" PreviewMouseDown="AddWaveButtonClick" FontSize="14" Grid.Row="10"
+				Style="{StaticResource DeltaButton}" Grid.Column="1" HorizontalAlignment="Left" Width="48"
+				VerticalAlignment="Stretch" IsEnabled="{Binding Path=IsAddWaveEnabled}"/>
+			<Button
+				Content="Remove" Name="RemoveWaveButton" PreviewMouseDown="RemoveWaveButtonClick" FontSize="14" Grid.Row="10"
+				Style="{StaticResource DeltaButton}" Grid.Column="1" HorizontalAlignment="Right" Width="58" 
+				VerticalAlignment="Stretch" IsEnabled="{Binding Path=IsRemoveWaveEnabled}"/>
+			<Label
+				Content="WaitTime" Foreground="#FF5D5D5D" FontSize="8" Grid.Column="5" Grid.Row="9" 
+				HorizontalContentAlignment="Left" Grid.ColumnSpan="2"/>
+			<Label
+				Content="Interval" Foreground="#FF5D5D5D" FontSize="8" Grid.Column="3" Grid.Row="9" 
+				HorizontalContentAlignment="Left" Grid.ColumnSpan="2"/>
+			<Label
+				Content="MaxTime" Foreground="#FF5D5D5D" HorizontalContentAlignment="Left" FontSize="8"
+				Grid.Column="3" Grid.Row="11" Grid.ColumnSpan="2" />
+			<TextBox
+				Text="{Binding Path=WaitTime, UpdateSourceTrigger=PropertyChanged}"
+				Style="{StaticResource DeltaTextBox}" ToolTip="Wait time until wave starts spawning, countdown is shown each second" 
+				VerticalContentAlignment="Center" Grid.Column="3" Grid.Row="10" 
+				HorizontalContentAlignment="Center" />
+			<TextBox
+				Text="{Binding Path=SpawnInterval, UpdateSourceTrigger=PropertyChanged}" HorizontalContentAlignment="Center"
+				Style="{StaticResource DeltaTextBox}" ToolTip="Time in between each list item to spawn during the wave"
+				Grid.Column="5" Grid.Row="10" VerticalContentAlignment="Center"  />
+			<TextBox
+				Text="{Binding Path=MaxTime, UpdateSourceTrigger=PropertyChanged}"
+				Style="{StaticResource DeltaTextBox}" HorizontalContentAlignment="Center"
+				ToolTip="Maximum time the wave is active before the next one starts anyway. Normally 0=unused."
+				Grid.Column="3" Grid.Row="12" VerticalContentAlignment="Center" />
+			<Label
+				Content="MaxSpawnItems" Foreground="#FF5D5D5D" HorizontalContentAlignment="Left" FontSize="8"
+				Grid.Column="5" Grid.Row="11" Grid.ColumnSpan="2" />
+			<TextBox
+				Text="{Binding Path=MaxSpawnItems, UpdateSourceTrigger=PropertyChanged}"
+				Style="{StaticResource DeltaTextBox}" HorizontalContentAlignment="Center"
+				Grid.Column="5" Grid.Row="12" VerticalContentAlignment="Center" />
+			<TextBox
+				Text="{Binding Path=SpawnTypeList, UpdateSourceTrigger=PropertyChanged}"
+				Style="{StaticResource DeltaTextBox}" ToolTip="Maximum time the wave is active before the next one starts anyway. Normally 0=unused." Grid.Column="3" Grid.Row="14" Grid.ColumnSpan="6" VerticalContentAlignment="Center" />
+			<Button
+				Content="Open Xml file" PreviewMouseDown="OpenXmlFileButtonClick"
+				ToolTip="Open the xml file to see what this tool generated and for further customization." FontSize="14"
+				Grid.Row="18" Style="{StaticResource DeltaButton}" Grid.Column="1" IsEnabled="False">
+				<Button.Background>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+						<GradientStop Color="#FFA0A0A0" Offset="0" />
+						<GradientStop Color="#FF8B8B8B" Offset="1" />
+					</LinearGradientBrush>
+				</Button.Background>
+			</Button>
+			<Button
+				Name="SaveButton" Content="Save" PreviewMouseDown="SaveButtonClicked" Grid.Column="3" Grid.Row="18" 
+				Grid.ColumnSpan="5" Style="{StaticResource DeltaButton}" Width="100"
+				IsEnabled="{Binding Path=IsSaveEnabled}" FontSize="22" FontWeight="Bold" HorizontalAlignment="Left">
+				<Button.Background>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+						<GradientStop Color="#FFA0A0A0" Offset="0" />
+						<GradientStop Color="#FF8B8B8B" Offset="1" />
+					</LinearGradientBrush>
+				</Button.Background>
+			</Button>
+			<CheckBox 
+				Grid.Column="3" Grid.Row="24" HorizontalAlignment="Left" Content="3D"
+				Style="{StaticResource DeltaCheckBox}" Grid.ColumnSpan="3"
+				IsChecked="{Binding Path=Is3D}" VerticalAlignment="Bottom" />
+			<TextBox 
+				Grid.Column="3" Grid.Row="28" Grid.ColumnSpan="5"
+				Visibility="Hidden">
+				<TextBox.Text>
+					<Binding Path="StartPosition" UpdateSourceTrigger="PropertyChanged">
+						<Binding.Converter>
+							<converters:SizeStringConverter />
+						</Binding.Converter>
+					</Binding>
+				</TextBox.Text>
+			</TextBox>
+			<ComboBox
+				Grid.ColumnSpan="6" Grid.Column="3" Grid.Row="20" Style="{StaticResource DeltaComboBox}"
+				ItemsSource="{Binding Path=BackgroundImages}" Text="{Binding Path=SelectedBackgroundImage}"
+				IsEnabled="{Binding Path=IsBgImageEnabled}" />
+			<ComboBox
+				Grid.ColumnSpan="6" Grid.Column="3" Grid.Row="26" ItemsSource="{Binding Path=ModelList}"
+				Text="{Binding Path=SelectedBackgroundModel}" IsEnabled="{Binding Path=Is3D}"/>
+			<Label
+				Content="Spawn Types" Grid.Column="1" Grid.Row="14" Foreground="#FF5D5D5D" 
+				HorizontalContentAlignment="Right" />
+			<Label
+				Content="Wave Name" Grid.Column="1" Margin="2,0,0,0" Grid.Row="16"
+				HorizontalAlignment="Left" HorizontalContentAlignment="Right"
+				Width="111" Foreground="#FF5D5D5D" />
+			<ComboBox
+				Grid.ColumnSpan="6" Grid.Column="3" Grid.Row="16" VerticalContentAlignment="Center"
+				IsEditable="True" Style="{StaticResource DeltaComboBox}" Text="{Binding Path=WaveName}"
+				ItemsSource="{Binding Path=WaveNameList}" DropDownClosed="OnWaveNameDropDownClosed"
+				Name="WaveName"/>
+			<Label
+				Content="Camera Posi" Grid.Column="1" Grid.Row="30" HorizontalContentAlignment="Right"
+				Style="{StaticResource DeltaLabel}" />
+			<Label
+				Content="Background" Style="{StaticResource DeltaLabel}" Grid.Column="1" 
+				Grid.Row="20" HorizontalContentAlignment="Right"/>
+			<Button 
+				Content="Clear Level" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="5" VerticalAlignment="Top"
+				Style="{StaticResource DeltaButton}" Height="30" PreviewMouseDown="ClearLevel" />
+			<Button
+				Content="Clear Waves" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="7"
+				VerticalAlignment="Top" Style="{StaticResource DeltaButton}" Height="30" PreviewMouseDown="ClearWaves"/>
+			<Button 
+				Content="+" Grid.Column="3" Grid.Row="22" Style="{StaticResource DeltaButton}" FontSize="20" PreviewMouseDown="IncreaseBgImageSize"
+				IsEnabled="{Binding Path=IsBgSizeEnabled}" Width="20" HorizontalAlignment="Left"/>
+			<Button 
+				Content="-" Grid.Column="3" Grid.Row="22" Style="{StaticResource DeltaButton}" Width="20"	
+				HorizontalAlignment="Left" FontSize="20" PreviewMouseDown="DecreaseBgImageSize"
+				IsEnabled="{Binding Path=IsBgSizeEnabled}" Margin="20,0,0,0"/>
+			<Label 
+				Content="BG Size" Grid.Column="1" Grid.Row="22" Style="{StaticResource DeltaLabel}"
+				HorizontalContentAlignment="Right"/>
+			<Button 
+				Content="Reset" Grid.Column="5" Grid.Row="22" Style="{StaticResource DeltaButton}" 
+				FontSize="13" PreviewMouseDown="ResetBgImageSize" IsEnabled="{Binding Path=IsBgSizeEnabled}"
+				Width="60"/>
+			<Button 
+				Content="None" Grid.Column="3" Grid.Row="28" Style="{StaticResource DeltaButton}" 
+				FontSize="13" PreviewMouseDown="SetBackgroundToNone" IsEnabled="{Binding Path=IsNoneEnabled}"/>
+			<Label 
+				Content="BG Model" Grid.Column="1" Grid.Row="26" Style="{StaticResource DeltaLabel}"
+				HorizontalContentAlignment="Right" />
+			<CheckBox 
+				Grid.Column="3" Grid.Row="34" HorizontalAlignment="Left" Content="Fog"
+				Style="{StaticResource DeltaCheckBox}" Grid.ColumnSpan="3"
+				IsChecked="{Binding Path=IsFog}" VerticalAlignment="Bottom" IsEnabled="{Binding Path=Is3D}"/>
+			<Label 
+				Content="Fog Density" Grid.Column="1" Grid.Row="36" Style="{StaticResource DeltaLabel}"
+				HorizontalContentAlignment="Right" />
+			<TextBox
+				Grid.ColumnSpan="6" Grid.Column="3" Grid.Row="36" VerticalContentAlignment="Center"
+				Text="{Binding Path=FogDensity}" Style="{StaticResource DeltaTextBox}" 
+				IsEnabled="{Binding Path=IsFog}"/>
+			<ComboBox 
+				Grid.ColumnSpan="6" Grid.Column="3" Grid.Row="30" IsEditable="True"
+				Style="{StaticResource DeltaComboBox}" VerticalContentAlignment="Center" 
+				ItemsSource="{Binding Path=CameraList}" IsEnabled="{Binding Path=Is3D}"
+				Text="{Binding Path=CameraPosition}" />
+			<Label
+				Content="Level Objects" Style="{StaticResource DeltaLabel}" Grid.Row="32" Grid.Column="1"
+				VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
+			<ListBox 
+				Grid.Column="3" Grid.Row="32" Grid.ColumnSpan="6" Style="{StaticResource DeltaListBox}" 
+				ItemsSource="{Binding Path=LevelObjects}" Name="LevelObjectsList" 
+				SelectionChanged="OnLevelObjectSelectionChanged" />
+		</Grid>
+	</ScrollViewer>
+</UserControl>

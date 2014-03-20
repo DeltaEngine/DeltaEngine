@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{17822284-7AE0-4C91-B444-CFECF4927A59}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DeltaEngine.Tests</RootNamespace>
+    <AssemblyName>DeltaEngine.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Content\Xml\DeltaEngine.Content.Xml.csproj">
+      <Project>{138A40B5-3D80-4BA3-BD84-D82C151EE7FE}</Project>
+      <Name>DeltaEngine.Content.Xml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DeltaEngine.csproj">
+      <Project>{20FA8D33-A964-4000-AD82-67BD6900793B}</Project>
+      <Name>DeltaEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Graphics\DeltaEngine.Graphics.csproj">
+      <Project>{8F701B0D-48B6-45CF-85E0-286BD53328BA}</Project>
+      <Name>DeltaEngine.Graphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mocks\DeltaEngine.Mocks.csproj">
+      <Project>{A5F4EF37-7B5F-4AAE-BFF2-C2D04DB805F7}</Project>
+      <Name>DeltaEngine.Mocks</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Content\FakeImage.cs" />
+    <Compile Include="Content\FakeImageContentLoader.cs" />
+    <Compile Include="Content\FakeImageContentLoaderTests.cs" />
+    <Compile Include="Content\FakeShader.cs" />
+    <Compile Include="Content\FogSettingsTests.cs" />
+    <Compile Include="Content\MaterialTests.cs" />
+    <Compile Include="Content\SunLightTests.cs" />
+    <Compile Include="Content\ShaderTests.cs" />
+    <Compile Include="Core\ConsoleLoggerTests.cs" />
+    <Compile Include="Core\ProcessRunnerTests.cs" />
+    <Compile Include="Entities\HierarchyObjectTests.cs" />
+    <Compile Include="Extensions\PathExtensionsTests.cs" />
+    <Compile Include="Commands\CommandTests.cs" />
+    <Compile Include="Content\FakeContentLoader.cs" />
+    <Compile Include="Content\FakeContentLoaderTests.cs" />
+    <Compile Include="Core\BinaryDataExtensionsTests.cs" />
+    <Compile Include="Core\BinaryDataLoadSaveTests.cs" />
+    <Compile Include="Core\BinaryDataLoadSaveTestsHelper.cs" />
+    <Compile Include="Datatypes\BoundingBoxTests.cs" />
+    <Compile Include="Datatypes\BoundingSphereTests.cs" />
+    <Compile Include="Datatypes\DatatypesLoadSaveTests.cs" />
+    <Compile Include="Datatypes\EulerAnglesTests.cs" />
+    <Compile Include="Datatypes\PlaneTests.cs" />
+    <Compile Include="Datatypes\RangeGraphTests.cs" />
+    <Compile Include="Datatypes\RangeTests.cs" />
+    <Compile Include="Datatypes\RayTests.cs" />
+    <Compile Include="Datatypes\TimeRangeGraphTests.cs" />
+    <Compile Include="Entities\CreatingEntitiesTests.cs" />
+    <Compile Include="Entities\DrawableEntityTests.cs" />
+    <Compile Include="Entities\FilteredEntitiesTests.cs" />
+    <Compile Include="Entities\TimeTests.cs" />
+    <Compile Include="Entities\UpdateAndDrawThreadsTests.cs" />
+    <Compile Include="Extensions\AssemblyExtensionsTests.cs" />
+    <Compile Include="Extensions\ChangeableListTests.cs" />
+    <Compile Include="Extensions\UniqueListTests.cs" />
+    <Compile Include="Core\SettingsTests.cs" />
+    <Compile Include="Core\LoggerTests.cs" />
+    <Compile Include="Core\GlobalTimeTests.cs" />
+    <Compile Include="Datatypes\ColorTests.cs" />
+    <Compile Include="Datatypes\MatrixTests.cs" />
+    <Compile Include="Datatypes\Vector2DTests.cs" />
+    <Compile Include="Datatypes\QuaternionTests.cs" />
+    <Compile Include="Datatypes\RectangleTests.cs" />
+    <Compile Include="Datatypes\SizeTests.cs" />
+    <Compile Include="Datatypes\Vector3DTests.cs" />
+    <Compile Include="Entities\ComponentTests.cs" />
+    <Compile Include="Entities\EntitiesRunnerTests.cs" />
+    <Compile Include="Entities\EntityTests.cs" />
+    <Compile Include="Extensions\ArrayExtensionsTests.cs" />
+    <Compile Include="Extensions\AssemblyCheckerTests.cs" />
+    <Compile Include="Extensions\AssemblyStarterTests.cs" />
+    <Compile Include="Extensions\DateExtensionsTests.cs" />
+    <Compile Include="Extensions\EnumExtensionTests.cs" />
+    <Compile Include="Extensions\ExceptionExtensionsTests.cs" />
+    <Compile Include="Core\FixedRandomTests.cs" />
+    <Compile Include="Extensions\MathExtensionsTests.cs" />
+    <Compile Include="Core\PseudoRandomTests.cs" />
+    <Compile Include="Extensions\StackTraceExtensionsTests.cs" />
+    <Compile Include="Extensions\StringExtensionsTests.cs" />
+    <Compile Include="Extensions\ThreadExtensionTests.cs" />
+    <Compile Include="Extensions\ThreadStaticTests.cs" />
+    <Compile Include="ScreenSpaces\Camera2DScreenSpaceTests.cs" />
+    <Compile Include="ScreenSpaces\InvertedScreenSpace.cs" />
+    <Compile Include="ScreenSpaces\InvertedScreenSpaceTests.cs" />
+    <Compile Include="ScreenSpaces\PixelScreenSpaceTests.cs" />
+    <Compile Include="ScreenSpaces\QuadraticScreenSpaceTests.cs" />
+    <Compile Include="ScreenSpaces\RelativeScreenSpaceTests.cs" />
+    <Compile Include="Core\WindowTests.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,236 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<TemplateData>
+		<Name>Delta Engine CreepyTowers</Name>
+		<Description>Sample CreepyTowers game</Description>
+		<TemplateID>Microsoft.CSharp.DeltaEngine.CreepyTowers</TemplateID>
+		<ProjectType>CSharp</ProjectType>
+		<RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+		<NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+		<CreateNewFolder>true</CreateNewFolder>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<DefaultName>CreepyTowers</DefaultName>
+		<Icon>CreepyTowers.ico</Icon>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="CreepyTowers.csproj" ReplaceParameters="true">
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="false" TargetFileName="CreepyTowers.ico">CreepyTowers.ico</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="app.config">app.config</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Agent.cs">Agent.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="AgentData.cs">AgentData.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Avatars" TargetFolderName="Avatars">
+				<ProjectItem ReplaceParameters="true" TargetFileName="PiggyBank.cs">PiggyBank.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SpecialAttackSelector.cs">SpecialAttackSelector.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Content" TargetFolderName="Content">
+				<ProjectItem ReplaceParameters="true" TargetFileName="Cinematics.cs">Cinematics.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="GameCommands.cs">GameCommands.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="LevelMaps.cs">LevelMaps.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Bosses" TargetFolderName="Bosses">
+				<ProjectItem ReplaceParameters="true" TargetFileName="BossCloakStateChanger.cs">BossCloakStateChanger.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="BossData.cs">BossData.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="BossPropertiesXml.cs">BossPropertiesXml.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="BossState.cs">BossState.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="BossType.cs">BossType.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Boss.cs">Boss.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="DefaultBossPropertiesForTesting.cs">DefaultBossPropertiesForTesting.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="StateChanger.cs">StateChanger.cs</ProjectItem>
+			</Folder>
+			<Folder Name="GUI" TargetFolderName="GUI">
+				<ProjectItem ReplaceParameters="true" TargetFileName="AvatarSelectionMaterials.cs">AvatarSelectionMaterials.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="AvatarVillianCinematics.cs">AvatarVillianCinematics.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SceneCinematics.cs">SceneCinematics.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="TutorialCinematics.cs">TutorialCinematics.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Levels" TargetFolderName="Levels">
+				<ProjectItem ReplaceParameters="true" TargetFileName="ChildrensRoomLevelMap.cs">ChildrensRoomLevelMap.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Collectables" TargetFolderName="Collectables">
+				<ProjectItem ReplaceParameters="true" TargetFileName="Coin.cs">Coin.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Collectable.cs">Collectable.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Content" TargetFolderName="Content">
+				<ProjectItem ReplaceParameters="true" TargetFileName="Avatars.cs">Avatars.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="AvatarSelectionMenu.cs">AvatarSelectionMenu.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="BossModels.cs">BossModels.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Credits.cs">Credits.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="CreepStates.cs">CreepStates.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SuccessScene.cs">SuccessScene.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Creeps" TargetFolderName="Creeps">
+				<ProjectItem ReplaceParameters="true" TargetFileName="Vulnerability.cs">Vulnerability.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Effects" TargetFolderName="Effects">
+				<ProjectItem ReplaceParameters="true" TargetFileName="EffectLoader.cs">EffectLoader.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Avatars" TargetFolderName="Avatars">
+				<ProjectItem ReplaceParameters="true" TargetFileName="AvatarAttack.cs">AvatarAttack.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Avatar.cs">Avatar.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Dragon.cs">Dragon.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Penguin.cs">Penguin.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Effects" TargetFolderName="Effects">
+				<ProjectItem ReplaceParameters="true" TargetFileName="FallbackEffects.cs">FallbackEffects.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Content" TargetFolderName="Content">
+				<ProjectItem ReplaceParameters="true" TargetFileName="GameHud.cs">GameHud.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="GameMenus.cs">GameMenus.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="IntroScene.cs">IntroScene.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="MainMenu.cs">MainMenu.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="GameMusic.cs">GameMusic.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Nightmare1.cs">Nightmare1.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="PauseScene.cs">PauseScene.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Settings.cs">Settings.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="TowerSelectionPanel.cs">TowerSelectionPanel.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Xml.cs">Xml.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Creeps" TargetFolderName="Creeps">
+				<ProjectItem ReplaceParameters="true" TargetFileName="DefaultCreepPropertiesForTesting.cs">DefaultCreepPropertiesForTesting.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="DefaultGroupDataForTesting.cs">DefaultGroupDataForTesting.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Enemy" TargetFolderName="Enemy">
+				<ProjectItem ReplaceParameters="true" TargetFileName="Movement.cs">Movement.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Creeps" TargetFolderName="Creeps">
+				<ProjectItem ReplaceParameters="true" TargetFileName="WaveGenerator.cs">WaveGenerator.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Enemy" TargetFolderName="Enemy">
+				<ProjectItem ReplaceParameters="true" TargetFileName="Enemy.cs">Enemy.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Levels" TargetFolderName="Levels">
+				<ProjectItem ReplaceParameters="true" TargetFileName="GameLevelExtensions.cs">GameLevelExtensions.cs</ProjectItem>
+			</Folder>
+			<Folder Name="GUI" TargetFolderName="GUI">
+				<ProjectItem ReplaceParameters="true" TargetFileName="AvatarSelectionMenu.cs">AvatarSelectionMenu.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="AvatarSlot.cs">AvatarSlot.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="DefaultTowerSelectionPanelForTesting.cs">DefaultTowerSelectionPanelForTesting.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="MenuController.cs">MenuController.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Nightmare1.cs">Nightmare1.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="PauseScene.cs">PauseScene.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Settings.cs">Settings.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SuccessScene.cs">SuccessScene.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Levels" TargetFolderName="Levels">
+				<ProjectItem ReplaceParameters="true" TargetFileName="Chapter.cs">Chapter.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="LivingRoomLevelMap.cs">LivingRoomLevelMap.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Nightmares" TargetFolderName="Nightmares">
+				<ProjectItem ReplaceParameters="true" TargetFileName="KidsRoomChapterV2.cs">KidsRoomChapterV2.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="BathRoomLevelInfo.cs">BathRoomLevelInfo.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="KidsRoomChapter.cs">KidsRoomChapter.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="LivingRoomChapter.cs">LivingRoomChapter.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="LivingRoomLevelInfo.cs">LivingRoomLevelInfo.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Nightmare1ChapterSelector.cs">Nightmare1ChapterSelector.cs</ProjectItem>
+			</Folder>
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="true" TargetFileName="PathMarker.cs">PathMarker.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Player.cs">Player.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="PropertiesXml.cs">PropertiesXml.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Content" TargetFolderName="Content">
+				<ProjectItem ReplaceParameters="true" TargetFileName="CreepGroups.cs">CreepGroups.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="CreepModels.cs">CreepModels.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="EffectType.cs">EffectType.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="GameSounds.cs">GameSounds.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="TowerModels.cs">TowerModels.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Creeps" TargetFolderName="Creeps">
+				<ProjectItem ReplaceParameters="true" TargetFileName="CreepType.cs">CreepType.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ClothCreepStateChanger.cs">ClothCreepStateChanger.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="GlassCreepStateChanger.cs">GlassCreepStateChanger.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="IronCreepStateChanger.cs">IronCreepStateChanger.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="PaperCreepStateChanger.cs">PaperCreepStateChanger.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="PlasticCreepStateChanger.cs">PlasticCreepStateChanger.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SandCreepStateChanger.cs">SandCreepStateChanger.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="StateChanger.cs">StateChanger.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="WoodCreepStateChanger.cs">WoodCreepStateChanger.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="CreepData.cs">CreepData.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="GroupData.cs">GroupData.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="GroupPropertiesXml.cs">GroupPropertiesXml.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="CreepState.cs">CreepState.cs</ProjectItem>
+			</Folder>
+			<Folder Name="GUI" TargetFolderName="GUI">
+				<ProjectItem ReplaceParameters="true" TargetFileName="Credits.cs">Credits.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Hud.cs">Hud.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="IntroScene.cs">IntroScene.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="MainMenu.cs">MainMenu.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Menu.cs">Menu.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="TowerSelectionPanel.cs">TowerSelectionPanel.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Levels" TargetFolderName="Levels">
+				<ProjectItem ReplaceParameters="true" TargetFileName="GameLevel.cs">GameLevel.cs</ProjectItem>
+			</Folder>
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="true" TargetFileName="GameCamera.cs">GameCamera.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Creeps" TargetFolderName="Creeps">
+				<ProjectItem ReplaceParameters="true" TargetFileName="Creep.cs">Creep.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="CreepPropertiesXml.cs">CreepPropertiesXml.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Avatars" TargetFolderName="Avatars">
+				<ProjectItem ReplaceParameters="true" TargetFileName="AvatarSpecialAttackSoundSelector.cs">AvatarSpecialAttackSoundSelector.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Creeps" TargetFolderName="Creeps">
+				<ProjectItem ReplaceParameters="true" TargetFileName="CreepDyingSoundSelector.cs">CreepDyingSoundSelector.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Stats" TargetFolderName="Stats">
+				<ProjectItem ReplaceParameters="true" TargetFileName="Buff.cs">Buff.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="BuffEffect.cs">BuffEffect.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Interaction.cs">Interaction.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Stat.cs">Stat.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="StatAdjustment.cs">StatAdjustment.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Towers" TargetFolderName="Towers">
+				<ProjectItem ReplaceParameters="true" TargetFileName="InterpolatingProjectile.cs">InterpolatingProjectile.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="TowerTargetFinder.cs">TowerTargetFinder.cs</ProjectItem>
+			</Folder>
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="true" TargetFileName="InGameCommands.cs">InGameCommands.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Towers" TargetFolderName="Towers">
+				<ProjectItem ReplaceParameters="true" TargetFileName="AttackType.cs">AttackType.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="DefaultTowerPropertiesForTesting.cs">DefaultTowerPropertiesForTesting.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="TowerType.cs">TowerType.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Triggers" TargetFolderName="Triggers">
+				<ProjectItem ReplaceParameters="true" TargetFileName="ChapterOver.cs">ChapterOver.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="LifeIsLessThanZero.cs">LifeIsLessThanZero.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="StartingGold.cs">StartingGold.cs</ProjectItem>
+			</Folder>
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="true" TargetFileName="Game.cs">Game.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Towers" TargetFolderName="Towers">
+				<ProjectItem ReplaceParameters="true" TargetFileName="TowerData.cs">TowerData.cs</ProjectItem>
+			</Folder>
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="true" TargetFileName="CreepyTowersRenderLayer.cs">CreepyTowersRenderLayer.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Towers" TargetFolderName="Towers">
+				<ProjectItem ReplaceParameters="true" TargetFileName="Tower.cs">Tower.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="TowerPropertiesXml.cs">TowerPropertiesXml.cs</ProjectItem>
+			</Folder>
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="true" TargetFileName="DialoguesXml.cs">DialoguesXml.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Creeps" TargetFolderName="Creeps">
+				<ProjectItem ReplaceParameters="true" TargetFileName="CreepWave.cs">CreepWave.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Triggers" TargetFolderName="Triggers">
+				<ProjectItem ReplaceParameters="true" TargetFileName="StartingLives.cs">StartingLives.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="StartTimer.cs">StartTimer.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SubtractLife.cs">SubtractLife.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="TimerReachZero.cs">TimerReachZero.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Enemy" TargetFolderName="Enemy">
+				<ProjectItem ReplaceParameters="true" TargetFileName="EnemyState.cs">EnemyState.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Properties" TargetFolderName="Properties">
+				<ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+			</Folder>
+		</Project>
+	</TemplateContent>
+</VSTemplate>

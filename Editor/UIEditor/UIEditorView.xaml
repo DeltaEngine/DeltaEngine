@@ -1,0 +1,568 @@
+﻿<UserControl
+	x:Class="DeltaEngine.Editor.UIEditor.UIEditorView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:uiEditor="clr-namespace:DeltaEngine.Editor.UIEditor"
+	mc:Ignorable="d"
+	d:DesignHeight="1000" d:DesignWidth="300" MinWidth="300" Background="#FFF0F0F0"
+	d:DataContext="{d:DesignInstance Type=uiEditor:UIEditorDesign, 
+	IsDesignTimeCreatable=True}">
+
+	<UserControl.Resources>
+
+		<Style TargetType="Label" x:Key="DeltaLabel">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#e2e2e2" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+			<Setter Property="Padding" Value="4,6,0,0" />
+			<Setter Property="FontWeight" Value="Normal" />
+		</Style>
+
+		<Style TargetType="TextBox" x:Key="DeltaTextBox">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+			<Setter Property="BorderBrush" Value="#FFB2B2B2" />
+			<Setter Property="Padding" Value="3,4,0,0" />
+			<Setter Property="FontWeight" Value="Normal" />
+		</Style>
+
+		<Style TargetType="ComboBox" x:Key="DeltaComboBox">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+			<Setter Property="Padding" Value="5" />
+			<Setter Property="FontWeight" Value="Normal" />
+		</Style>
+
+		<Style TargetType="ListBox" x:Key="DeltaListBox">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+
+		<Style TargetType="CheckBox" x:Key="DeltaCheckBox">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+			<Setter Property="FontWeight" Value="Normal" />
+		</Style>
+
+		<Style TargetType="Expander" x:Key="DeltaExpander">
+			<Setter Property="FontSize" Value="18" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Foreground" Value="White" />
+			<Setter Property="Background" Value="#FFC9C8C8" />
+		</Style>
+
+		<Style TargetType="Button" x:Key="DeltaButton">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background">
+				<Setter.Value>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+						<GradientStop Color="#FFBBBBBB" Offset="0" />
+						<GradientStop Color="#FF9E9E9E" Offset="1" />
+					</LinearGradientBrush>
+				</Setter.Value>
+			</Setter>
+			<Setter Property="BorderBrush" Value="Black" />
+			<Setter Property="Foreground" Value="#FFFFFFFF" />
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="Button">
+						<Border Background="{TemplateBinding Background}">
+							<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+						</Border>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+			<Style.Triggers>
+				<Trigger Property="IsEnabled" Value="False">
+					<Setter Property="Background" Value="#FFCFCFCF" />
+				</Trigger>
+				<MultiDataTrigger>
+					<MultiDataTrigger.Conditions>
+						<Condition
+							Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}" Value="True" />
+						<Condition
+							Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}" Value="True" />
+					</MultiDataTrigger.Conditions>
+					<Setter Property="Background" Value="#7894d3" />
+				</MultiDataTrigger>
+			</Style.Triggers>
+		</Style>
+
+		<Style x:Key="ActionLabelStyle" TargetType="{x:Type Label}">
+			<Setter Property="Margin" Value="10,3" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontWeight" Value="Bold" />
+			<Setter Property="Foreground" Value="#FF0D58DA" />
+			<Style.Resources>
+				<Style TargetType="TextBlock">
+					<Style.Triggers>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Binding="{Binding RelativeSource={RelativeSource FindAncestor,
+AncestorType=Label}, Path=IsMouseOver}"
+									Value="True" />
+								<Condition
+									Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}" Value="True" />
+							</MultiDataTrigger.Conditions>
+							<Setter Property="TextDecorations" Value="Underline" />
+						</MultiDataTrigger>
+					</Style.Triggers>
+				</Style>
+			</Style.Resources>
+		</Style>
+
+	</UserControl.Resources>
+
+	<ScrollViewer PreviewMouseMove="SetMouseIcon" GotFocus="GridOnGotFocus" LostFocus="GridOnLostFocus">
+		<Grid
+			Background="#FFF0F0F0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="12" />
+				<ColumnDefinition Width="12" />
+				<ColumnDefinition Width="142" />
+				<ColumnDefinition Width="100" />
+				<ColumnDefinition Width="12" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="12" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="12" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="12" />
+				<RowDefinition Height="12" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="12" />
+				<RowDefinition Height="12" />
+				<RowDefinition />
+				<RowDefinition Height="12" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="30" />
+				<RowDefinition Height="Auto" />
+
+			</Grid.RowDefinitions>
+			<Button
+				Content="Save" Grid.Column="3" Grid.Row="12" Style="{StaticResource DeltaButton}"
+				FontSize="22" FontWeight="Bold" Click="SaveUI" IsEnabled="{Binding Path=CanSaveScene}" Margin="31,0,12,0" Grid.ColumnSpan="2" />
+			<CheckBox Content="Generate source code" Grid.Column="1" Grid.Row="12"  Style="{StaticResource DeltaCheckBox}"
+								IsChecked="{Binding Path=CanGenerateSourceCode}" Grid.ColumnSpan="3" Margin="1,0,75,0" Height="30" VerticalAlignment="Top"/>
+			<Expander Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" Header="Hiearchy" HorizontalAlignment="Left"
+			          VerticalAlignment="Top" Width="258" Style="{StaticResource DeltaExpander}"
+			          Height="auto" Background="#FFACACAC" IsExpanded="True"
+			          FontWeight="Bold">
+				<Grid Background="#FFE5E5E5" Height="300" Margin="2, 2, 2, 2">
+					<ListBox ItemsSource="{Binding Path=UIImagesInList}" Style="{StaticResource DeltaListBox}"
+					         SelectedItem="{Binding Path=SelectedName}" SelectedIndex="{Binding Path=SelectedIndex}"
+					         SelectionChanged="SetSelectedControl">
+						<ListBox.ContextMenu>
+							<ContextMenu>
+								<MenuItem Header="Delete" Click="DeleteSelectedItem" />
+							</ContextMenu>
+						</ListBox.ContextMenu>
+					</ListBox>
+				</Grid>
+			</Expander>
+			<Expander
+				Grid.Column="1" Header="Grid and Tile Properties" HorizontalAlignment="Left"
+				Grid.Row="3" VerticalAlignment="Top" Grid.ColumnSpan="4" Width="258"
+				Style="{StaticResource DeltaExpander}" Height="Auto" Background="#FFACACAC" IsExpanded="True"
+				FontWeight="Bold" Grid.RowSpan="2">
+				<Grid Background="#FFE5E5E5" Height="Auto">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="12" />
+						<ColumnDefinition Width="60" />
+						<ColumnDefinition Width="8" />
+						<ColumnDefinition Width="50" />
+						<ColumnDefinition Width="8" />
+						<ColumnDefinition Width="50" />
+						<ColumnDefinition Width="8" />
+						<ColumnDefinition Width="50" />
+						<ColumnDefinition Width="12" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="12" />
+						<RowDefinition Height="30" />
+						<RowDefinition Height="12" />
+						<RowDefinition Height="30" />
+						<RowDefinition Height="12" />
+						<RowDefinition Height="30" />
+						<RowDefinition Height="12" />
+					</Grid.RowDefinitions>
+					<Label
+						Content="Tile size" Grid.Column="1" Grid.Row="1" ToolTip="Resolution" Style="{StaticResource DeltaLabel}"
+						Grid.ColumnSpan="4" HorizontalAlignment="Left" />
+					<ComboBox
+						Grid.ColumnSpan="5" ToolTip="Resolution" Grid.Column="3" Grid.Row="1"
+						Style="{StaticResource DeltaComboBox}" SelectedItem="{Binding Path=SelectedResolution}"
+						ItemsSource="{Binding Path=ResolutionList}" />
+					<Label
+						Grid.Column="1" Grid.Row="3" Style="{StaticResource DeltaLabel}" Content="Width" />
+					<TextBox
+						Grid.Column="3" Grid.Row="3" Text="{Binding Path=NewGridWidth}" Style="{StaticResource DeltaTextBox}"
+						PreviewMouseLeftButtonDown="DisableDelete" />
+					<Label Grid.Column="5" Grid.Row="3" Style="{StaticResource DeltaLabel}" Content="Height" />
+					<TextBox
+						Grid.Column="7" Grid.Row="3" Text="{Binding Path=NewGridHeight}"
+						Style="{StaticResource DeltaTextBox}" PreviewMouseLeftButtonDown="DisableDelete" />
+					<CheckBox
+						Content="Show Grid" ToolTip="Show/Hide Grid" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="5"
+						VerticalAlignment="Top" Height="30" Grid.ColumnSpan="4" Style="{StaticResource DeltaCheckBox}"
+						IsChecked="{Binding Path=IsShowingGrid}" />
+					<CheckBox
+						Content="Snap" ToolTip="Snap Elements to Grid" Grid.Column="4" Grid.Row="5" VerticalAlignment="Top"
+						Height="30" Grid.ColumnSpan="2" Style="{StaticResource DeltaCheckBox}" HorizontalAlignment="Left"
+						Width="81" IsChecked="{Binding Path=IsSnappingToGrid}" Grid.RowSpan="2" />
+					<Button
+						Grid.Column="7" Grid.Row="5" Content="Add" Style="{StaticResource DeltaButton}"
+						Click="AddNewResolutionToList" FontWeight="Normal" />
+				</Grid>
+			</Expander>
+			<Expander
+				Grid.Column="1" Header="UI Scene" HorizontalAlignment="Left"
+				Grid.Row="6" VerticalAlignment="Top" Grid.ColumnSpan="4" Width="258"
+				Style="{StaticResource DeltaExpander}" Height="Auto" Background="#FFACACAC"
+				FontWeight="Bold" IsExpanded="True" Grid.RowSpan="2">
+				<Grid Background="#FFE5E5E5" Height="Auto">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="12" />
+						<ColumnDefinition Width="55" />
+						<ColumnDefinition Width="8" />
+						<ColumnDefinition Width="50" />
+						<ColumnDefinition Width="8" />
+						<ColumnDefinition Width="50" />
+						<ColumnDefinition Width="8" />
+						<ColumnDefinition Width="50" />
+						<ColumnDefinition Width="12" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="12" />
+						<RowDefinition Height="30" />
+						<RowDefinition Height="12" />
+						<RowDefinition Height="30" />
+						<RowDefinition Height="12" />
+					</Grid.RowDefinitions>
+					<Label Content="Name" Grid.Row="1" Grid.Column="1" Style="{StaticResource DeltaLabel}" />
+					<Label Grid.Column="1" Grid.Row="3" Style="{StaticResource DeltaLabel}" Content="Width" />
+					<ComboBox
+						Grid.Column="3" Grid.Row="1" IsEditable="True" PreviewMouseLeftButtonDown="DisableDelete"
+						Text="{Binding Path=UIName}" ItemsSource="{Binding Path=SceneNames}"
+						Style="{StaticResource DeltaComboBox}" Grid.ColumnSpan="3" />
+					<Button
+						Grid.Column="7" Grid.Row="1" Content="Load" Style="{StaticResource DeltaButton}" Click="LoadScene" />
+					<Label Grid.Column="5" Grid.Row="3" Style="{StaticResource DeltaLabel}" Content="Height" />
+					<TextBox
+						Grid.Column="3" Grid.Row="3" Text="{Binding Path=UIWidth, UpdateSourceTrigger=PropertyChanged}"
+						PreviewMouseLeftButtonDown="DisableDelete" Name="UIWidth" LostFocus="WidthChanged"
+						Style="{StaticResource DeltaTextBox}" />
+					<TextBox
+						Grid.Column="7" Grid.Row="3" Name="UIHeight" PreviewMouseLeftButtonDown="DisableDelete"
+						Text="{Binding Path=UIHeight, UpdateSourceTrigger=PropertyChanged}"
+						LostFocus="HeightChanged" Style="{StaticResource DeltaTextBox}" />
+				</Grid>
+			</Expander>
+			<Expander
+				Grid.Column="1" Header="Object Properties" HorizontalAlignment="Left"
+				Grid.Row="9" VerticalAlignment="Top" Grid.ColumnSpan="4" Width="258"
+				Style="{StaticResource DeltaExpander}" Height="Auto" Background="#FFACACAC"
+				FontWeight="Bold" IsExpanded="True">
+				<Grid Background="#FFE5E5E5" Height="Auto">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="12" />
+						<ColumnDefinition Width="55" />
+						<ColumnDefinition Width="8" />
+						<ColumnDefinition Width="50" />
+						<ColumnDefinition Width="8" />
+						<ColumnDefinition Width="50" />
+						<ColumnDefinition Width="8" />
+						<ColumnDefinition Width="50" />
+						<ColumnDefinition Width="12" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="12" />
+						<RowDefinition Height="30" />
+						<RowDefinition Height="12" />
+						<RowDefinition Height="30" />
+						<RowDefinition Height="12" />
+						<RowDefinition Height="30" />
+						<RowDefinition Height="12" />
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="25*" />
+						<RowDefinition Height="12" />
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="25*" />
+						<RowDefinition Height="12" />
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="12" />
+						<RowDefinition Height="26*" />
+						<RowDefinition Height="12" />
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="6*" />
+						<RowDefinition Height="12" />
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="0*" />
+					</Grid.RowDefinitions>
+					<Label
+						Content="Name" Grid.Column="1" Grid.Row="1" Style="{StaticResource DeltaLabel}" />
+					<Label
+						Content="Width" Grid.Column="1" Grid.Row="3" Style="{StaticResource DeltaLabel}" />
+					<Label
+						Content="Layer" Grid.Column="1" Grid.Row="5" VerticalAlignment="Top"
+						Height="30" Style="{StaticResource DeltaLabel}" />
+					<TextBox
+						Grid.Column="3" Height="30" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top"
+						PreviewMouseLeftButtonDown="DisableDelete" Grid.ColumnSpan="3"
+						Style="{StaticResource DeltaTextBox}" IsEnabled="{Binding Path=EnableButtons}"
+						Text="{Binding Path=ControlName, UpdateSourceTrigger=PropertyChanged}" />
+					<TextBox
+						Grid.Column="3" Grid.Row="3" TextWrapping="Wrap" Style="{StaticResource DeltaTextBox}"
+						PreviewMouseLeftButtonDown="DisableDelete"
+						Text="{Binding Path=Entity2DWidth, UpdateSourceTrigger=PropertyChanged}"
+						IsEnabled="{Binding Path=EnableButtons}" />
+					<Label Content="Height" Grid.Column="5" Grid.Row="3" Style="{StaticResource DeltaLabel}" />
+					<TextBox
+						Grid.Column="7" Grid.Row="3" TextWrapping="Wrap" Style="{StaticResource DeltaTextBox}"
+						PreviewMouseLeftButtonDown="DisableDelete"
+						Text="{Binding Path=Entity2DHeight, 
+						UpdateSourceTrigger=PropertyChanged}"
+						IsEnabled="{Binding Path=EnableButtons}" />
+					<TextBox
+						Grid.ColumnSpan="4" Grid.Column="3" Grid.Row="5" TextWrapping="Wrap" Text="{Binding Path=ControlLayer}"
+						PreviewMouseLeftButtonDown="DisableDelete" Style="{StaticResource DeltaTextBox}"
+						IsEnabled="{Binding Path=EnableButtons}" />
+					<Button
+						Content="▲" Grid.Column="7" Grid.Row="5" HorizontalAlignment="Right" Width="20" Height="15"
+						VerticalAlignment="Top" Foreground="White" FontSize="10" FontWeight="Bold"
+						Click="IncreaseRenderlayer" Style="{StaticResource DeltaButton}" IsEnabled="{Binding Path=EnableButtons}" />
+					<Button Content="▼" Grid.Column="7" HorizontalAlignment="Right" Grid.Row="5"
+					        VerticalAlignment="Bottom" Width="20" Height="15" Foreground="White" FontSize="10"
+					        FontWeight="Bold" Click="DecreaseRenderLayer" Style="{StaticResource DeltaButton}"
+					        IsEnabled="{Binding Path=EnableButtons}" />
+					<Expander
+						Grid.Column="1" Header="Alignment" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Top"
+						Grid.ColumnSpan="7" Width="231" Style="{StaticResource DeltaExpander}" Height="Auto" Grid.RowSpan="2">
+						<Grid Background="#FFE5E5E5" Height="Auto">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="12" />
+								<ColumnDefinition Width="100" />
+								<ColumnDefinition Width="8" />
+								<ColumnDefinition Width="76*" />
+								<ColumnDefinition Width="12" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="12" />
+								<RowDefinition Height="30" />
+								<RowDefinition Height="12" />
+								<RowDefinition Height="30" />
+								<RowDefinition Height="12" />
+								<RowDefinition Height="30" />
+								<RowDefinition Height="12" />
+								<RowDefinition Height="30" />
+								<RowDefinition Height="12" />
+								<RowDefinition Height="30" />
+								<RowDefinition Height="12" />
+								<RowDefinition Height="30" />
+								<RowDefinition Height="12" />
+							</Grid.RowDefinitions>
+							<Label Content="Horizontal" Grid.Column="1" Grid.Row="1" Style="{StaticResource DeltaLabel}" />
+							<Label Content="Vertical" Grid.Column="1" Grid.Row="3" Style="{StaticResource DeltaLabel}" />
+							<Label Content="Margin Bottom" Grid.Column="1" Grid.Row="5" Style="{StaticResource DeltaLabel}" />
+							<Label Content="Margin Top" Grid.Column="1" Grid.Row="7" Style="{StaticResource DeltaLabel}" />
+							<Label Content="Margin Left" Grid.Column="1" Grid.Row="9" Style="{StaticResource DeltaLabel}" />
+							<Label Content="Margin Right" Grid.Column="1" Grid.Row="11" Style="{StaticResource DeltaLabel}" />
+							<ComboBox
+								Grid.Column="3" Grid.Row="1" SelectedItem="{Binding Path=HorizontalAllignment}"
+								Name="HorizontalAllignment" IsEnabled="{Binding Path=EnableButtons}"
+								Style="{StaticResource DeltaComboBox}">
+								<ComboBoxItem Content="Left"></ComboBoxItem>
+								<ComboBoxItem Content="Center"></ComboBoxItem>
+								<ComboBoxItem Content="Right"></ComboBoxItem>
+							</ComboBox>
+							<ComboBox
+								Grid.Column="3" Grid.Row="3" SelectedItem="{Binding Path=VerticalAllignment}"
+								Name="VerticalAllignment" IsEnabled="{Binding Path=EnableButtons}" Style="{StaticResource DeltaComboBox}">
+								<ComboBoxItem Content="Top"></ComboBoxItem>
+								<ComboBoxItem Content="Center"></ComboBoxItem>
+								<ComboBoxItem Content="Bottom"></ComboBoxItem>
+							</ComboBox>
+							<TextBox Grid.Column="3" Grid.Row="5" TextWrapping="Wrap" Style="{StaticResource DeltaTextBox}"
+							         PreviewMouseLeftButtonDown="DisableDelete"
+							         Text="{Binding Path=BottomMargin, UpdateSourceTrigger=PropertyChanged}"
+							         IsEnabled="{Binding Path=EnableButtons}" />
+							<TextBox Grid.Column="3" Grid.Row="7" TextWrapping="Wrap" Style="{StaticResource DeltaTextBox}"
+							         PreviewMouseLeftButtonDown="DisableDelete"
+							         Text="{Binding Path=TopMargin, UpdateSourceTrigger=PropertyChanged}"
+							         IsEnabled="{Binding Path=EnableButtons}" />
+							<TextBox Grid.Column="3" Grid.Row="9" TextWrapping="Wrap" Style="{StaticResource DeltaTextBox}"
+							         PreviewMouseLeftButtonDown="DisableDelete"
+							         Text="{Binding Path=LeftMargin, UpdateSourceTrigger=PropertyChanged}"
+							         IsEnabled="{Binding Path=EnableButtons}" />
+							<TextBox Grid.Column="3" Grid.Row="11" TextWrapping="Wrap" Style="{StaticResource DeltaTextBox}"
+							         PreviewMouseLeftButtonDown="DisableDelete"
+							         Text="{Binding Path=RightMargin, UpdateSourceTrigger=PropertyChanged}"
+							         IsEnabled="{Binding Path=EnableButtons}" />
+						</Grid>
+					</Expander>
+					<Expander
+						Grid.Column="1" Header="Material" HorizontalAlignment="Left" Grid.Row="10" VerticalAlignment="Top"
+						Grid.ColumnSpan="7" Style="{StaticResource DeltaExpander}" Height="Auto" Grid.RowSpan="2" Width="231">
+						<Grid Background="#FFE5E5E5" Height="Auto">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="12" />
+								<ColumnDefinition Width="76" />
+								<ColumnDefinition Width="8" />
+								<ColumnDefinition Width="76*" />
+								<ColumnDefinition Width="12" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="12" />
+								<RowDefinition Height="30" />
+								<RowDefinition Height="12" />
+								<RowDefinition Height="30" />
+								<RowDefinition Height="12" />
+								<RowDefinition Height="30" />
+								<RowDefinition Height="12" />
+								<RowDefinition Height="30" />
+								<RowDefinition Height="12" />
+								<RowDefinition Height="30" />
+								<RowDefinition Height="12" />
+							</Grid.RowDefinitions>
+							<Label Content="Default" Grid.Column="1" Grid.Row="1" Style="{StaticResource DeltaLabel}" />
+							<Label Content="Hovered" Grid.Column="1" Grid.Row="3" Style="{StaticResource DeltaLabel}" />
+							<Label Content="Pressed" Grid.Column="1" Grid.Row="5" Style="{StaticResource DeltaLabel}" />
+							<Label Content="Disabled" Grid.Column="1" Grid.Row="7" Style="{StaticResource DeltaLabel}" />
+							<ComboBox
+								Grid.Column="3" Grid.Row="1" Style="{StaticResource DeltaComboBox}"
+								ItemsSource="{Binding Path=MaterialList}" SelectionChanged="ChangeMaterial"
+								Name="MaterialComboBox" SelectedItem="{Binding Path=SelectedMaterial}" Background="White"
+								IsEnabled="{Binding Path=EnableButtons}" />
+							<ComboBox
+								Grid.Column="3" Grid.Row="3" Style="{StaticResource DeltaComboBox}"
+								ItemsSource="{Binding Path=MaterialList}" SelectionChanged="ChangeHoveredMaterial"
+								Name="MaterialHoveredComboBox" IsEnabled="{Binding Path=EnableButtons}"
+								SelectedItem="{Binding Path=SelectedHoveredMaterial}" />
+							<ComboBox
+								Grid.Column="3" Grid.Row="5" Style="{StaticResource DeltaComboBox}"
+								ItemsSource="{Binding Path=MaterialList}" SelectionChanged="ChangePressedMaterial"
+								Name="MaterialPressedComboBox" IsEnabled="{Binding Path=EnableButtons}"
+								SelectedItem="{Binding Path=SelectedPressedMaterial}" />
+							<ComboBox
+								Grid.Column="3" Grid.Row="7" Style="{StaticResource DeltaComboBox}"
+								ItemsSource="{Binding Path=MaterialList}" SelectionChanged="ChangeDisabledMaterial"
+								Name="MaterialDisabledComboBox" IsEnabled="{Binding Path=EnableButtons}"
+								SelectedItem="{Binding Path=SelectedDisabledMaterial}" />
+							<Button
+								Content="Create Material" Grid.Column="1" Grid.Row="9"
+								Style="{StaticResource DeltaButton}" Click="OpenMaterialEditorClick" Grid.ColumnSpan="3" />
+						</Grid>
+					</Expander>
+					<Expander
+						Grid.Column="1" Header="Button Properties" HorizontalAlignment="Left" Grid.Row="15" VerticalAlignment="Top"
+						Grid.ColumnSpan="7" Width="231" Style="{StaticResource DeltaExpander}" Height="Auto">
+						<Grid Background="#FFE5E5E5" Height="Auto">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="12" />
+								<ColumnDefinition Width="76*" />
+								<ColumnDefinition Width="12" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="12" />
+								<RowDefinition Height="30" />
+								<RowDefinition Height="12" />
+							</Grid.RowDefinitions>
+							<CheckBox
+								Content="Interactive Button" Grid.Column="1" Grid.Row="1"
+								Style="{StaticResource DeltaCheckBox}" IsEnabled="{Binding Path=EnableButtons}"
+								IsChecked="{Binding Path=IsInteractiveButton}" Name="InteractiveButtonCheckBox" />
+						</Grid>
+					</Expander>
+					<Expander
+						Grid.Column="1" Header="Anchor Properties" HorizontalAlignment="Left" Grid.Row="13" VerticalAlignment="Top"
+						Grid.ColumnSpan="7" Width="231" Style="{StaticResource DeltaExpander}" Height="Auto">
+						<Grid Background="#FFE5E5E5" Height="96">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="12" />
+								<ColumnDefinition Width="76*" />
+								<ColumnDefinition Width="12" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="12" />
+								<RowDefinition Height="30" />
+								<RowDefinition Height="12" />
+								<RowDefinition Height="30"/>
+								<RowDefinition Height="12"/>
+							</Grid.RowDefinitions>
+							<Button
+								Content="Anchor controls To" Grid.Column="1" Grid.Row="1"
+								Style="{StaticResource DeltaButton}" Click="AnchorControls" />
+							<Button
+								Content="Un-Anchor selected controls" Grid.Column="1" Grid.Row="3"
+								Style="{StaticResource DeltaButton}" Click="UnAnchorControls" />
+						</Grid>
+					</Expander>
+
+					<Expander
+						Grid.Column="1" Header="Text" HorizontalAlignment="Left" Grid.Row="18" VerticalAlignment="Top"
+						Grid.ColumnSpan="7" Width="231" Style="{StaticResource DeltaExpander}" Height="Auto" Grid.RowSpan="2">
+						<Grid Background="#FFE5E5E5" Height="Auto">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="12" />
+								<ColumnDefinition Width="76" />
+								<ColumnDefinition Width="8" />
+								<ColumnDefinition Width="76*" />
+								<ColumnDefinition Width="12" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="12" />
+								<RowDefinition Height="30" />
+								<RowDefinition Height="12" />
+								<RowDefinition Height="30" />
+								<RowDefinition Height="12" />
+							</Grid.RowDefinitions>
+							<Label Content="Font" Grid.Column="1" Grid.Row="1" Style="{StaticResource DeltaLabel}" />
+							<Label Content="Text" Grid.Column="1" Grid.Row="3" Style="{StaticResource DeltaLabel}" />
+							<ComboBox
+								Grid.Column="3" Grid.Row="1" ItemsSource="{Binding Path=AvailableFontsInProject}"
+								Name="FontComboBox" SelectedItem="{Binding Path=SelectedFontName}"
+								IsEnabled="{Binding Path=EnableButtons}" Style="{StaticResource DeltaComboBox}"
+								Height="28" VerticalAlignment="Top" />
+							<!--<Button Grid.ColumnSpan="8" Content="Create Font" Grid.Column="2" Grid.Row="51" Style="{StaticResource DeltaButton}"
+			        Click="OpenFontEditor">
+				<Button.Background>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+						<GradientStop Color="#FFA0A0A0" Offset="0" />
+						<GradientStop Color="#FF8B8B8B" Offset="1" />
+					</LinearGradientBrush>
+				</Button.Background>
+			</Button>-->
+							<TextBox
+								Grid.Column="3" Grid.Row="3" TextWrapping="Wrap"
+								PreviewMouseLeftButtonDown="DisableDelete" Name="TextControlTextBox"
+								Text="{Binding Path=ContentText, UpdateSourceTrigger=PropertyChanged}"
+								Style="{StaticResource DeltaTextBox}" IsEnabled="{Binding Path=EnableButtons}" />
+						</Grid>
+					</Expander>
+				</Grid>
+			</Expander>
+		</Grid>
+	</ScrollViewer>
+</UserControl>

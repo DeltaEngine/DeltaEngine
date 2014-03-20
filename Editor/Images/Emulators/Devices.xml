@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Devices>
+	<Device>
+		<Type>Default</Type>
+		<Name>Default</Name>
+		<ImageFile></ImageFile>
+		<ScreenPoint></ScreenPoint>
+		<ScreenSize></ScreenSize>
+		<CanRotate>False</CanRotate>
+		<CanScale>False</CanScale>
+		<DefaultScaleIndex>2</DefaultScaleIndex>
+	</Device>
+	<Device>
+		<Type>Windows</Type>
+		<Name>Windows 8 768p</Name>
+		<ImageFile>W8Emulator768p</ImageFile>
+		<ScreenPoint>33,33</ScreenPoint>
+		<ScreenSize>1366,768</ScreenSize>
+		<CanRotate>True</CanRotate>
+		<CanScale>True</CanScale>
+		<DefaultScaleIndex>0</DefaultScaleIndex>
+	</Device>
+	<Device>
+		<Type>Windows</Type>
+		<Name>Windows 8 1080p</Name>
+		<ImageFile>W8Emulator1080p</ImageFile>
+		<ScreenPoint>33,33</ScreenPoint>
+		<ScreenSize>1920,1080</ScreenSize>
+		<CanRotate>True</CanRotate>
+		<CanScale>True</CanScale>
+		<DefaultScaleIndex>0</DefaultScaleIndex>
+	</Device>
+	<Device>
+		<Type>Windows</Type>
+		<Name>Windows 8 RT</Name>
+		<ImageFile>Windows8RT_1366x768</ImageFile>
+		<ScreenPoint>129,130</ScreenPoint>
+		<ScreenSize>1366,768</ScreenSize>
+		<CanRotate>True</CanRotate>
+		<CanScale>True</CanScale>
+		<DefaultScaleIndex>0</DefaultScaleIndex>
+	</Device>
+	<Device>
+		<Type>Windows</Type>
+		<Name>Windows Phone 8</Name>
+		<ImageFile>WP8EmulatorScreenshot</ImageFile>
+		<ScreenPoint>52,166</ScreenPoint>
+		<ScreenSize>720,1280</ScreenSize>
+		<CanRotate>True</CanRotate>
+		<CanScale>True</CanScale>
+		<DefaultScaleIndex>0</DefaultScaleIndex>
+	</Device>
+	<Device>
+		<Type>Windows</Type>
+		<Name>Nokia Lumia 820</Name>
+		<ImageFile>NokiaLumia_800x480</ImageFile>
+		<ScreenPoint>47,96</ScreenPoint>
+		<ScreenSize>480,800</ScreenSize>
+		<CanRotate>True</CanRotate>
+		<CanScale>True</CanScale>
+		<DefaultScaleIndex>0</DefaultScaleIndex>
+	</Device>
+	<Device>
+		<Type>Android</Type>
+		<Name>Google Nexus 4</Name>
+		<ImageFile>AndroidGoogleNexus4_768x1280</ImageFile>
+		<ScreenPoint>44,196</ScreenPoint>
+		<ScreenSize>768,1280</ScreenSize>
+		<CanRotate>True</CanRotate>
+		<CanScale>True</CanScale>
+		<DefaultScaleIndex>0</DefaultScaleIndex>
+	</Device>
+	<Device>
+		<Type>Android</Type>
+		<Name>Google Nexus S</Name>
+		<ImageFile>AndroidGoogleNexusS_480x800</ImageFile>
+		<ScreenPoint>41,158</ScreenPoint>
+		<ScreenSize>480,800</ScreenSize>
+		<CanRotate>True</CanRotate>
+		<CanScale>True</CanScale>
+		<DefaultScaleIndex>0</DefaultScaleIndex>
+	</Device>
+	<Device>
+		<Type>Android</Type>
+		<Name>Google Nexus 7</Name>
+		<ImageFile>AndroidNexus7Tablet_1280x800</ImageFile>
+		<ScreenPoint>120,121</ScreenPoint>
+		<ScreenSize>1280,800</ScreenSize>
+		<CanRotate>True</CanRotate>
+		<CanScale>True</CanScale>
+		<DefaultScaleIndex>0</DefaultScaleIndex>
+	</Device>
+	<Device>
+		<Type>Android</Type>
+		<Name>Google Nexus 10</Name>
+		<ImageFile>AndroidNexus10Tablet_2560x1600</ImageFile>
+		<ScreenPoint>81,87</ScreenPoint>
+		<ScreenSize>1280,800</ScreenSize>
+		<CanRotate>False</CanRotate>
+		<CanScale>True</CanScale>
+		<DefaultScaleIndex>0</DefaultScaleIndex>
+	</Device>
+	<Device>
+		<Type>Android</Type>
+		<Name>Asus Transformer Pad Infinity</Name>
+		<ImageFile>AsusTransformerPadInfinityTablet_1920x1200</ImageFile>
+		<ScreenPoint>190,196</ScreenPoint>
+		<ScreenSize>1920,1200</ScreenSize>
+		<CanRotate>False</CanRotate>
+		<CanScale>True</CanScale>
+		<DefaultScaleIndex>0</DefaultScaleIndex>
+	</Device>
+	<Device>
+		<Type>Android</Type>
+		<Name>Samsung Galaxy S4</Name>
+		<ImageFile>SamsungGalaxyS4_1080x1920</ImageFile>
+		<ScreenPoint>86,321</ScreenPoint>
+		<ScreenSize>1080,1920</ScreenSize>
+		<CanRotate>True</CanRotate>
+		<CanScale>True</CanScale>
+		<DefaultScaleIndex>0</DefaultScaleIndex>
+	</Device>
+	<Device>
+		<Type>Android</Type>
+		<Name>HTC One</Name>
+		<ImageFile>HTCOne_1080x1920</ImageFile>
+		<ScreenPoint>78,246</ScreenPoint>
+		<ScreenSize>1080,1920</ScreenSize>
+		<CanRotate>True</CanRotate>
+		<CanScale>True</CanScale>
+		<DefaultScaleIndex>0</DefaultScaleIndex>
+	</Device>
+	<Device>
+		<Type>Android</Type>
+		<Name>Sony Xperia Z</Name>
+		<ImageFile>SonyXperiaZ_1080x1920</ImageFile>
+		<ScreenPoint>79,236</ScreenPoint>
+		<ScreenSize>1080,1920</ScreenSize>
+		<CanRotate>True</CanRotate>
+		<CanScale>True</CanScale>
+		<DefaultScaleIndex>0</DefaultScaleIndex>
+	</Device>
+	<Device>
+		<Type>Android</Type>
+		<Name>LG G2</Name>
+		<ImageFile>LGG2_1080x1920</ImageFile>
+		<ScreenPoint>44,157</ScreenPoint>
+		<ScreenSize>1080,1920</ScreenSize>
+		<CanRotate>True</CanRotate>
+		<CanScale>True</CanScale>
+		<DefaultScaleIndex>0</DefaultScaleIndex>
+	</Device>
+	<Device>
+		<Type>Android</Type>
+		<Name>Samsung Galaxy Mega 6.3</Name>
+		<ImageFile>SamsungGalaxyMega6.3_​1280x720</ImageFile>
+		<ScreenPoint>42,127</ScreenPoint>
+		<ScreenSize>1280,720</ScreenSize>
+		<CanRotate>True</CanRotate>
+		<CanScale>True</CanScale>
+		<DefaultScaleIndex>0</DefaultScaleIndex>
+	</Device>
+	<Device>
+		<Type>Android</Type>
+		<Name>Motorola Moto X</Name>
+		<ImageFile>MotorolaMotoX_1280x720</ImageFile>
+		<ScreenPoint>36,166</ScreenPoint>
+		<ScreenSize>1280,720</ScreenSize>
+		<CanRotate>True</CanRotate>
+		<CanScale>True</CanScale>
+		<DefaultScaleIndex>0</DefaultScaleIndex>
+	</Device>
+	<Device>
+		<Type>iOS</Type>
+		<Name>iPhone 3 GS</Name>
+		<ImageFile>iPhone3GS_320x480</ImageFile>
+		<ScreenPoint>30,117</ScreenPoint>
+		<ScreenSize>320,480</ScreenSize>
+		<CanRotate>True</CanRotate>
+		<CanScale>True</CanScale>
+		<DefaultScaleIndex>0</DefaultScaleIndex>
+	</Device>
+	<Device>
+		<Type>iOS</Type>
+		<Name>iPhone 4</Name>
+		<ImageFile>iPhone4_640x960</ImageFile>
+		<ScreenPoint>60,251</ScreenPoint>
+		<ScreenSize>640,960</ScreenSize>
+		<CanRotate>True</CanRotate>
+		<CanScale>True</CanScale>
+		<DefaultScaleIndex>0</DefaultScaleIndex>
+	</Device>
+	<Device>
+		<Type>iOS</Type>
+		<Name>iPhone 5</Name>
+		<ImageFile>iPhone5_640x1136</ImageFile>
+		<ScreenPoint>52,226</ScreenPoint>
+		<ScreenSize>640,960</ScreenSize>
+		<CanRotate>True</CanRotate>
+		<CanScale>True</CanScale>
+		<DefaultScaleIndex>0</DefaultScaleIndex>
+	</Device>
+	<Device>
+		<Type>iOS</Type>
+		<Name>iPad</Name>
+		<ImageFile>iPad_1024x768</ImageFile>
+		<ScreenPoint>116,109</ScreenPoint>
+		<ScreenSize>1024,768</ScreenSize>
+		<CanRotate>True</CanRotate>
+		<CanScale>True</CanScale>
+		<DefaultScaleIndex>0</DefaultScaleIndex>
+	</Device>
+	<Device>
+		<Type>iOS</Type>
+		<Name>iPad 3</Name>
+		<ImageFile>iPad3_2048x1536</ImageFile>
+		<ScreenPoint>113,97</ScreenPoint>
+		<ScreenSize>1024,768</ScreenSize>
+		<CanRotate>True</CanRotate>
+		<CanScale>True</CanScale>
+		<DefaultScaleIndex>0</DefaultScaleIndex>
+	</Device>
+	<Device>
+		<Type>TV</Type>
+		<Name>TV 600p</Name>
+		<ImageFile>TV_1024x600</ImageFile>
+		<ScreenPoint>22,24</ScreenPoint>
+		<ScreenSize>1024,600</ScreenSize>
+		<CanRotate>False</CanRotate>
+		<CanScale>True</CanScale>
+		<DefaultScaleIndex>0</DefaultScaleIndex>
+	</Device>
+	<Device>
+		<Type>TV</Type>
+		<Name>TV 720p</Name>
+		<ImageFile>TV_1280x720</ImageFile>
+		<ScreenPoint>28,30</ScreenPoint>
+		<ScreenSize>1280,720</ScreenSize>
+		<CanRotate>False</CanRotate>
+		<CanScale>True</CanScale>
+		<DefaultScaleIndex>0</DefaultScaleIndex>
+    </Device>
+	<Device>
+		<Type>TV</Type>
+		<Name>TV 1080p</Name>
+		<ImageFile>TV_1920x1080</ImageFile>
+		<ScreenPoint>28,32</ScreenPoint>
+		<ScreenSize>1900, 1080</ScreenSize>
+		<CanRotate>False</CanRotate>
+		<CanScale>True</CanScale>
+		<DefaultScaleIndex>0</DefaultScaleIndex>
+	</Device>
+</Devices>

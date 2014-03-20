@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4C0891C0-CE79-4A2D-919E-6F706B62C8EA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DeltaEngine.Editor</RootNamespace>
+    <AssemblyName>DeltaEngine.Editor</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>DeltaEngine.Editor.App</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>DeltaEngine.Editor.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GalaSoft.MvvmLight.WPF4">
+      <HintPath>packages\MvvmLightLibs.4.2.30.0\lib\net40\GalaSoft.MvvmLight.WPF4.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.XML" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WPFLocalizeExtension">
+      <HintPath>packages\WpfLocalizeExtension.2.1.4\lib\net35\WPFLocalizeExtension.dll</HintPath>
+    </Reference>
+    <Reference Include="XAMLMarkupExtensions">
+      <HintPath>packages\XAMLMarkupExtensions.1.1.6.3\lib\net40\XAMLMarkupExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock">
+      <HintPath>packages\AvalonDock.2.0.2000\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro">
+      <HintPath>packages\AvalonDock.2.0.2000\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Content\Online\DeltaEngine.Content.Online.csproj">
+      <Project>{68AA6280-09EF-4325-B5F8-B8A967004144}</Project>
+      <Name>DeltaEngine.Content.Online</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Content\Xml\DeltaEngine.Content.Xml.csproj">
+      <Project>{138A40B5-3D80-4BA3-BD84-D82C151EE7FE}</Project>
+      <Name>DeltaEngine.Content.Xml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DeltaEngine.csproj">
+      <Project>{20FA8D33-A964-4000-AD82-67BD6900793B}</Project>
+      <Name>DeltaEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logging\DeltaEngine.Logging.csproj">
+      <Project>{E4440567-3D5D-4670-AB49-8163B18E302E}</Project>
+      <Name>DeltaEngine.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Networking\DeltaEngine.Networking.csproj">
+      <Project>{5231706E-2955-43BF-9C06-291E12AF5C5C}</Project>
+      <Name>DeltaEngine.Networking</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Networking\Messages\DeltaEngine.Networking.Messages.csproj">
+      <Project>{74863E62-A568-4C0A-A37F-F04BFA8EB9DB}</Project>
+      <Name>DeltaEngine.Networking.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Platforms\DeltaEngine.Platforms.csproj">
+      <Project>{BAE8830E-5F62-48D6-B772-C4B1E8665FB3}</Project>
+      <Name>DeltaEngine.Platforms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Platforms\Windows\DeltaEngine.Platforms.Windows.csproj">
+      <Project>{BD8A80E2-A313-437E-B0EF-FC0B066280A7}</Project>
+      <Name>DeltaEngine.Platforms.Windows</Name>
+    </ProjectReference>
+    <ProjectReference Include="ContentManager\DeltaEngine.Editor.ContentManager.csproj">
+      <Project>{F65A7A3C-81E9-4A61-9D64-BBDC7C66345F}</Project>
+      <Name>DeltaEngine.Editor.ContentManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="Core\DeltaEngine.Editor.Core.csproj">
+      <Project>{C667C7FC-A1C7-4CBC-98C0-C97F776E4570}</Project>
+      <Name>DeltaEngine.Editor.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="Emulator\DeltaEngine.Editor.Emulator.csproj">
+      <Project>{1D89891B-C4E6-4B92-8280-EDBA069EF9A7}</Project>
+      <Name>DeltaEngine.Editor.Emulator</Name>
+    </ProjectReference>
+    <ProjectReference Include="Frameworks\OpenGL\DeltaEngine.Editor.OpenGL.csproj">
+      <Project>{E072F611-D2AC-4ED0-A71B-AD4374F952D1}</Project>
+      <Name>DeltaEngine.Editor.OpenGL</Name>
+    </ProjectReference>
+    <ProjectReference Include="Messages\DeltaEngine.Editor.Messages.csproj">
+      <Project>{E4BF1DFC-4753-42E8-AF9C-06B5B3E6748E}</Project>
+      <Name>DeltaEngine.Editor.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="Mocks\DeltaEngine.Editor.Mocks.csproj">
+      <Project>{2A38417D-2378-41F8-BCC6-A65E1894835A}</Project>
+      <Name>DeltaEngine.Editor.Mocks</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditorPluginEntryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ExitButton.png" />
+    <Resource Include="Images\MaximizeWindowButton.png" />
+    <Resource Include="Images\MinimizeWindowButton.png" />
+    <Resource Include="Images\ExitButtonHover.png" />
+    <Resource Include="Images\MaximizeWindowButtonHover.png" />
+    <Resource Include="Images\MinimizeWindowButtonHover.png" />
+    <Resource Include="Images\WelcomeDeltaLogo.png" />
+    <Resource Include="Images\Remove.png" />
+    <Resource Include="Images\Search.png" />
+    <Resource Include="Images\AppBuilder\BuildErrorIcon.png" />
+    <Resource Include="Images\AppBuilder\BuildInfoIcon.png" />
+    <Resource Include="Images\AppBuilder\BuildWarningIcon.png" />
+    <Resource Include="Images\AppBuilder\StartBuildIcon.png" />
+    <Resource Include="Images\ParticleEditor\GraphButton.png" />
+    <Resource Include="Images\ParticleEditor\RangeButton.png" />
+    <Resource Include="Images\Plugins\Account.png" />
+    <Resource Include="Images\Plugins\AppBuilder.png" />
+    <Resource Include="Images\Plugins\Content.png" />
+    <Resource Include="Images\Plugins\Emulator.png" />
+    <Resource Include="Images\Plugins\Font.png" />
+    <Resource Include="Images\Plugins\ImageAnimation.png" />
+    <Resource Include="Images\Plugins\Input.png" />
+    <Resource Include="Images\Plugins\Level.png" />
+    <Resource Include="Images\Plugins\Material.png" />
+    <Resource Include="Images\Plugins\MeshAnimation.png" />
+    <Resource Include="Images\Plugins\ParticleEffect.png" />
+    <Resource Include="Images\Plugins\ProjectCreator.png" />
+    <Resource Include="Images\Plugins\SampleBrowser.png" />
+    <Resource Include="Images\Plugins\Shader.png" />
+    <Resource Include="Images\Plugins\Start.png" />
+    <Resource Include="Images\Plugins\Trigger.png" />
+    <Resource Include="Images\Plugins\UI.png" />
+    <Resource Include="Images\UIEditor\CreateButton.png" />
+    <Resource Include="DeltaEngine.Editor.ico" />
+    <Resource Include="Images\UIEditor\CreateImage.png" />
+    <Resource Include="Images\UIEditor\CreateLabel.png" />
+    <Resource Include="Images\UIEditor\DefaultButtonBackground.png" />
+    <Resource Include="Images\UIEditor\DefaultButtonHover.png" />
+    <Resource Include="Images\UIEditor\DefaultButtonPressed.png" />
+    <Resource Include="Images\UIEditor\DefaultCheckboxOff.png" />
+    <Resource Include="Images\UIEditor\DefaultCheckboxOffHover.png" />
+    <Resource Include="Images\UIEditor\DefaultCheckboxOn.png" />
+    <Resource Include="Images\UIEditor\DefaultCheckboxOnHover.png" />
+    <Resource Include="Images\UIEditor\DefaultDropDownBox.png" />
+    <Resource Include="Images\UIEditor\DefaultDropDownBoxHover.png" />
+    <Resource Include="Images\UIEditor\DefaultImage.png" />
+    <Resource Include="Images\UIEditor\DefaultLabel.png" />
+    <Resource Include="Images\UIEditor\DefaultRadiobuttonOff.png" />
+    <Resource Include="Images\UIEditor\DefaultRadioButtonOffHover.png" />
+    <Resource Include="Images\UIEditor\DefaultRadiobuttonOn.png" />
+    <Resource Include="Images\UIEditor\DefaultRadioButtonOnHover.png" />
+    <Resource Include="Images\UIEditor\DefaultSlider.png" />
+    <Resource Include="Images\UIEditor\DefaultSliderBackground.png" />
+    <Resource Include="Images\UIEditor\DefaultSliderHover.png" />
+    <Resource Include="Images\Updating.png" />
+    <Resource Include="Images\VisualStudioIcon.png" />
+    <Resource Include="Images\Plugins\Viewport.png" />
+    <Resource Include="Images\UIEditor\CreateCheckbox.png" />
+    <Resource Include="Images\UIEditor\CreateColorGradient.png" />
+    <Resource Include="Images\UIEditor\CreateDropdownList.png" />
+    <Resource Include="Images\UIEditor\CreateProgressBar.png" />
+    <Resource Include="Images\UIEditor\CreateRadioButton.png" />
+    <Resource Include="Images\UIEditor\CreateRadioDialog.png" />
+    <Resource Include="Images\UIEditor\CreateSelectBox.png" />
+    <Resource Include="Images\UIEditor\CreateSlider.png" />
+    <Resource Include="Images\UIEditor\CreateTextbox.png" />
+    <Resource Include="Images\UIEditor\CreateTilemap.png" />
+    <Resource Include="Images\ContentTypes\Camera.png" />
+    <Resource Include="Images\ContentTypes\Font.png" />
+    <Resource Include="Images\ContentTypes\Geometry.png" />
+    <Resource Include="Images\ContentTypes\Image.png" />
+    <Resource Include="Images\ContentTypes\ImageAnimation.png" />
+    <Resource Include="Images\ContentTypes\InputCommand.png" />
+    <Resource Include="Images\ContentTypes\Json.png" />
+    <Resource Include="Images\ContentTypes\JustStore.png" />
+    <Resource Include="Images\ContentTypes\Level.png" />
+    <Resource Include="Images\ContentTypes\Material.png" />
+    <Resource Include="Images\ContentTypes\Mesh.png" />
+    <Resource Include="Images\ContentTypes\MeshAnimation.png" />
+    <Resource Include="Images\ContentTypes\Model.png" />
+    <Resource Include="Images\ContentTypes\Music.png" />
+    <Resource Include="Images\ContentTypes\ParticleEmitter.png" />
+    <Resource Include="Images\ContentTypes\Scene.png" />
+    <Resource Include="Images\ContentTypes\Shader.png" />
+    <Resource Include="Images\ContentTypes\Sound.png" />
+    <Resource Include="Images\ContentTypes\SpriteSheetAnimation.png" />
+    <Resource Include="Images\ContentTypes\Trigger.png" />
+    <Resource Include="Images\ContentTypes\Video.png" />
+    <Resource Include="Images\ContentTypes\Xml.png" />
+    <Resource Include="Images\CPP.png" />
+    <Resource Include="Images\CreateProject.png" />
+    <Resource Include="Images\CSharp.png" />
+    <Resource Include="Images\Tutorials.png" />
+    <Resource Include="Images\FirstSteps.png" />
+    <Resource Include="Images\Editor.png" />
+    <Resource Include="Images\HelpButton.png" />
+    <Resource Include="Images\HelpButtonHover.png" />
+    <Resource Include="Images\LoginKey.png" />
+    <Resource Include="Images\AppBuilder.png" />
+    <Resource Include="Images\Documentation.png" />
+    <Resource Include="Images\TroubleshootingChecklist.png" />
+    <Resource Include="Images\LoginImage.jpg" />
+    <Resource Include="Images\ProjectCreator\CreateProjectIcon.png" />
+    <Resource Include="Images\AppBuilder\Android.png" />
+    <Resource Include="Images\AppBuilder\Windows.png" />
+    <Resource Include="Images\AppBuilder\Web.png" />
+    <Resource Include="Images\ContentTypes\ParticleSystem.png" />
+    <Resource Include="Images\UIEditor\Quad.png" />
+    <Resource Include="Images\AppBuilder\iOS.png" />
+    <Resource Include="Images\AppBuilder\MacOS.png" />
+    <Resource Include="Images\AppBuilder\Windows8.png" />
+    <Resource Include="Images\AppBuilder\WindowsPhone8.png" />
+    <Resource Include="Images\UIEditor\RotateGizmo.cur" />
+    <Resource Include="Images\UIEditor\ScaleGizmo.cur" />
+    <Resource Include="Images\UIEditor\TransformGizmo.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\Emulators\AndroidGoogleNexus4_768x1280.png" />
+    <EmbeddedResource Include="Images\Emulators\AndroidGoogleNexusS_480x800.png" />
+    <EmbeddedResource Include="Images\Emulators\AndroidNexus10Tablet_2560x1600.png" />
+    <EmbeddedResource Include="Images\Emulators\AndroidNexus7Tablet_1280x800.png" />
+    <EmbeddedResource Include="Images\Emulators\AsusTransformerPadInfinityTablet_1920x1200.png" />
+    <EmbeddedResource Include="Images\Emulators\Devices.xml" />
+    <EmbeddedResource Include="Images\Emulators\iPad3_2048x1536.png" />
+    <EmbeddedResource Include="Images\Emulators\iPad_1024x768.png" />
+    <EmbeddedResource Include="Images\Emulators\iPhone3GS_320x480.png" />
+    <EmbeddedResource Include="Images\Emulators\iPhone4_640x960.png" />
+    <EmbeddedResource Include="Images\Emulators\iPhone5_640x1136.png" />
+    <EmbeddedResource Include="Images\Emulators\TV_1024x600.png" />
+    <EmbeddedResource Include="Images\Emulators\TV_1280x720.png" />
+    <EmbeddedResource Include="Images\Emulators\TV_1920x1080.png" />
+    <EmbeddedResource Include="Images\Emulators\W8Emulator1080p.png" />
+    <EmbeddedResource Include="Images\Emulators\W8Emulator768p.png" />
+    <EmbeddedResource Include="Images\Emulators\Windows8RT_1366x768.png" />
+    <EmbeddedResource Include="Images\Emulators\WindowsPhone8_720x1280.png" />
+    <EmbeddedResource Include="Images\Emulators\WP8EmulatorScreenshot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ContentUploadQueue.cs" />
+    <Compile Include="EditorContentLoader.cs" />
+    <Compile Include="Helpers\FileReader.cs" />
+    <Compile Include="Helpers\DesignEditorPlugin.cs" />
+    <Compile Include="Helpers\DesignEditorViewModel.cs" />
+    <Compile Include="Helpers\EditorPluginLoader.cs" />
+    <Compile Include="EditorPluginEntryView.xaml.cs">
+      <DependentUpon>EditorPluginEntryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditorView.xaml.cs">
+      <DependentUpon>EditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditorViewModel.cs" />
+    <Compile Include="Helpers\MaximizerForEmptyWindows.cs" />
+    <Compile Include="Helpers\NativeScreens.cs" />
+    <Compile Include="Helpers\SingleInstance.cs" />
+    <Compile Include="Helpers\SingleInstanceApp.cs" />
+    <Compile Include="Helpers\VersionNumber.cs" />
+    <Compile Include="OnlineService.cs" />
+    <Compile Include="PopupMessageViewModel.cs" />
+    <Compile Include="ProjectNameAndFontWeight.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

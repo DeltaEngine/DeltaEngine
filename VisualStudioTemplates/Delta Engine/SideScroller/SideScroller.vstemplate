@@ -1,0 +1,35 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<TemplateData>
+		<Name>Delta Engine SideScroller</Name>
+		<Description>Sample SideScroller game</Description>
+		<TemplateID>Microsoft.CSharp.DeltaEngine.SideScroller</TemplateID>
+		<ProjectType>CSharp</ProjectType>
+		<RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+		<NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+		<CreateNewFolder>true</CreateNewFolder>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<DefaultName>SideScroller</DefaultName>
+		<Icon>SideScroller.ico</Icon>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="SideScroller.csproj" ReplaceParameters="true">
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="false" TargetFileName="SideScroller.ico">SideScroller.ico</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="EnemyPlane.cs">EnemyPlane.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="PlayerControls.cs">PlayerControls.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="InteractionLogics.cs">InteractionLogics.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Menu.cs">Menu.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ParallaxBackground.cs">ParallaxBackground.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Plane.cs">Plane.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="PlayerPlane.cs">PlayerPlane.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="DefRenderLayer.cs">DefRenderLayer.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Game.cs">Game.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Velocity2D.cs">Velocity2D.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Properties" TargetFolderName="Properties">
+				<ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+			</Folder>
+		</Project>
+	</TemplateContent>
+</VSTemplate>

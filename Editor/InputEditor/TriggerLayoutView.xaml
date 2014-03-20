@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="DeltaEngine.Editor.InputEditor.TriggerLayoutView"
+						xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+						xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+						Height="30" Width="600">
+	<Grid>
+		<ComboBox 
+			Name="TriggerType" Margin="0,0,405,0" SelectionChanged="ChangeType" x:FieldModifier="public"/>
+		<ComboBox 
+			Name="TriggerKey" Margin="203,0,202,0" SelectionChanged="ChangeKey" x:FieldModifier="public"/>
+		<ComboBox 
+			Name="TriggerState" Margin="405,0,0,0" SelectionChanged="ChangeState" x:FieldModifier="public"/>
+	</Grid>
+</UserControl>

@@ -1,0 +1,53 @@
+﻿<UserControl
+	x:Class="DeltaEngine.Editor.AppBuilder.AppBuildMessagesListView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:appBuilder="clr-namespace:DeltaEngine.Editor.AppBuilder"
+	mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="720"
+	d:DataContext="{d:DesignInstance Type=appBuilder:AppBuildMessagesListDesign,
+		IsDesignTimeCreatable=True}" >
+	<Grid>
+		<ListView
+			x:Name="OutputList" HorizontalAlignment="Stretch"
+			ItemsSource="{Binding Path=MessagesMatchingCurrentFilter}"
+			SizeChanged="UpdateMessageColumnWidth"
+		>
+			<ListView.View>
+				<GridView AllowsColumnReorder="True">
+					<GridViewColumn
+						Header="" Width="20" x:Name="IconGridViewColumn">
+						<GridViewColumn.CellTemplate>
+							<DataTemplate>
+								<Grid>
+									<Image Width="16" Height="16" Margin="-4,0,-4,0" Source="{Binding Path=ImagePath}" />
+								</Grid>
+							</DataTemplate>
+						</GridViewColumn.CellTemplate>
+					</GridViewColumn>
+					<GridViewColumn Width="56" x:Name="TimeGridViewColumn" DisplayMemberBinding="{Binding Path=IsoTime}">
+						<TextBlock HorizontalAlignment="Left" Width="46" Margin="5,1,5,1" Text="Time" />
+					</GridViewColumn>
+					<GridViewColumn Width="255" x:Name="MessageGridViewColumn" DisplayMemberBinding="{Binding Path=Message}">
+						<TextBlock HorizontalAlignment="Left" Margin="5,1,5,1" Width="250" Text="Message" x:Name="MessageHeaderText" />
+					</GridViewColumn>
+					<GridViewColumn Width="124" x:Name="ProjectGridViewColumn" DisplayMemberBinding="{Binding Path=Project}">
+						<TextBlock HorizontalAlignment="Left" Width="114" Margin="5,1,5,1" Text="Project" />
+					</GridViewColumn>
+					<GridViewColumn Width="130" x:Name="FileGridViewColumn" DisplayMemberBinding="{Binding Path=FileWithLineAndColumn}">
+						<TextBlock HorizontalAlignment="Left" Width="120" Margin="5,1,5,1" Text="File (Line,Column)" />
+					</GridViewColumn>
+				</GridView>
+			</ListView.View>
+			<ListView.ContextMenu>
+				<ContextMenu>
+					<MenuItem
+						Name="CopyMessageMenuItem" Header="Copy Message" Click="OnCopyMessageClicked"
+						ToolTip="Copies the current message to the clipboard"
+					/>
+				</ContextMenu>
+			</ListView.ContextMenu>
+		</ListView>
+	</Grid>
+</UserControl>

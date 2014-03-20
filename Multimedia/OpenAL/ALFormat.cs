@@ -1,0 +1,37 @@
+﻿namespace DeltaEngine.Multimedia.OpenAL
+{
+	public enum ALFormat
+	{
+		Mono8 = 4352,
+		Mono16,
+		Stereo8,
+		Stereo16,
+		MonoALawExt = 65558,
+		StereoALawExt,
+		MonoMuLawExt = 65556,
+		StereoMuLawExt,
+		VorbisExt = 65539,
+		Mp3Ext = 65568,
+		MonoIma4Ext = 4864,
+		StereoIma4Ext,
+		MonoFloat32Ext = 65552,
+		StereoFloat32Ext,
+		MonoDoubleExt,
+		StereoDoubleExt,
+		Multi51Chn16Ext = 4619,
+		Multi51Chn32Ext,
+		Multi51Chn8Ext = 4618,
+		Multi61Chn16Ext = 4622,
+		Multi61Chn32Ext,
+		Multi61Chn8Ext = 4621,
+		Multi71Chn16Ext = 4625,
+		Multi71Chn32Ext,
+		Multi71Chn8Ext = 4624,
+		MultiQuad16Ext = 4613,
+		MultiQuad32Ext,
+		MultiQuad8Ext = 4612,
+		MultiRear16Ext = 4616,
+		MultiRear32Ext,
+		MultiRear8Ext = 4615,
+	}
+}

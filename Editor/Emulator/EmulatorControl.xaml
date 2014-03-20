@@ -1,0 +1,154 @@
+﻿<UserControl
+	x:Class="DeltaEngine.Editor.Emulator.EmulatorControl"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+	xmlns:emulator="clr-namespace:DeltaEngine.Editor.Emulator"
+	mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="800" MinWidth="300"
+	d:DataContext="{d:DesignInstance Type=emulator:EmulatorControlDesign,
+		IsDesignTimeCreatable=True}">
+	<UserControl.Resources>
+		<Style TargetType="Label" x:Key="DeltaLabel">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#e2e2e2" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+		<Style TargetType="TextBox" x:Key="DeltaTextBox">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+			<Setter Property="BorderBrush" Value="{x:Null}" />
+		</Style>
+		<Style TargetType="ComboBox" x:Key="DeltaComboBox">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+		<Style TargetType="ListBox" x:Key="DeltaListBox">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+		<Style TargetType="Button" x:Key="DeltaButton">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FF9C9C9C" />
+			<Setter Property="Foreground" Value="#FFFFFFFF" />
+		</Style>
+		<Style TargetType="CheckBox" x:Key="DeltaCheckBox">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+	</UserControl.Resources>
+	<Grid Background="#FFF0F0F0">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="10" />
+			<ColumnDefinition Width="120" />
+			<ColumnDefinition Width="8" />
+			<ColumnDefinition />
+			<ColumnDefinition Width="10" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="12" />
+			<RowDefinition Height="30" />
+			<RowDefinition Height="12" />
+			<RowDefinition Height="30" />
+			<RowDefinition Height="12" />
+			<RowDefinition Height="30" />
+			<RowDefinition Height="12" />
+			<RowDefinition Height="30" />
+			<RowDefinition Height="12" />
+			<RowDefinition Height="30" />
+			<RowDefinition Height="12" />
+			<RowDefinition Height="30" />
+			<RowDefinition Height="12" />
+			<RowDefinition Height="30" />
+			<RowDefinition Height="12" />
+			<RowDefinition Height="30" />
+			<RowDefinition Height="12" />
+		</Grid.RowDefinitions>
+		<Label
+			Content="Device" Style="{StaticResource DeltaLabel}"
+			Grid.Column="1" Grid.Row="1" />
+		<ComboBox
+			Style="{StaticResource DeltaComboBox}"
+			ItemsSource="{Binding Path=AvailableDevices, UpdateSourceTrigger=PropertyChanged}"
+			SelectedItem="{Binding Path=SelectedDevice, UpdateSourceTrigger=PropertyChanged}"
+			SelectionChanged="OnDeviceSelectionChanged"
+			ToolTip="Select which device should be used in the viewport to test on."
+			Grid.Column="3" Grid.Row="1" />
+		<Label
+			Content="Orientation" Style="{StaticResource DeltaLabel}"
+			Grid.Column="1" Grid.Row="3" />
+		<ComboBox
+			Style="{StaticResource DeltaComboBox}"
+			ItemsSource="{Binding Path=AvailableOrientations, UpdateSourceTrigger=PropertyChanged}"
+			SelectedItem="{Binding Path=SelectedOrientation, UpdateSourceTrigger=PropertyChanged}"
+			SelectionChanged="OnOrientationSelectionChanged"
+			ToolTip="Select one of the orientations, most commonly used are Portrait and Landscape"
+			Grid.Column="3" Grid.Row="3" />
+		<Label
+			Content="Scaling" Style="{StaticResource DeltaLabel}"
+			Grid.Column="1" Grid.Row="5" />
+		<ComboBox
+			Style="{StaticResource DeltaComboBox}"
+			ItemsSource="{Binding Path=AvailableScales, UpdateSourceTrigger=PropertyChanged}"
+			SelectedItem="{Binding Path=SelectedScale, UpdateSourceTrigger=PropertyChanged}"
+			SelectionChanged="OnScalingSelectionChanged"
+			ToolTip="Scale the device and viewport to make it better fit on your screen."
+			Grid.Column="3" Grid.Row="5" />
+		<!--<CheckBox
+			Content="Show Grid" Style="{StaticResource DeltaCheckBox}"
+			ToolTip="Enable the grid for easier positioning." Background="#FFE8E7E7"
+			Grid.Column="1" Grid.Row="7" Margin="0,10,0,0" />
+		<ComboBox
+			Style="{StaticResource DeltaComboBox}"
+			SelectedItem="{Binding Path=SelectedGridSize, UpdateSourceTrigger=PropertyChanged}"
+			Grid.Column="3" Grid.Row="7">
+			<ComboBoxItem IsSelected="True">10 x 10</ComboBoxItem>
+			<ComboBoxItem>16 x 16</ComboBoxItem>
+			<ComboBoxItem>20 x 20</ComboBoxItem>
+			<ComboBoxItem>24 x 24</ComboBoxItem>
+			<ComboBoxItem>50 x 50</ComboBoxItem>
+		</ComboBox>
+		<CheckBox
+			Style="{StaticResource DeltaCheckBox}" Content="Snapping"
+			Grid.Column="1" Grid.Row="9" Margin="0,10,0,0" />
+		<CheckBox
+			Style="{StaticResource DeltaCheckBox}" Content="BG Color"
+			Grid.Column="1" Grid.Row="11" Margin="0,10,0,0" />
+		<xctk:ColorPicker
+			DisplayColorAndName="True" ShowAdvancedButton="True" ShowAvailableColors="False"
+			SelectedColorChanged="OnSelectedColorChanged"
+			Grid.Column="3" Grid.Row="11" />
+		<CheckBox
+			Style="{StaticResource DeltaCheckBox}" Content="BG Image"
+			Grid.Column="1" Grid.Row="13" Margin="0,10,0,0" />
+		<ComboBox
+			Style="{StaticResource DeltaComboBox}"
+			ItemsSource="{Binding Path=AvailableBgImages, UpdateSourceTrigger=PropertyChanged}"
+			SelectedItem="{Binding Path=SelectedBgImage, UpdateSourceTrigger=PropertyChanged}"
+			Grid.Column="3" Grid.Row="13" />
+		<CheckBox
+			Style="{StaticResource DeltaCheckBox}" Content="BG 3D Model"
+			Grid.Column="1" Grid.Row="15" Margin="0,10,0,0" />
+		<ComboBox
+			Style="{StaticResource DeltaComboBox}"
+			ItemsSource="{Binding Path=AvailableBgModels, UpdateSourceTrigger=PropertyChanged}"
+			SelectedItem="{Binding Path=SelectedBgModel, UpdateSourceTrigger=PropertyChanged}"
+			Grid.Column="3" Grid.Row="15" />-->
+	</Grid>
+</UserControl>

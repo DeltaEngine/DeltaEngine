@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{$guid2$}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>$safeprojectname$</RootNamespace>
+    <AssemblyName>$safeprojectname$</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>$safeprojectname$.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>DeltaNinja.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DeltaNinja.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Entities\LogoFactory.cs" />
+    <Compile Include="Entities\Slice.cs" />
+    <Compile Include="Entities\TrajectoryEntityHandler.cs" />
+    <Compile Include="Pages\HudScene.cs" />
+    <Compile Include="Pages\PausePage.cs" />
+    <Compile Include="UI\Background.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="UI\ErrorFlag.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="GameLogic.cs" />
+    <Compile Include="Pages\GameOverPage.cs" />
+    <Compile Include="Pages\HomePage.cs" />
+    <Compile Include="Entities\Logo.cs" />
+    <Compile Include="Entities\MovingSprite.cs" />
+    <Compile Include="Match.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Support\GameOverEventArgs.cs" />
+    <Compile Include="Support\Score.cs" />
+    <Compile Include="Pages\BasePage.cs" />
+    <Compile Include="UI\LogoLink.cs" />
+    <Compile Include="UI\Number.cs" />
+    <Compile Include="UI\NumberFactory.cs" />
+    <Compile Include="UI\PointsTip.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,36 @@
+﻿namespace CreepyTowers.Content
+{
+	public enum Nightmare1
+	{
+		ButtonChapter1,
+		Chapter1Mat,
+		ButtonChapter2,
+		Chapter2Mat,
+		Chapter2LockedMat,
+		ButtonChapter3,
+		Chapter3Mat,
+		Chapter3LockedMat,
+		ButtonChapter4,
+		Chapter4Mat,
+		Chapter4LockedMat,
+		ButtonChapter5,
+		Chapter5Mat,
+		Chapter5LockedMat,
+		ButtonChapter6,
+		Chapter6Mat,
+		Chapter6LockedMat,
+		ButtonChapter7,
+		Chapter7Mat,
+		Chapter7LockedMat,
+		ButtonChapter8,
+		Chapter8Mat,
+		Chapter8LockedMat,
+		ButtonChapter9,
+		Chapter9Mat,
+		Chapter9LockedMat,
+		ButtonChapter10,
+		Chapter10Mat,
+		Chapter10LockedMat,
+		ButtonBack
+	}
+}

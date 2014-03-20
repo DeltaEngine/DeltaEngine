@@ -1,0 +1,17 @@
+﻿<Window
+	x:Class="DeltaEngine.Editor.Emulator.Tests.MainWindow"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:tests="clr-namespace:DeltaEngine.Editor.Emulator.Tests"
+	Title="MainWindow" Height="350" Width="525">
+	<Grid>
+		<Image Source="Images\WelcomeDeltaLogo.png" Width="200" VerticalAlignment="Top"></Image>
+		<Button
+			Name="TestButton" Height="30" VerticalAlignment="Top" Click="OnClickButton"
+			Margin="0,50,0,0"
+			Content="Example WPF Button, click it to add lines to the Delta Engine Viewport below" />
+		<Grid Margin="0,80,0,0">
+			<tests:TestControl x:Name="TestControl" />
+		</Grid>
+	</Grid>
+</Window>

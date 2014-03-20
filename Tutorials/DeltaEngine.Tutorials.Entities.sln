@@ -1,0 +1,73 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaEngine.Tutorials.Entities01OwnEntity", "Entities01OwnEntity\DeltaEngine.Tutorials.Entities01OwnEntity.csproj", "{98303931-EC4A-41C3-B4D8-13EDA627393B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaEngine.Tutorials.Entities02AttachingBehavior", "Entities02AttachingBehavior\DeltaEngine.Tutorials.Entities02AttachingBehavior.csproj", "{45632720-46C9-4F43-A2DF-736C8543952D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaEngine.Tutorials.Entities03AddingComponents", "Entities03AddingComponents\DeltaEngine.Tutorials.Entities03AddingComponents.csproj", "{3314E486-3699-466E-ABD4-A220FEE2817E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaEngine.Tutorials.Entities04ChangingBehavior", "Entities04ChangingBehavior\DeltaEngine.Tutorials.Entities04ChangingBehavior.csproj", "{34A73557-64C8-4CCB-8609-28BF473D660E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaEngine.Tutorials.Entities06Triggers", "Entities06Triggers\DeltaEngine.Tutorials.Entities06Triggers.csproj", "{A13040CE-A975-4416-8561-E74B22DB474F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaEngine.Tutorials.Entities07DeactivatingEntities", "Entities07DeactivatingEntities\DeltaEngine.Tutorials.Entities07DeactivatingEntities.csproj", "{25D5C2B8-380A-4FE7-B9E2-FDBFEC773013}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaEngine.Tutorials.Entities08InputCommands", "Entities08InputCommands\DeltaEngine.Tutorials.Entities08InputCommands.csproj", "{31E07EA4-F5DC-4216-881B-90C16BE26936}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaEngine.Tutorials.Entities09Enemies", "Entities09Enemies\DeltaEngine.Tutorials.Entities09Enemies.csproj", "{85379550-2CD6-488E-B977-688824C00216}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaEngine.Tutorials.Entities10LogoRacer", "Entities10LogoRacer\DeltaEngine.Tutorials.Entities10LogoRacer.csproj", "{EB95670A-3CF3-4B2D-A2D6-7DF97D822386}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaEngine.Tutorials.Entities05Tags", "Entities05Tags\DeltaEngine.Tutorials.Entities05Tags.csproj", "{661FC420-8B71-4D46-A74E-B483BCD49106}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98303931-EC4A-41C3-B4D8-13EDA627393B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98303931-EC4A-41C3-B4D8-13EDA627393B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98303931-EC4A-41C3-B4D8-13EDA627393B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98303931-EC4A-41C3-B4D8-13EDA627393B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45632720-46C9-4F43-A2DF-736C8543952D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45632720-46C9-4F43-A2DF-736C8543952D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45632720-46C9-4F43-A2DF-736C8543952D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45632720-46C9-4F43-A2DF-736C8543952D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3314E486-3699-466E-ABD4-A220FEE2817E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3314E486-3699-466E-ABD4-A220FEE2817E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3314E486-3699-466E-ABD4-A220FEE2817E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3314E486-3699-466E-ABD4-A220FEE2817E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34A73557-64C8-4CCB-8609-28BF473D660E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34A73557-64C8-4CCB-8609-28BF473D660E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34A73557-64C8-4CCB-8609-28BF473D660E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34A73557-64C8-4CCB-8609-28BF473D660E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A13040CE-A975-4416-8561-E74B22DB474F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A13040CE-A975-4416-8561-E74B22DB474F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A13040CE-A975-4416-8561-E74B22DB474F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A13040CE-A975-4416-8561-E74B22DB474F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25D5C2B8-380A-4FE7-B9E2-FDBFEC773013}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25D5C2B8-380A-4FE7-B9E2-FDBFEC773013}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25D5C2B8-380A-4FE7-B9E2-FDBFEC773013}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25D5C2B8-380A-4FE7-B9E2-FDBFEC773013}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31E07EA4-F5DC-4216-881B-90C16BE26936}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31E07EA4-F5DC-4216-881B-90C16BE26936}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31E07EA4-F5DC-4216-881B-90C16BE26936}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31E07EA4-F5DC-4216-881B-90C16BE26936}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85379550-2CD6-488E-B977-688824C00216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85379550-2CD6-488E-B977-688824C00216}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85379550-2CD6-488E-B977-688824C00216}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85379550-2CD6-488E-B977-688824C00216}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB95670A-3CF3-4B2D-A2D6-7DF97D822386}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB95670A-3CF3-4B2D-A2D6-7DF97D822386}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB95670A-3CF3-4B2D-A2D6-7DF97D822386}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB95670A-3CF3-4B2D-A2D6-7DF97D822386}.Release|Any CPU.Build.0 = Release|Any CPU
+		{661FC420-8B71-4D46-A74E-B483BCD49106}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{661FC420-8B71-4D46-A74E-B483BCD49106}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{661FC420-8B71-4D46-A74E-B483BCD49106}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{661FC420-8B71-4D46-A74E-B483BCD49106}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

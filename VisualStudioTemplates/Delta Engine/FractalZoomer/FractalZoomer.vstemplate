@@ -1,0 +1,27 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<TemplateData>
+		<Name>Delta Engine FractalZoomer</Name>
+		<Description>Sample FractalZoomer game</Description>
+		<TemplateID>Microsoft.CSharp.DeltaEngine.FractalZoomer</TemplateID>
+		<ProjectType>CSharp</ProjectType>
+		<RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+		<NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+		<CreateNewFolder>true</CreateNewFolder>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<DefaultName>FractalZoomer</DefaultName>
+		<Icon>FractalZoomer.ico</Icon>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="FractalZoomer.csproj" ReplaceParameters="true">
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="false" TargetFileName="FractalZoomer.ico">FractalZoomer.ico</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Fractal.cs">Fractal.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Zoomer.cs">Zoomer.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Properties" TargetFolderName="Properties">
+				<ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+			</Folder>
+		</Project>
+	</TemplateContent>
+</VSTemplate>

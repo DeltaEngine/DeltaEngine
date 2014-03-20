@@ -1,0 +1,37 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<TemplateData>
+		<Name>Delta Engine Asteroids</Name>
+		<Description>Sample Asteroids game</Description>
+		<TemplateID>Microsoft.CSharp.DeltaEngine.Asteroids</TemplateID>
+		<ProjectType>CSharp</ProjectType>
+		<RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+		<NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+		<CreateNewFolder>true</CreateNewFolder>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<DefaultName>Asteroids</DefaultName>
+		<Icon>Asteroids.ico</Icon>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="Asteroids.csproj" ReplaceParameters="true">
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="false" TargetFileName="Asteroids.ico">Asteroids.ico</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="AsteroidsIcon72x72.png">AsteroidsIcon72x72.png</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Asteroid.cs">Asteroid.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Game.cs">Game.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Controls.cs">Controls.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="GameState.cs">GameState.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="InteractionLogic.cs">InteractionLogic.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="HudInterface.cs">HudInterface.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Menu.cs">Menu.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="PlayerShip.cs">PlayerShip.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Projectile.cs">Projectile.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="AsteroidsRenderLayer.cs">AsteroidsRenderLayer.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Velocity2D.cs">Velocity2D.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Properties" TargetFolderName="Properties">
+				<ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+			</Folder>
+		</Project>
+	</TemplateContent>
+</VSTemplate>

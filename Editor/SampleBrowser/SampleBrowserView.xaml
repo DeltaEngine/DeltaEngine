@@ -1,0 +1,256 @@
+﻿<UserControl
+	x:Class="DeltaEngine.Editor.SampleBrowser.SampleBrowserView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+	xmlns:sampleBrowser="clr-namespace:DeltaEngine.Editor.SampleBrowser"
+	x:Name="SampleBrowserUserControl"
+	d:DesignWidth="540" d:DesignHeight="600" MinWidth="540" MinHeight="600"
+	mc:Ignorable="d"
+	d:DataContext="{d:DesignInstance Type=sampleBrowser:SampleBrowserDesign, 
+		IsDesignTimeCreatable=True}"
+	ToolTip="Delta Engine Sample Browser">
+
+	<UserControl.Resources>
+
+		<Style TargetType="Label" x:Key="DeltaLabel">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#e2e2e2" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+			<Setter Property="Padding" Value="4,6,0,0" />
+		</Style>
+
+		<Style TargetType="Label" x:Key="DeltaLabelHeading1">
+			<Setter Property="FontSize" Value="18" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+
+		<Style TargetType="Label" x:Key="DeltaLabelHeading2">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+
+		<Style TargetType="TextBox" x:Key="DeltaTextBox">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+			<Setter Property="BorderBrush" Value="#FFB2B2B2" />
+			<Setter Property="Padding" Value="3,4,0,0" />
+		</Style>
+
+		<Style TargetType="ComboBox" x:Key="DeltaComboBox">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+			<Setter Property="Padding" Value="5"/>
+		</Style>
+
+		<Style TargetType="ListBox" x:Key="DeltaListBox">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background" Value="#FFFBFBFB" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+
+		<Style TargetType="CheckBox" x:Key="DeltaCheckBox">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Foreground" Value="#FF5D5D5D" />
+		</Style>
+
+		<Style TargetType="Button" x:Key="DeltaButton">
+			<Setter Property="FontSize" Value="14" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Background">
+				<Setter.Value>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+						<GradientStop Color="#FFBBBBBB" Offset="0"/>
+						<GradientStop Color="#FF9E9E9E" Offset="1"/>
+					</LinearGradientBrush>
+				</Setter.Value>
+			</Setter>
+			<Setter Property="BorderBrush" Value="Black" />
+			<Setter Property="Foreground" Value="#FFFFFFFF" />
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="Button">
+						<Border Background="{TemplateBinding Background}">
+							<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+						</Border>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+			<Style.Triggers>
+				<Trigger Property="IsEnabled" Value="False">
+					<Setter Property="Background" Value="#FFCFCFCF" />
+				</Trigger>
+				<MultiDataTrigger>
+					<MultiDataTrigger.Conditions>
+						<Condition
+									Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}" Value="True" />
+						<Condition
+									Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}" Value="True" />
+					</MultiDataTrigger.Conditions>
+					<Setter Property="Background" Value="#7894d3" />
+				</MultiDataTrigger>
+			</Style.Triggers>
+		</Style>
+
+		<Style x:Key="ActionLabelStyle" TargetType="{x:Type Label}">
+			<Setter Property="Margin" Value="10,3" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontWeight" Value="Bold" />
+			<Setter Property="Foreground" Value="#FF0D58DA" />
+			<Style.Resources>
+				<Style TargetType="TextBlock">
+					<Style.Triggers>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition
+									Binding="{Binding RelativeSource={RelativeSource FindAncestor,
+									AncestorType=Label}, Path=IsMouseOver}" Value="True" />
+								<Condition
+									Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled}" Value="True" />
+							</MultiDataTrigger.Conditions>
+							<Setter Property="TextDecorations" Value="Underline" />
+						</MultiDataTrigger>
+					</Style.Triggers>
+				</Style>
+			</Style.Resources>
+		</Style>
+
+	</UserControl.Resources>
+
+	<UserControl.Background>
+		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="Black" Offset="1" />
+			<GradientStop Color="DimGray" />
+		</LinearGradientBrush>
+	</UserControl.Background>
+	<Grid Background="#FFF4F4F4">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="12" />
+			<RowDefinition Height="28" />
+			<RowDefinition Height="12" />
+			<RowDefinition />
+			<RowDefinition Height="12" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="11" />
+			<ColumnDefinition Width="57*" />
+			<ColumnDefinition Width="12" />
+			<ColumnDefinition Width="58*" />
+			<ColumnDefinition Width="12" />
+			<ColumnDefinition Width="30" />
+			<ColumnDefinition Width="8" />
+			<ColumnDefinition Width="200*" />
+			<ColumnDefinition Width="12" />
+		</Grid.ColumnDefinitions>
+
+		<TextBox
+			Name="SearchTextBox" TextWrapping="Wrap"
+			Text="{Binding Path=SearchFilter, UpdateSourceTrigger=PropertyChanged}"
+			FontSize="16" ToolTip="Filter results to find samples more easily"
+			GotMouseCapture="SearchTextBoxGotMouseCapture" Grid.Column="7" Grid.Row="1" BorderBrush="#FFB2B2B2">
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="TextChanged">
+					<i:InvokeCommandAction Command="{Binding Path=OnSearchTextChanged}" />
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+			<TextBox.Style>
+				<Style
+					TargetType="{x:Type TextBox}">
+					<Setter Property="Template">
+						<Setter.Value>
+							<ControlTemplate TargetType="{x:Type TextBox}">
+								<Grid>
+									<ScrollViewer
+										Margin="2,2,0,0"
+										x:Name="PART_ContentHost"
+										SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+										BorderBrush="#3E3E3E" Background="White" />
+									<TextBlock
+										Margin="5,3,0,0"
+										x:Name="textBlock" Opacity="0.345" Text="Search"
+										TextWrapping="Wrap" Visibility="Hidden" />
+								</Grid>
+								<ControlTemplate.Triggers>
+									<MultiTrigger>
+										<MultiTrigger.Conditions>
+											<Condition Property="IsFocused" Value="False" />
+											<Condition Property="Text" Value="" />
+										</MultiTrigger.Conditions>
+										<Setter Property="Visibility" TargetName="textBlock" Value="Visible" />
+									</MultiTrigger>
+								</ControlTemplate.Triggers>
+							</ControlTemplate>
+						</Setter.Value>
+					</Setter>
+				</Style>
+			</TextBox.Style>
+		</TextBox>
+		<Image
+			Source="../Images/Search.png"
+			ToolTip="Filter the current content project to find specific items" Margin="2,0,0,0" Grid.Column="5" Grid.Row="1" />
+		<Image
+			Source="../Images/Remove.png"
+			Width="11" Height="11" HorizontalAlignment="Right"
+			ToolTip="Remove the filter text to see all items in the selected project again"
+			VerticalAlignment="Top" Margin="0,10,5,0" Grid.Column="7" Grid.Row="1">
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="MouseDown">
+					<i:InvokeCommandAction Command="{Binding Path=OnSearchTextRemoved}" />
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+		</Image>
+
+		<ComboBox
+			ItemsSource="{Binding Path=AssembliesAvailable}"
+			SelectedValue="{Binding Path=SelectedAssembly, Mode=TwoWay}" Grid.Row="1" Grid.Column="1"
+			Style="{StaticResource DeltaComboBox}" Background="{x:Null}" BorderBrush="{x:Null}">
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="SelectionChanged">
+					<i:InvokeCommandAction Command="{Binding Path=OnAssemblySelectionChanged}" />
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+		</ComboBox>
+		<ComboBox
+			ItemsSource="{Binding Path=FrameworksAvailable}"
+			SelectedValue="{Binding Path=SelectedFramework, Mode=TwoWay}" Grid.Column="3" Grid.Row="1"
+			Style="{StaticResource DeltaComboBox}">
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="SelectionChanged">
+					<i:InvokeCommandAction Command="{Binding Path=OnFrameworkSelectionChanged}" />
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+		</ComboBox>
+		<ListBox
+			Background="#FFF4F4F4"
+			MinWidth="540" HorizontalContentAlignment="Stretch" 
+			ItemsSource="{Binding Path=Samples}" Grid.Column="0" Grid.ColumnSpan="9" Grid.Row="3"
+			ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<sampleBrowser:SampleItemView Width="Auto" DataContext="{Binding}"  />
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+	</Grid>
+</UserControl>

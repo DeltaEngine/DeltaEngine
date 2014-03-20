@@ -1,0 +1,55 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<TemplateData>
+		<Name>Delta Engine GameOfDeath</Name>
+		<Description>Sample GameOfDeath game</Description>
+		<TemplateID>Microsoft.CSharp.DeltaEngine.GameOfDeath</TemplateID>
+		<ProjectType>CSharp</ProjectType>
+		<RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+		<NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+		<CreateNewFolder>true</CreateNewFolder>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<DefaultName>GameOfDeath</DefaultName>
+		<Icon>GameOfDeath.ico</Icon>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="GameOfDeath.csproj" ReplaceParameters="true">
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="false" TargetFileName="GameOfDeath.ico">GameOfDeath.ico</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="packages.config">packages.config</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Damage.cs">Damage.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="DoDamage.cs">DoDamage.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="FadeSprite.cs">FadeSprite.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="GameCoordinator.cs">GameCoordinator.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Items" TargetFolderName="Items">
+				<ProjectItem ReplaceParameters="true" TargetFileName="ItemType.cs">ItemType.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="RotateMallet.cs">RotateMallet.cs</ProjectItem>
+			</Folder>
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="true" TargetFileName="RabbitGrid.cs">RabbitGrid.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Rabbit.cs">Rabbit.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Items" TargetFolderName="Items">
+				<ProjectItem ReplaceParameters="true" TargetFileName="ItemEffect.cs">ItemEffect.cs</ProjectItem>
+			</Folder>
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="true" TargetFileName="RenderLayers.cs">RenderLayers.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Items" TargetFolderName="Items">
+				<ProjectItem ReplaceParameters="true" TargetFileName="Atomic.cs">Atomic.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Toxic.cs">Toxic.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Fire.cs">Fire.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Mallet.cs">Mallet.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Item.cs">Item.cs</ProjectItem>
+			</Folder>
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="true" TargetFileName="GameOfLife.cs">GameOfLife.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="UserInterface.cs">UserInterface.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Properties" TargetFolderName="Properties">
+				<ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+			</Folder>
+		</Project>
+	</TemplateContent>
+</VSTemplate>

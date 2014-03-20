@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4165E9EB-BEB3-4D02-A275-99F38D32F50D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DeltaEngine.Editor.ContentManager.Tests</RootNamespace>
+    <AssemblyName>DeltaEngine.Editor.ContentManager.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GalaSoft.MvvmLight.WPF4">
+      <HintPath>..\..\packages\MvvmLightLibs.4.2.30.0\lib\net40\GalaSoft.MvvmLight.WPF4.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\DeltaEngine.csproj">
+      <Project>{20FA8D33-A964-4000-AD82-67BD6900793B}</Project>
+      <Name>DeltaEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Input\DeltaEngine.Input.csproj">
+      <Project>{CC65E69E-FAFD-4C2B-85EB-5E57FD3AF847}</Project>
+      <Name>DeltaEngine.Input</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Input\Mocks\DeltaEngine.Input.Mocks.csproj">
+      <Project>{4E4D006D-9C6E-47DB-908D-674E0C8D98AA}</Project>
+      <Name>DeltaEngine.Input.Mocks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Rendering2D\DeltaEngine.Rendering2D.csproj">
+      <Project>{BDDB4AA4-5D31-43B3-9A3B-BF3030EDE927}</Project>
+      <Name>DeltaEngine.Rendering2D</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Rendering2D\Fonts\DeltaEngine.Rendering2D.Fonts.csproj">
+      <Project>{4A00FD90-FF7B-4250-9CBC-B6855130090B}</Project>
+      <Name>DeltaEngine.Rendering2D.Fonts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Rendering3D\Particles\DeltaEngine.Rendering3D.Particles.csproj">
+      <Project>{BECE691C-BAC6-434B-B1F9-4D8653922585}</Project>
+      <Name>DeltaEngine.Rendering3D.Particles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\DeltaEngine.Editor.Core.csproj">
+      <Project>{C667C7FC-A1C7-4CBC-98C0-C97F776E4570}</Project>
+      <Name>DeltaEngine.Editor.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Mocks\DeltaEngine.Editor.Mocks.csproj">
+      <Project>{2A38417D-2378-41F8-BCC6-A65E1894835A}</Project>
+      <Name>DeltaEngine.Editor.Mocks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ContentManager\DeltaEngine.Editor.ContentManager.csproj">
+      <Project>{F65A7A3C-81E9-4A61-9D64-BBDC7C66345F}</Project>
+      <Name>DeltaEngine.Editor.ContentManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Platforms\TestWithOpenGL\DeltaEngine.TestWithOpenGL.csproj">
+      <Project>{CE1E0A37-57A6-4DA6-BFEA-E93454D243DA}</Project>
+      <Name>DeltaEngine.TestWithOpenGL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ContentIconAndNameViewTests.cs" />
+    <Compile Include="ContentManagerViewModelTests.cs" />
+    <Compile Include="ContentManagerViewTests.cs" />
+    <Compile Include="Previewers\ContentPreviewTests.cs" />
+    <Compile Include="Previewers\ContentViewerTests.cs" />
+    <Compile Include="Previewers\FontPreviewerTests.cs" />
+    <Compile Include="Previewers\ImageAnimationPreviewerTests.cs" />
+    <Compile Include="ContentMetaDataCreatorTests.cs" />
+    <Compile Include="Previewers\ImagePreviewerTests.cs" />
+    <Compile Include="Previewers\MaterialPreviewerTests.cs" />
+    <Compile Include="Previewers\MeshPreviewerTests.cs" />
+    <Compile Include="Previewers\MockContentViewer.cs" />
+    <Compile Include="Previewers\ModelPreviewerTests.cs" />
+    <Compile Include="Previewers\MusicPreviewerTests.cs" />
+    <Compile Include="Previewers\ParticlePreviewerTests.cs" />
+    <Compile Include="Previewers\ParticleSystemPreviewerTests.cs" />
+    <Compile Include="Previewers\SoundPreviewerTests.cs" />
+    <Compile Include="Previewers\SpriteSheetPreviewerTests.cs" />
+    <Compile Include="Previewers\UIPreviewerTests.cs" />
+    <Compile Include="Previewers\VideoPreviewerTests.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

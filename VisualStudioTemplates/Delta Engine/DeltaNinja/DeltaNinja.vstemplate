@@ -1,0 +1,71 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<TemplateData>
+		<Name>Delta Engine DeltaNinja</Name>
+		<Description>Sample DeltaNinja game</Description>
+		<TemplateID>Microsoft.CSharp.DeltaEngine.DeltaNinja</TemplateID>
+		<ProjectType>CSharp</ProjectType>
+		<RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+		<NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+		<CreateNewFolder>true</CreateNewFolder>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<DefaultName>DeltaNinja</DefaultName>
+		<Icon>DeltaNinja.ico</Icon>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="DeltaNinja.csproj" ReplaceParameters="true">
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="false" TargetFileName="DeltaNinja.ico">DeltaNinja.ico</ProjectItem>
+			</Folder>
+			<Folder Name="Entities" TargetFolderName="Entities">
+				<ProjectItem ReplaceParameters="true" TargetFileName="LogoFactory.cs">LogoFactory.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Slice.cs">Slice.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="TrajectoryEntityHandler.cs">TrajectoryEntityHandler.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Pages" TargetFolderName="Pages">
+				<ProjectItem ReplaceParameters="true" TargetFileName="HudScene.cs">HudScene.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="PausePage.cs">PausePage.cs</ProjectItem>
+			</Folder>
+			<Folder Name="UI" TargetFolderName="UI">
+				<ProjectItem ReplaceParameters="true" TargetFileName="Background.cs">Background.cs</ProjectItem>
+			</Folder>
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="true" TargetFileName="Constants.cs">Constants.cs</ProjectItem>
+			</Folder>
+			<Folder Name="UI" TargetFolderName="UI">
+				<ProjectItem ReplaceParameters="true" TargetFileName="ErrorFlag.cs">ErrorFlag.cs</ProjectItem>
+			</Folder>
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="true" TargetFileName="Game.cs">Game.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="GameLogic.cs">GameLogic.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Pages" TargetFolderName="Pages">
+				<ProjectItem ReplaceParameters="true" TargetFileName="GameOverPage.cs">GameOverPage.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="HomePage.cs">HomePage.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Entities" TargetFolderName="Entities">
+				<ProjectItem ReplaceParameters="true" TargetFileName="Logo.cs">Logo.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="MovingSprite.cs">MovingSprite.cs</ProjectItem>
+			</Folder>
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="true" TargetFileName="Match.cs">Match.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Support" TargetFolderName="Support">
+				<ProjectItem ReplaceParameters="true" TargetFileName="GameOverEventArgs.cs">GameOverEventArgs.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Score.cs">Score.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Pages" TargetFolderName="Pages">
+				<ProjectItem ReplaceParameters="true" TargetFileName="BasePage.cs">BasePage.cs</ProjectItem>
+			</Folder>
+			<Folder Name="UI" TargetFolderName="UI">
+				<ProjectItem ReplaceParameters="true" TargetFileName="LogoLink.cs">LogoLink.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Number.cs">Number.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="NumberFactory.cs">NumberFactory.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="PointsTip.cs">PointsTip.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Properties" TargetFolderName="Properties">
+				<ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+			</Folder>
+		</Project>
+	</TemplateContent>
+</VSTemplate>

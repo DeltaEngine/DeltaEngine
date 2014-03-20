@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{20FA8D33-A964-4000-AD82-67BD6900793B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DeltaEngine</RootNamespace>
+    <AssemblyName>DeltaEngine</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Commands\DragDirection.cs" />
+    <Compile Include="Content\FogSettings.cs" />
+    <Compile Include="Content\SunLight.cs" />
+    <Compile Include="Content\RenderingData.cs" />
+    <Compile Include="Content\ShaderCreationData.cs" />
+    <Compile Include="Content\ShaderFlags.cs" />
+    <Compile Include="Core\ConsoleLogger.cs" />
+    <Compile Include="Core\ProcessRunner.cs" />
+    <Compile Include="Core\SaveSafely.cs" />
+    <Compile Include="Entities\HierarchyObject2D.cs" />
+    <Compile Include="Entities\HierarchyObject3D.cs" />
+    <Compile Include="Extensions\PathExtensions.cs" />
+    <Compile Include="Multimedia\Video.cs" />
+    <Compile Include="Commands\InputTrigger.cs" />
+    <Compile Include="Commands\ZoomTrigger.cs" />
+    <Compile Include="Commands\DragTrigger.cs" />
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\PositionTrigger.cs" />
+    <Compile Include="Commands\Trigger.cs" />
+    <Compile Include="Content\RenderingCalculator.cs" />
+    <Compile Include="Core\ConsoleCommandAttribute.cs" />
+    <Compile Include="Content\ImageAnimation.cs" />
+    <Compile Include="Content\ContentCreationData.cs" />
+    <Compile Include="Content\ImageCreationData.cs" />
+    <Compile Include="Content\Image.cs" />
+    <Compile Include="Content\Material.cs" />
+    <Compile Include="Content\SpriteSheetAnimationCreationData.cs" />
+    <Compile Include="Content\RenderSizeMode.cs" />
+    <Compile Include="Datatypes\AtlasRegion.cs" />
+    <Compile Include="Datatypes\BaseRangeGraph.cs" />
+    <Compile Include="Datatypes\EulerAngles.cs" />
+    <Compile Include="Datatypes\FlipMode.cs" />
+    <Compile Include="Datatypes\RangeGraph.cs" />
+    <Compile Include="Datatypes\TimeRangeGraph.cs" />
+    <Compile Include="Extensions\LinearMapExtensions.cs" />
+    <Compile Include="Multimedia\Music.cs" />
+    <Compile Include="Content\Shader.cs" />
+    <Compile Include="Multimedia\Sound.cs" />
+    <Compile Include="Multimedia\SoundDevice.cs" />
+    <Compile Include="Multimedia\SoundInstance.cs" />
+    <Compile Include="Content\SpriteSheetAnimation.cs" />
+    <Compile Include="Core\BinaryDataExtensions.cs" />
+    <Compile Include="Core\BinaryDataLoader.cs" />
+    <Compile Include="Core\BinaryDataSaver.cs" />
+    <Compile Include="Core\ProfilingMode.cs" />
+    <Compile Include="Core\BlendMode.cs" />
+    <Compile Include="Datatypes\Lerp.cs" />
+    <Compile Include="Datatypes\Plane.cs" />
+    <Compile Include="Datatypes\Ray.cs" />
+    <Compile Include="Entities\DrawBehavior.cs" />
+    <Compile Include="Entities\DrawableEntity.cs" />
+    <Compile Include="Entities\PrioritizedEntities.cs" />
+    <Compile Include="Entities\RapidUpdateable.cs" />
+    <Compile Include="Entities\SortedDrawBehaviors.cs" />
+    <Compile Include="Entities\Time.cs" />
+    <Compile Include="Entities\Updateable.cs" />
+    <Compile Include="Entities\Filtered.cs" />
+    <Compile Include="Entities\UpdateDrawState.cs" />
+    <Compile Include="Extensions\ArrayExtensions.cs" />
+    <Compile Include="Extensions\AssemblyExtensions.cs" />
+    <Compile Include="Extensions\AssemblyStarter.cs" />
+    <Compile Include="Content\ContentData.cs" />
+    <Compile Include="Content\ContentLoaderResolver.cs" />
+    <Compile Include="Content\ContentLoader.cs" />
+    <Compile Include="Content\ContentMetaData.cs" />
+    <Compile Include="Content\ContentType.cs" />
+    <Compile Include="Datatypes\BoundingBox.cs" />
+    <Compile Include="Datatypes\BoundingSphere.cs" />
+    <Compile Include="Datatypes\Color.cs" />
+    <Compile Include="Datatypes\Matrix.cs" />
+    <Compile Include="Datatypes\Vector2D.cs" />
+    <Compile Include="Datatypes\Quaternion.cs" />
+    <Compile Include="Datatypes\Range.cs" />
+    <Compile Include="Datatypes\Rectangle.cs" />
+    <Compile Include="Datatypes\Size.cs" />
+    <Compile Include="Datatypes\Vector3D.cs" />
+    <Compile Include="Extensions\ChangeableList.cs" />
+    <Compile Include="Extensions\DateExtensions.cs" />
+    <Compile Include="Entities\UpdateBehavior.cs" />
+    <Compile Include="Entities\EntitiesRunner.cs" />
+    <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\BehaviorResolver.cs" />
+    <Compile Include="Entities\Priority.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Extensions\ExceptionExtensions.cs" />
+    <Compile Include="Core\FixedRandom.cs" />
+    <Compile Include="Extensions\MathExtensions.cs" />
+    <Compile Include="Extensions\UniqueList.cs" />
+    <Compile Include="Core\Logger.cs" />
+    <Compile Include="Core\Orientation.cs" />
+    <Compile Include="Core\PseudoRandom.cs" />
+    <Compile Include="Core\Randomizer.cs" />
+    <Compile Include="Extensions\StackTraceExtensions.cs" />
+    <Compile Include="Core\StopwatchTime.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\ThreadExtensions.cs" />
+    <Compile Include="Extensions\ThreadStatic.cs" />
+    <Compile Include="ScreenSpaces\Camera2DScreenSpace.cs" />
+    <Compile Include="ScreenSpaces\PixelScreenSpace.cs" />
+    <Compile Include="ScreenSpaces\QuadraticScreenSpace.cs" />
+    <Compile Include="ScreenSpaces\RelativeScreenSpace.cs" />
+    <Compile Include="ScreenSpaces\ScreenSpace.cs" />
+    <Compile Include="Core\Settings.cs" />
+    <Compile Include="Core\GlobalTime.cs" />
+    <Compile Include="Core\Window.cs" />
+    <Compile Include="ScreenSpaces\ScreenSpaceResolver.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

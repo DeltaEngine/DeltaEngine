@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{$guid2$}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>$safeprojectname$</RootNamespace>
+    <AssemblyName>$safeprojectname$</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>$safeprojectname$.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>CreepyTowers.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CreepyTowers.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Agent.cs" />
+    <Compile Include="AgentData.cs" />
+    <Compile Include="Avatars\PiggyBank.cs" />
+    <Compile Include="Avatars\SpecialAttackSelector.cs" />
+    <Compile Include="Content\Cinematics.cs" />
+    <Compile Include="Content\GameCommands.cs" />
+    <Compile Include="Content\LevelMaps.cs" />
+    <Compile Include="Enemy\Bosses\BossCloakStateChanger.cs" />
+    <Compile Include="Enemy\Bosses\BossData.cs" />
+    <Compile Include="Enemy\Bosses\BossPropertiesXml.cs" />
+    <Compile Include="Enemy\Bosses\BossState.cs" />
+    <Compile Include="Enemy\Bosses\BossType.cs" />
+    <Compile Include="Enemy\Bosses\Boss.cs" />
+    <Compile Include="Enemy\Bosses\DefaultBossPropertiesForTesting.cs" />
+    <Compile Include="Enemy\Bosses\StateChanger.cs" />
+    <Compile Include="GUI\AvatarSelectionMaterials.cs" />
+    <Compile Include="GUI\AvatarVillianCinematics.cs" />
+    <Compile Include="GUI\SceneCinematics.cs" />
+    <Compile Include="GUI\TutorialCinematics.cs" />
+    <Compile Include="Levels\ChildrensRoomLevelMap.cs" />
+    <Compile Include="Collectables\Coin.cs" />
+    <Compile Include="Collectables\Collectable.cs" />
+    <Compile Include="Content\Avatars.cs" />
+    <Compile Include="Content\AvatarSelectionMenu.cs" />
+    <Compile Include="Content\BossModels.cs" />
+    <Compile Include="Content\Credits.cs" />
+    <Compile Include="Content\CreepStates.cs" />
+    <Compile Include="Content\SuccessScene.cs" />
+    <Compile Include="Enemy\Creeps\Vulnerability.cs" />
+    <Compile Include="Effects\EffectLoader.cs" />
+    <Compile Include="Avatars\AvatarAttack.cs" />
+    <Compile Include="Avatars\Avatar.cs" />
+    <Compile Include="Avatars\Dragon.cs" />
+    <Compile Include="Avatars\Penguin.cs" />
+    <Compile Include="Effects\FallbackEffects.cs" />
+    <Compile Include="Content\GameHud.cs" />
+    <Compile Include="Content\GameMenus.cs" />
+    <Compile Include="Content\IntroScene.cs" />
+    <Compile Include="Content\MainMenu.cs" />
+    <Compile Include="Content\GameMusic.cs" />
+    <Compile Include="Content\Nightmare1.cs" />
+    <Compile Include="Content\PauseScene.cs" />
+    <Compile Include="Content\Settings.cs" />
+    <Compile Include="Content\TowerSelectionPanel.cs" />
+    <Compile Include="Content\Xml.cs" />
+    <Compile Include="Enemy\Creeps\DefaultCreepPropertiesForTesting.cs" />
+    <Compile Include="Enemy\Creeps\DefaultGroupDataForTesting.cs" />
+    <Compile Include="Enemy\Movement.cs" />
+    <Compile Include="Enemy\Creeps\WaveGenerator.cs" />
+    <Compile Include="Enemy\Enemy.cs" />
+    <Compile Include="Levels\GameLevelExtensions.cs" />
+    <Compile Include="GUI\AvatarSelectionMenu.cs" />
+    <Compile Include="GUI\AvatarSlot.cs" />
+    <Compile Include="GUI\DefaultTowerSelectionPanelForTesting.cs" />
+    <Compile Include="GUI\MenuController.cs" />
+    <Compile Include="GUI\Nightmare1.cs" />
+    <Compile Include="GUI\PauseScene.cs" />
+    <Compile Include="GUI\Settings.cs" />
+    <Compile Include="GUI\SuccessScene.cs" />
+    <Compile Include="Levels\Chapter.cs" />
+    <Compile Include="Levels\LivingRoomLevelMap.cs" />
+    <Compile Include="Nightmares\KidsRoomChapterV2.cs" />
+    <Compile Include="Nightmares\BathRoomLevelInfo.cs" />
+    <Compile Include="Nightmares\KidsRoomChapter.cs" />
+    <Compile Include="Nightmares\LivingRoomChapter.cs" />
+    <Compile Include="Nightmares\LivingRoomLevelInfo.cs" />
+    <Compile Include="Nightmares\Nightmare1ChapterSelector.cs" />
+    <Compile Include="PathMarker.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="PropertiesXml.cs" />
+    <Compile Include="Content\CreepGroups.cs" />
+    <Compile Include="Content\CreepModels.cs" />
+    <Compile Include="Content\EffectType.cs" />
+    <Compile Include="Content\GameSounds.cs" />
+    <Compile Include="Content\TowerModels.cs" />
+    <Compile Include="Enemy\Creeps\CreepType.cs" />
+    <Compile Include="Enemy\Creeps\ClothCreepStateChanger.cs" />
+    <Compile Include="Enemy\Creeps\GlassCreepStateChanger.cs" />
+    <Compile Include="Enemy\Creeps\IronCreepStateChanger.cs" />
+    <Compile Include="Enemy\Creeps\PaperCreepStateChanger.cs" />
+    <Compile Include="Enemy\Creeps\PlasticCreepStateChanger.cs" />
+    <Compile Include="Enemy\Creeps\SandCreepStateChanger.cs" />
+    <Compile Include="Enemy\Creeps\StateChanger.cs" />
+    <Compile Include="Enemy\Creeps\WoodCreepStateChanger.cs" />
+    <Compile Include="Enemy\Creeps\CreepData.cs" />
+    <Compile Include="Enemy\Creeps\GroupData.cs" />
+    <Compile Include="Enemy\Creeps\GroupPropertiesXml.cs" />
+    <Compile Include="Enemy\Creeps\CreepState.cs" />
+    <Compile Include="GUI\Credits.cs" />
+    <Compile Include="GUI\Hud.cs" />
+    <Compile Include="GUI\IntroScene.cs" />
+    <Compile Include="GUI\MainMenu.cs" />
+    <Compile Include="GUI\Menu.cs" />
+    <Compile Include="GUI\TowerSelectionPanel.cs" />
+    <Compile Include="Levels\GameLevel.cs" />
+    <Compile Include="GameCamera.cs" />
+    <Compile Include="Enemy\Creeps\Creep.cs" />
+    <Compile Include="Enemy\Creeps\CreepPropertiesXml.cs" />
+    <Compile Include="Avatars\AvatarSpecialAttackSoundSelector.cs" />
+    <Compile Include="Enemy\Creeps\CreepDyingSoundSelector.cs" />
+    <Compile Include="Stats\Buff.cs" />
+    <Compile Include="Stats\BuffEffect.cs" />
+    <Compile Include="Stats\Interaction.cs" />
+    <Compile Include="Stats\Stat.cs" />
+    <Compile Include="Stats\StatAdjustment.cs" />
+    <Compile Include="Towers\InterpolatingProjectile.cs" />
+    <Compile Include="Towers\TowerTargetFinder.cs" />
+    <Compile Include="InGameCommands.cs" />
+    <Compile Include="Towers\AttackType.cs" />
+    <Compile Include="Towers\DefaultTowerPropertiesForTesting.cs" />
+    <Compile Include="Towers\TowerType.cs" />
+    <Compile Include="Triggers\ChapterOver.cs" />
+    <Compile Include="Triggers\LifeIsLessThanZero.cs" />
+    <Compile Include="Triggers\StartingGold.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="Towers\TowerData.cs" />
+    <Compile Include="CreepyTowersRenderLayer.cs" />
+    <Compile Include="Towers\Tower.cs" />
+    <Compile Include="Towers\TowerPropertiesXml.cs" />
+    <Compile Include="DialoguesXml.cs" />
+    <Compile Include="Enemy\Creeps\CreepWave.cs" />
+    <Compile Include="Triggers\StartingLives.cs" />
+    <Compile Include="Triggers\StartTimer.cs" />
+    <Compile Include="Triggers\SubtractLife.cs" />
+    <Compile Include="Triggers\TimerReachZero.cs" />
+    <Compile Include="Enemy\EnemyState.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

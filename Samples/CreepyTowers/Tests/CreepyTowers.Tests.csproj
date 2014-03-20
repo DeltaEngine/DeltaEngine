@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7AB6D2FB-2116-4C37-B4C6-BBA8E55C09E1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CreepyTowers.Tests</RootNamespace>
+    <AssemblyName>CreepyTowers.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Content\Mocks\DeltaEngine.Content.Mocks.csproj">
+      <Project>{BA0A7803-4A15-416E-BC93-69F5B9DFC4A5}</Project>
+      <Name>DeltaEngine.Content.Mocks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Content\Xml\DeltaEngine.Content.Xml.csproj">
+      <Project>{138A40B5-3D80-4BA3-BD84-D82C151EE7FE}</Project>
+      <Name>DeltaEngine.Content.Xml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DeltaEngine.csproj">
+      <Project>{20FA8D33-A964-4000-AD82-67BD6900793B}</Project>
+      <Name>DeltaEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\GameLogic\DeltaEngine.GameLogic.csproj">
+      <Project>{D21F79C7-DD85-4EED-9E3F-1A8C0FA65115}</Project>
+      <Name>DeltaEngine.GameLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\GameLogic\PathFinding\DeltaEngine.GameLogic.PathFinding.csproj">
+      <Project>{B68E0318-B810-4C8C-8272-5D1187B142D5}</Project>
+      <Name>DeltaEngine.GameLogic.PathFinding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Input\DeltaEngine.Input.csproj">
+      <Project>{CC65E69E-FAFD-4C2B-85EB-5E57FD3AF847}</Project>
+      <Name>DeltaEngine.Input</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Input\Mocks\DeltaEngine.Input.Mocks.csproj">
+      <Project>{4E4D006D-9C6E-47DB-908D-674E0C8D98AA}</Project>
+      <Name>DeltaEngine.Input.Mocks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Rendering2D\DeltaEngine.Rendering2D.csproj">
+      <Project>{BDDB4AA4-5D31-43B3-9A3B-BF3030EDE927}</Project>
+      <Name>DeltaEngine.Rendering2D</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Rendering2D\Fonts\DeltaEngine.Rendering2D.Fonts.csproj">
+      <Project>{4A00FD90-FF7B-4250-9CBC-B6855130090B}</Project>
+      <Name>DeltaEngine.Rendering2D.Fonts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Rendering2D\Shapes\DeltaEngine.Rendering2D.Shapes.csproj">
+      <Project>{BB73D940-CBD2-4F00-B246-2A25CA5ACD7E}</Project>
+      <Name>DeltaEngine.Rendering2D.Shapes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Rendering3D\DeltaEngine.Rendering3D.csproj">
+      <Project>{3266F559-74EE-4A1C-B37B-2C591F73611B}</Project>
+      <Name>DeltaEngine.Rendering3D</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Rendering3D\Particles\DeltaEngine.Rendering3D.Particles.csproj">
+      <Project>{BECE691C-BAC6-434B-B1F9-4D8653922585}</Project>
+      <Name>DeltaEngine.Rendering3D.Particles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Rendering3D\Shapes\DeltaEngine.Rendering3D.Shapes.csproj">
+      <Project>{C9CB5DFF-6BF8-4BC8-9148-FBC85FF5A203}</Project>
+      <Name>DeltaEngine.Rendering3D.Shapes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Scenes\DeltaEngine.Scenes.csproj">
+      <Project>{75BB4C75-DE36-47B3-9910-10EA8E8973B7}</Project>
+      <Name>DeltaEngine.Scenes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Samples\CreepyTowers\CreepyTowers.csproj">
+      <Project>{448B33E7-759E-4A40-B9A5-3CFD1E1F9446}</Project>
+      <Name>CreepyTowers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Platforms\TestWithOpenGL\DeltaEngine.TestWithOpenGL.csproj">
+      <Project>{CE1E0A37-57A6-4DA6-BFEA-E93454D243DA}</Project>
+      <Name>DeltaEngine.TestWithOpenGL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AgentTests.cs" />
+    <Compile Include="Avatars\FlyingPenguinTests.cs" />
+    <Compile Include="Avatars\PiggyBankTests.cs" />
+    <Compile Include="Avatars\SpecialAttackSelectorTests.cs" />
+    <Compile Include="Bosses\BossTests.cs" />
+    <Compile Include="Collectables\CoinTests.cs" />
+    <Compile Include="Creeps\CreepDyingSoundSelectorTests.cs" />
+    <Compile Include="Creeps\CreepPropertiesXmlTests.cs" />
+    <Compile Include="Content\EffectTests.cs" />
+    <Compile Include="Creeps\CreepStateTests.cs" />
+    <Compile Include="Creeps\GroupPropertiesXmlTests.cs" />
+    <Compile Include="Content\FallbackEffectsTests.cs" />
+    <Compile Include="Creeps\IronCreepStateChangerTests.cs" />
+    <Compile Include="Creeps\MovementTests.cs" />
+    <Compile Include="Creeps\PaperCreepStateChangerTests.cs" />
+    <Compile Include="Creeps\PlasticCreepStateChangerTests.cs" />
+    <Compile Include="Creeps\WoodCreepStateChangerTests.cs" />
+    <Compile Include="CreepyTowersGameForTests.cs" />
+    <Compile Include="Avatars\FightingDragonTests.cs" />
+    <Compile Include="CreepyTowersMockContentLoader.cs" />
+    <Compile Include="GameCameraTests.cs" />
+    <Compile Include="GameLevelTests.cs" />
+    <Compile Include="MessagesTests.cs" />
+    <Compile Include="MockGame.cs" />
+    <Compile Include="PlayerTests.cs" />
+    <Compile Include="Creeps\CalculateDamageTests.cs" />
+    <Compile Include="Creeps\ClothCreepStateChangerTests.cs" />
+    <Compile Include="Creeps\GlassCreepStateChangerTests.cs" />
+    <Compile Include="Creeps\GroupTests.cs" />
+    <Compile Include="Creeps\WaveGeneratorTests.cs" />
+    <Compile Include="Avatars\AvatarSpecialAttackSoundsTests.cs" />
+    <Compile Include="Stats\BuffEffectTests.cs" />
+    <Compile Include="Stats\BuffTests.cs" />
+    <Compile Include="Stats\InteractionTests.cs" />
+    <Compile Include="Stats\StatAdjustmentTests.cs" />
+    <Compile Include="Stats\StatTests.cs" />
+    <Compile Include="TestWithCreepyTowersMockContentLoaderOrVisually.cs" />
+    <Compile Include="Towers\TowerPropertiesXmlTests.cs" />
+    <Compile Include="TowerTargetFinderTests.cs" />
+    <Compile Include="InputCommandsTests.cs" />
+    <Compile Include="Creeps\SandCreepStateChangerTests.cs" />
+    <Compile Include="Sounds\SoundTests.cs" />
+    <Compile Include="Creeps\CreepWaveTests.cs" />
+    <Compile Include="Creeps\CreepTests.cs" />
+    <Compile Include="GameTests.cs" />
+    <Compile Include="Towers\TowerTests.cs" />
+    <Compile Include="Triggers\LifeIsLessThanZeroTests.cs" />
+    <Compile Include="Triggers\StartingGoldTests.cs" />
+    <Compile Include="Triggers\StartingLivesTests.cs" />
+    <Compile Include="Triggers\StartTimerTests.cs" />
+    <Compile Include="Triggers\SubtractLifeTests.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,33 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<TemplateData>
+		<Name>Delta Engine FindTheWord</Name>
+		<Description>Sample FindTheWord game</Description>
+		<TemplateID>Microsoft.CSharp.DeltaEngine.FindTheWord</TemplateID>
+		<ProjectType>CSharp</ProjectType>
+		<RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+		<NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+		<CreateNewFolder>true</CreateNewFolder>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<DefaultName>FindTheWord</DefaultName>
+		<Icon>FindTheWord.ico</Icon>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="FindTheWord.csproj" ReplaceParameters="true">
+			<Folder Name="" TargetFolderName="">
+				<ProjectItem ReplaceParameters="false" TargetFileName="FindTheWord.ico">FindTheWord.ico</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="packages.config">packages.config</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="CharacterButton.cs">CharacterButton.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Game.cs">Game.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="GameButton.cs">GameButton.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="GameScreen.cs">GameScreen.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="NextLevelScreen.cs">NextLevelScreen.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="LevelData.cs">LevelData.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="StartupScreen.cs">StartupScreen.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Properties" TargetFolderName="Properties">
+				<ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+			</Folder>
+		</Project>
+	</TemplateContent>
+</VSTemplate>
