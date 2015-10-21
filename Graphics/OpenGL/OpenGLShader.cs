@@ -55,7 +55,7 @@ namespace DeltaEngine.Graphics.OpenGL
 		private static int CreateCompiledSubShader(ShaderType shaderType, string subShaderCode)
 		{
 			uint shaderHandle = GLCore.CreateShader(shaderType);
-			GLHelper.ShaderSource(shaderHandle, subShaderCode);
+			GLHelper.ShaderSource(shaderHandle, subShaderCode.Replace("precision mediump float;", ""));
 			GLCore.CompileShader(shaderHandle);
 			return (int)shaderHandle;
 		}
