@@ -57,7 +57,7 @@ namespace DeltaEngine.Physics3D
 			Velocity = PhysicsBody.LinearVelocity;
 			RotationAxis = PhysicsBody.AngularVelocity;
 			Orientation = PhysicsBody.GetOrientation();
-			if (Orientation.X == float.NaN)
+			if (float.IsNaN(Orientation.X))
 				throw new PhysicsBodyOrientationIsBrokenMakeSureAllValuesAreSet(PhysicsBody);
 		}
 
