@@ -10,7 +10,7 @@ namespace DeltaEngine.Editor.UIEditor
 		public UISceneGrid(UIEditorScene uiEditorScene)
 		{
 			GridHeight = 30;
-			GridHeight = 30;
+			GridWidth = 30;
 			this.uiEditorScene = uiEditorScene;
 			DrawGrid();
 		}
